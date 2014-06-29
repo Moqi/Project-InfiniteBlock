@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: _SceneManager
   m_TagString: scenemanager
@@ -28,7 +27,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,7 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showProgressGUI: 1
   progressGUI: {fileID: 11400000, guid: 13f889ec0774e9c409ff82fe5005d940, type: 2}
-  duration: 17
+  duration: 1
   GUItexture: {fileID: 2800000, guid: 40a1465791a912947ae1f4747ca54fe5, type: 3}
   progressForground: {fileID: 2800000, guid: 8d16b00d200a348f792d46d7395b3105, type: 3}
   progressBackground: {fileID: 2800000, guid: d761a6f487f4d914590b294ccbb5d250, type: 3}
@@ -51,24 +49,6 @@ MonoBehaviour:
   enemies: {fileID: 0}
   areYouReadyPrompt: 1
   overAllBlockCount: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a21a7b541fa854ebb7416c7aac6eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockSwitch: {fileID: 0}
-  blockPrefab_01: {fileID: 100000, guid: 99d5af064387144368f78cc68a62fa2b, type: 2}
-  blockPrefab_02: {fileID: 100000, guid: e48503469eb82464f959b2e2d10940b1, type: 2}
-  Min_Z_width: 0
-  Max_Z_width: 0
-  Min_X_width: 0
-  Max_X_width: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
