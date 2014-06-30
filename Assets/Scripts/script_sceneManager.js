@@ -35,6 +35,8 @@ function Start ()
 	yield WaitForSeconds(1);
 	
 	player.transform.position = GameObject.FindWithTag("groundObject").transform.position + Vector3(0, 4, 0);
+	
+	InvokeRepeating("SpawnEnemy", 5, 10);
 }
 
 function Update () 
@@ -78,7 +80,15 @@ function Update ()
 			
 			var enemyScript_playerAlive = enemyObject.GetComponent(script_enemy).playerAlive;
 			
-		if (enemyScript_playerAlive == true)
+			
+			var playerScript : script_playerBlock = GetComponent(script_playerBlock);
+			
+			var playerObject = GameObject.FindWithTag("Player");
+			
+			var playerObject_playerDead = playerObject.GetComponent(script_playerBlock).playerDead;
+			
+			
+		if (enemyScript_playerAlive == true && playerObject_playerDead == false)
 		{		
 			player.active = true;
 		}
@@ -188,7 +198,11 @@ function DrawProgress(location : Vector2, size : Vector2, progress : float)
 
 
 
+function SpawnEnemy()
+{
+	var spawnEnemy  = Instantiate(enemies, player.transform.position + Vector3(Random.Range(-20, 20), Random.Range(-3, 3), Random.Range(-20, 20)), Quaternion.identity);
 
+}
 
 
 

@@ -11,7 +11,7 @@ GameObject:
   - 132: {fileID: 13200000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: GUIText_points
+  m_Name: GUIText_SwitchPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ GUIText:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: +100
+  m_Text: +250
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -59,11 +59,11 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: dd469b00e726e9f47a2d06c23e901ed9, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 25
+  m_FontSize: 45
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281150930
   m_PixelCorrect: 1
   m_RichText: 1
 --- !u!1001 &100100000

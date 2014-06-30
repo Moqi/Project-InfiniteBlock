@@ -14,11 +14,15 @@
 	var fxSound		: AudioClip;
 	
 	// GUIText:
-	var sceneManager : Transform;
-	var score100p    : Transform;		
+	var sceneManager 		: Transform;
+	var scoreEnemy    		: Transform;	
+	var scoreGroundObject 	: Transform;
+	var scoreSwitch			: Transform;	
 		
 	// Amount of scorepoint granted from each object: 
-	var enemyScore 	: int = 100;	
+	var enemyScore 			: int = 100;
+	var groundObjectScore 	: int = 1;
+	var switchScore 		: int = 250;	
 		
 
 
@@ -64,28 +68,32 @@ function Update ()
  
 function OnTriggerEnter (other : Collider) // other = astroid
 {
+	// Accessing sceneManager script to add x points to the overAll Score.
+	// Accessing blockcreator_ground script:
+	var sceneManagerScript : script_sceneManager = sceneManager.GetComponent(script_sceneManager);
+
 	// Check for the astroid
 	if (other.gameObject.tag == "groundObject")
 	{	
-		//print("ground hit!");
+		// Displaying scoreGUI at enemyPos translated to the MainCamera viewport:
+		var displayPoints_GroundObject  = Instantiate(scoreGroundObject, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
+		
+			// Adding points to overall score:				
+			sceneManagerScript.overAllPoints += groundObjectScore;	
 		
 		var explosionGround = Instantiate(explosion, transform.position, Quaternion.identity); 
 		//audio.PlayClipAtPoint(fxSound, transform.position);
-		
+	
 		Destroy(other.gameObject);
 	}
 	
 	if (other.gameObject.tag == "enemy")
 	{
 		// Displaying scoreGUI at enemyPos translated to the MainCamera viewport:
-		var displayPoints  = Instantiate(score100p, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
+		var displayPoints_Enemy  = Instantiate(scoreEnemy, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
 		
-			// Accessing sceneManager script to add x points to the overAll Score.
-				// Accessing blockcreator_ground script:
-			var sceneManagerScript : script_sceneManager = sceneManager.GetComponent(script_sceneManager);
-		
-		// Adding points to overall score:				
-		sceneManagerScript.overAllPoints += enemyScore;			
+			// Adding points to overall score:				
+			sceneManagerScript.overAllPoints += enemyScore;			
 						
 		// BOOOM - Explosion!						
 		var explosionEnemy = Instantiate(explosion, transform.position, Quaternion.identity); 
@@ -95,6 +103,12 @@ function OnTriggerEnter (other : Collider) // other = astroid
 	
 	if (other.gameObject.tag == "switch")
 	{
+		// Displaying scoreGUI at enemyPos translated to the MainCamera viewport:
+		var displayPoints_Switch  = Instantiate(scoreSwitch, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
+		
+			// Adding points to overall score:				
+			sceneManagerScript.overAllPoints += switchScore;	
+	
 		// Spawn platformCreator
 		var newPlatform = Instantiate(platformChunk, transform.position, Quaternion.identity);
 		

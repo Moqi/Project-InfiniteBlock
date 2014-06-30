@@ -90,8 +90,12 @@ MonoBehaviour:
   platformChunk: {fileID: 400000, guid: 23ee3dabad6b81b4d97b02dcd112f48b, type: 2}
   fxSound: {fileID: 0}
   sceneManager: {fileID: 400000, guid: 4e2fa242da864ce49b56d69809571534, type: 2}
-  score100p: {fileID: 400000, guid: 03a05d51af2c926428d59705eeec4765, type: 2}
+  scoreEnemy: {fileID: 400000, guid: 03a05d51af2c926428d59705eeec4765, type: 2}
+  scoreGroundObject: {fileID: 400000, guid: 8ff26a906d9589e46b2d758afffb27a2, type: 2}
+  scoreSwitch: {fileID: 400000, guid: 899320f3c96bdfb4bb1b98ea90e2c30e, type: 2}
   enemyScore: 100
+  groundObjectScore: 1
+  switchScore: 250
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -560,6 +560,7 @@ MonoBehaviour:
   randomStrategyNum: 0
   enemyBite: {fileID: 400010, guid: a08f2f2751368434583f432795662235, type: 2}
   playerBlood: {fileID: 400000, guid: 606a850aa430f1f448f49cd1ff453dcc, type: 2}
+  player: {fileID: 400000, guid: 4ad9f04cf98c79148b9fd8e7151d9d60, type: 2}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

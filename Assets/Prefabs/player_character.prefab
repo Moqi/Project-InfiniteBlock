@@ -14,8 +14,8 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400004}
   - 114: {fileID: 11400006}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: player_character
   m_TagString: Player
@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5ac211a643e447ca78c2d794a16381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleAnimation: {fileID: 7400000, guid: dffa50cfe77e0434bbfa71245b3dd529, type: 3}
-  walkAnimation: {fileID: 7400000, guid: b1a5e04ae51004842aba06704a6c2903, type: 3}
-  runAnimation: {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
+  idleAnimation: {fileID: 7400002, guid: 0ff1e24a70aa9488193292dc78638ee6, type: 3}
+  walkAnimation: {fileID: 7400000, guid: bcc56c5fe280748e889e49cbca487abf, type: 3}
+  runAnimation: {fileID: 7400000, guid: bcc56c5fe280748e889e49cbca487abf, type: 3}
   jumpPoseAnimation: {fileID: 7400000, guid: 3b184a2e0535f4f58b233399c14d4eb9, type: 3}
   walkMaxAnimationSpeed: .600000024
   trotMaxAnimationSpeed: 1
@@ -181,6 +181,7 @@ MonoBehaviour:
   player: {fileID: 400000}
   bullet: {fileID: 100000, guid: 54c62619e59e65842b51576fbada5dbd, type: 2}
   spawnPoint: {fileID: 100004}
+  sceneCamActive: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

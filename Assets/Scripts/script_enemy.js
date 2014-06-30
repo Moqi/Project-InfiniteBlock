@@ -16,6 +16,7 @@ private var playerPos 		: Vector3;
 		var playerBlood 	: Transform;
 		
 		// player
+		var player 			: Transform;
 static	var playerAlive 	: boolean			= true;
 
 //////////////////////////////////////////
@@ -32,7 +33,19 @@ function Start ()
 // Update
 function Update () 
 {
-	playerPos = GameObject.FindWithTag("Player").transform.position;
+
+	if(GameObject.FindWithTag("Player"))
+	{
+		playerPos = GameObject.FindWithTag("Player").transform.position;
+	}
+	else
+	{
+		animation["laugh"].wrapMode = WrapMode.Loop;
+	
+		animation.Play("laugh");
+	
+		return null;
+	}
 	
 	moveBlock();
 }
@@ -62,7 +75,7 @@ function moveBlock()
 		
 		
 // Pick random strategy!: 	
-	
+	/*
 	if (randomStrategyNum <= 4)
 	{
 		//print("Enemy is moving around randomly!");
@@ -105,9 +118,10 @@ function moveBlock()
 
 	}
 	else if (randomStrategyNum >= 5)
-	{
+	{*/
 		//print("Enemy is moving TOWARDS the player!");
-		
+	if (GameObject.FindWithTag("Player"))
+	{	
 			var player_X = playerPos.x;
 			var player_Y = 0;
 			var player_Z = playerPos.z;
@@ -117,7 +131,7 @@ function moveBlock()
 			move_Z = Mathf.MoveTowards(current_Z, player_Z, moveSpeed * Time.deltaTime);
 		
 		newLocation = Vector3(move_X, move_Y, move_Z);	
-			
+	/*		
 	}
 	else if (randomStrategyNum == 8)
 	{
@@ -125,7 +139,7 @@ function moveBlock()
 		
 		newLocation = transform.position;
 	}
-	
+	*/
  	// Finds lookdirection:
  		var newDirection : Vector3 = (newLocation - transform.position).normalized;
  	
@@ -135,7 +149,8 @@ function moveBlock()
  		
  		// moves blockcreator to the new location	
 		transform.position = newLocation;
-	
+	}
+
 						
 }
 

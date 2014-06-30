@@ -6,10 +6,11 @@
 //////////////////////////////////////////
 // Variables 
 
-	var player			: Transform;
-	var bullet 			: GameObject;
-	var spawnPoint 		: GameObject;
-
+			var player			: Transform;
+			var bullet 			: GameObject;
+			var spawnPoint 		: GameObject;
+			var sceneCam		: GameObject;
+	 static var playerDead 		: boolean		= false;
 //////////////////////////////////////////
 // Start
 function Start () 
@@ -59,7 +60,22 @@ function Fire()
 
 
 
-
+function OnTriggerEnter (other : Collider) // other = astroid
+{
+	// Check for the astroid
+	if (other.gameObject.tag == "deathCollider")
+	{	
+		var sceneCamScript = sceneCam.GetComponent(script_cameraController);
+		
+			sceneCamScript.enabled = false;
+			
+		yield WaitForSeconds(2);
+		
+		playerDead = true;
+	}
+	
+	
+}
 
 
 
