@@ -197,7 +197,7 @@ function Start ()
 	
 	if (! GameObject.FindWithTag("switch"))
 	{
-		var newBlockSwitch = Instantiate (blockSwitch, transform.position + Vector3(j + Random.Range(-6, 6), Random.Range(-3, 3), i + Random.Range(-6, 6)), Quaternion.identity);
+		var newBlockSwitch = Instantiate (blockSwitch, transform.position + Vector3(    Random.Range(-6, 6), Random.Range(1, 3),     Random.Range(-6, 6)), Quaternion.identity);
 	}
 	
 	
