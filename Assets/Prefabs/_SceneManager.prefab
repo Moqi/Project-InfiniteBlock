@@ -9,6 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 82: {fileID: 8200000}
+  - 82: {fileID: 8200002}
   m_Layer: 0
   m_Name: _SceneManager
   m_TagString: scenemanager
@@ -27,6 +29,122 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: d84f7536af6b544e7a20ef062cde3df7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .0700000003
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200002
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 545fe5d4b70e841e1ae8414e7cc8b3a6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,10 +162,27 @@ MonoBehaviour:
   GUItexture: {fileID: 2800000, guid: 40a1465791a912947ae1f4747ca54fe5, type: 3}
   progressForground: {fileID: 2800000, guid: 8d16b00d200a348f792d46d7395b3105, type: 3}
   progressBackground: {fileID: 2800000, guid: d761a6f487f4d914590b294ccbb5d250, type: 3}
+  showMainMenu: 1
+  playButtonGUI: {fileID: 11400000, guid: 5946891596e0b46c895027de86478c1b, type: 2}
+  ExitGUI: {fileID: 11400000, guid: d73ab6b73f1914dfaadcdaf7a5001e65, type: 2}
+  textGUI: {fileID: 11400000, guid: c947fffc3980744b39038caea84bcced, type: 2}
+  optionButtonGUI: {fileID: 11400000, guid: 4304063aecd3f49b994bef47aae8fbfb, type: 2}
+  gameTitleGUI: {fileID: 11400000, guid: 3e83dfc917ac44d3facb942355deb484, type: 2}
+  detailTextGUI: {fileID: 11400000, guid: 4d86be0b167574343912845a7b2f1abe, type: 2}
+  showCredits: 0
+  showOptions: 0
+  fogAmountSlider: 1
+  lookSensitivity: 15
+  night: 0
+  dusk: 1
   playerMaySpawn: 0
   player: {fileID: 0}
-  enemies: {fileID: 0}
+  enemies: {fileID: 100032, guid: b573c414be39b9c4cbdc94fea085feff, type: 2}
   areYouReadyPrompt: 1
+  playerDead: 0
+  sceneCam: {fileID: 0}
+  sceneCamOriginalPos: {x: 0, y: 0, z: 0}
+  respawnButtonActive: 0
   overAllBlockCount: 0
 --- !u!1001 &100100000
 Prefab:

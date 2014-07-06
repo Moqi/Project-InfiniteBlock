@@ -6,8 +6,9 @@
 
 		// Level status
 static  var levelReady 		 : boolean;	
-
+		var generateSpeed 	 : float 	= 0.5;
 		// Generate switch 
+		var switchActive 	 : boolean;
 		var blockSwitch 	 : Transform;
 			
 		// Block types: 
@@ -28,16 +29,20 @@ private var make_Z_extraBlocks : boolean = true;
 
 function Start ()
 {
-	transform.position = transform.position + Vector3(-10, 0, 10);
+	//transform.position = transform.position + Vector3(-10, 0, 10);
 	
 
 	z_width = Random.Range(Min_Z_width, Max_Z_width);
 	
-		Debug.Log(z_width);
+		//Debug.Log(z_width);
 	
 	x_width = Random.Range(Min_X_width, Max_X_width);
 	
-		Debug.Log(x_width);
+		//Debug.Log(x_width);
+		
+	
+	transform.position = transform.position - (Vector3( x_width, 0, z_width) / 2);		
+		
 
 	for (var i : int = 0; i < z_width; i++) 
   	{
@@ -151,7 +156,7 @@ function Start ()
   						}		
   				}	
   
-  				yield WaitForSeconds(0.0);
+  				yield WaitForSeconds(generateSpeed);
   
     		}
 		
@@ -184,22 +189,24 @@ function Start ()
     	  	
      // ################ Yield to slow generationProcess down ###################
       
-    	yield WaitForSeconds(0.0);
+    	yield WaitForSeconds(generateSpeed);
   	 }
   	 
   	//blockAmount = GameObject.FindGameObjectsWithTag("groundObject");
 	
 	//print(blockAmount.Length);
 	
-	Debug.Log("Loop finished");
+	//Debug.Log("Loop finished");
 	
 	levelReady = true;
 	
-	if (! GameObject.FindWithTag("switch"))
+	if (switchActive == true)
 	{
-		var newBlockSwitch = Instantiate (blockSwitch, transform.position + Vector3(    Random.Range(-6, 6), Random.Range(1, 3),     Random.Range(-6, 6)), Quaternion.identity);
+		if (! GameObject.FindWithTag("switch"))
+		{
+			var newBlockSwitch = Instantiate (blockSwitch, transform.position + Vector3(    Random.Range(-6, 6), Random.Range(1, 3),     Random.Range(-6, 6)), Quaternion.identity);
+		}
 	}
-	
 	
 }
 
