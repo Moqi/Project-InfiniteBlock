@@ -1,4 +1,4 @@
-﻿
+﻿#pragma strict
 
 private var originalPos 			: Vector3;
 		var playerPos 				: Transform;

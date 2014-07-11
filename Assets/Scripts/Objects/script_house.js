@@ -1,4 +1,5 @@
-﻿//////////////////////////////////////////////////////////////////////////
+﻿#pragma strict
+//////////////////////////////////////////////////////////////////////////
 /////////////////////////////// House script /////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
@@ -19,7 +20,7 @@ function Start ()
 
 function Update () 
 {   
-	Debug.Log("ParticleSystem color: " + psColor);
+	//Debug.Log("ParticleSystem color: " + psColor);
 	//Debug.Log("My switch: " + mySwitch);
 }
 
@@ -33,7 +34,7 @@ function OnTriggerEnter (other : Collider)
 		
 		if (mySwitch == true)
 		{
-			Debug.Log("Enter True");
+			//Debug.Log("Enter True");
 			//yield WaitForSeconds(smokeSpawnDelay);
 			
 			smoke.active = true;

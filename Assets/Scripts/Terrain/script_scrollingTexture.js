@@ -1,4 +1,4 @@
-﻿
+﻿#pragma strict
 
 
 // Scroll main texture based on time

@@ -1,4 +1,6 @@
-﻿//////////////////////////////////////////////////////////////////////////
+﻿#pragma strict
+
+//////////////////////////////////////////////////////////////////////////
 ///////////////////// CameraController script ////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
@@ -58,9 +60,9 @@ function LateUpdate ()
 	
 	var rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(y, x, 0), Time.deltaTime * 3);
 	
-	vTargetOffset = new Vector3 (0, -targetHeight, 0);
+	var vTargetOffset = new Vector3 (0, -targetHeight, 0);
 	
-	position = target.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
+	var position = target.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
 	
 	var collisionHit : RaycastHit;
 	var trueTargetPosition : Vector3 = new Vector3 (target.position.x, target.position.y + targetHeight, target.position.z);

@@ -1,4 +1,4 @@
-﻿
+﻿#pragma strict
 
 	var time_		: float;
 	var timeToFade 	: float     = 1.5;

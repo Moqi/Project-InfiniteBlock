@@ -1,4 +1,4 @@
-
+#pragma strict
 // Require a character controller to be attached to the same game object
 @script RequireComponent(CharacterController)
 

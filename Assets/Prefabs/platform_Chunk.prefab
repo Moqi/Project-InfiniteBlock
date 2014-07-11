@@ -14,8 +14,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -27,6 +27,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -38,15 +39,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a21a7b541fa854ebb7416c7aac6eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generateSpeed: .5
+  generateSpeed: 0
   switchActive: 0
   blockSwitch: {fileID: 400000, guid: 4d75e4e578baf4343aafb13b6eb94402, type: 2}
   blockPrefab_01: {fileID: 100000, guid: cf25ec840d5544ff0a4c60c7450c55a0, type: 2}
   blockPrefab_02: {fileID: 100000, guid: cf25ec840d5544ff0a4c60c7450c55a0, type: 2}
-  Min_Z_width: 10
-  Max_Z_width: 25
-  Min_X_width: 10
-  Max_X_width: 25
+  Min_Z_width: 5
+  Max_Z_width: 13
+  Min_X_width: 5
+  Max_X_width: 13
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
-﻿// ----------- MainMenu Script ----------
+﻿#pragma strict
+// ----------- MainMenu Script ----------
 
 // Inspector variables
 

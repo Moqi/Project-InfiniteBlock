@@ -1,4 +1,5 @@
-﻿// ----------- Bullet Script ----------
+﻿#pragma strict
+// ----------- Bullet Script ----------
 
 
 // Inspector variables

@@ -1,11 +1,21 @@
-﻿#pragma strict
+﻿
 
-	var target 		: Transform;
-	//var distance 	: float;
-	
-function Update () 
+
+
+		var dampTime 	: float = 0.3; //offset from the viewport center to fix damping
+private var velocity 			= Vector3.zero;
+		var target 		: Transform;
+ 
+function Update() 
 {
-	transform.position.z = target.position.z;
-	transform.position.y = target.position.y;
-	transform.position.x = target.position.x;
+    if(target) 
+    {
+        var point : Vector3 = camera.main.WorldToViewportPoint(target.position);
+        
+        var delta : Vector3 = target.position - camera.main.ViewportToWorldPoint(Vector3(0.5, 0.5, point.z));
+        
+        var destination : Vector3 = transform.position + delta;
+        
+        transform.position = Vector3.SmoothDamp(transform.position, destination, velocity, dampTime);
+    }
 }

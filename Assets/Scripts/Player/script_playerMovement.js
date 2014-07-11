@@ -1,5 +1,4 @@
 ﻿
-
 var moveSpeed	: 		float 	= 6; 			// move speed
 var turnSpeed	: 		float 	= 90; 			// turning speed (degrees/second)
 var lerpSpeed	: 		float 	= 10; 			// smoothing speed
