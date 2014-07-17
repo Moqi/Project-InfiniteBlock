@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 10b95925aeae84278a258581a87f4b9a
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: b_Head
     100002: b_Hips
@@ -351,6 +351,7 @@ ModelImporter:
     4300134: mario
     7400000: Take 001
     9500000: //RootNode
+    11100000: //RootNode
     13700000: mario
   materials:
     importMaterials: 1
@@ -360,6 +361,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -402,5 +404,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
+  additionalBone: 0
   userData: 
