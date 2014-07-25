@@ -32,7 +32,6 @@ Transform:
   m_LocalScale: {x: 1, y: 3.54999995, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -51,8 +50,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category_Objects:
-  - {fileID: 400000, guid: 8cfd2cea5f607bb4591266faed1c520b, type: 2}
-  - {fileID: 400000, guid: d32ed905a15faac499d98c057d4d0d17, type: 2}
-  - {fileID: 400000, guid: eda43883bcb5460439447509a2529036, type: 2}
-  - {fileID: 400000, guid: 2239b40f2517f304c8b47ea51e1481fd, type: 2}
-  - {fileID: 400000, guid: d2d7162b422c25d40b0525229a72d642, type: 2}
+  - {fileID: 400000, guid: 56992157a833e4ad6bb088213fcfa3bc, type: 2}
+  - {fileID: 400000, guid: 56992157a833e4ad6bb088213fcfa3bc, type: 2}
+  - {fileID: 400000, guid: 56992157a833e4ad6bb088213fcfa3bc, type: 2}
+  - {fileID: 400000, guid: 56992157a833e4ad6bb088213fcfa3bc, type: 2}
+  - {fileID: 400000, guid: 56992157a833e4ad6bb088213fcfa3bc, type: 2}
   category_Collectables:
   - {fileID: 0}
   - {fileID: 0}
