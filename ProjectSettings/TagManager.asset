@@ -29,13 +29,21 @@ TagManager:
   - blockSpawnParent
   - blockSpawnChild
   - blockSpawnMaster
+  - treeLogPiece
+  - treeCrownPiece
+  - rareObject_cobber
+  - veryRareObject_silver
+  - epicObject_gold
+  - legendaryObject_
+  - rock
+  - bush
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
   Builtin Layer 3: 
   Builtin Layer 4: Water
-  Builtin Layer 5: UI
+  Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Background Image
