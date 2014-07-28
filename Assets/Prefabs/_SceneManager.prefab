@@ -189,7 +189,7 @@ MonoBehaviour:
   sceneCam: {fileID: 0}
   sceneCamOriginalPos: {x: 0, y: 0, z: 0}
   respawnButtonActive: 0
-  max_BlockSpawnChildCount: 35
+  max_BlockSpawnChildCount: 50
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
