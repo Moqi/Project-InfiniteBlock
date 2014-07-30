@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: floraGenerator
-  m_TagString: Untagged
+  m_Name: blockSpawnParent_01
+  m_TagString: blockSpawnParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -36,30 +36,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 208e098501e1041a8af78a3e440b915c, type: 3}
+  m_Script: {fileID: 11500000, guid: e41e811f1d6ce3c41a72438959984dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMode: 0
-  generateTree: 0
-  generateBush: 0
-  generateRock: 0
-  randomPick: 1
-  effectLegendary: {fileID: 400006, guid: bb6ef84cd4fb94e62aeb992ffbb1bdfd, type: 2}
-  manualHeightActive: 0
-  logHeightManual: 3
-  crownHeightManual: 8
-  crownDividedBy: 2
-  logPiece: {fileID: 400000, guid: d3028896f34034a2c9c99d09dbfcb39c, type: 2}
-  logPieceRotateBy: 10
-  crownPiece: {fileID: 400000, guid: 2f983de47154a416e9860f80a754a8c5, type: 2}
-  crownPieceRotateBy: 15
-  bushPiece: {fileID: 400000, guid: ced3bf6e692e64a649031c9abdd3f5f4, type: 2}
-  bushRotateBy: 45
-  rockPiece: {fileID: 400000, guid: 31d3238aadfe945d8b646ce9ff480192, type: 2}
-  rockRotateBy: 10
-  effectWoodHit: {fileID: 400004, guid: 5a42740f6c7b841e0abf39fc0d1b5ec4, type: 2}
-  effectPlantHit: {fileID: 400002, guid: a6c7c2655160040e0aa8b7ea3e0076c0, type: 2}
-  effectRockHit: {fileID: 400004, guid: c927f1c7a02454609b238f513286b557, type: 2}
+  mainPlatform: {fileID: 100000, guid: 1f5c997836d72e5448c519571d83f491, type: 2}
+  blocktypeMain: {fileID: 100000, guid: cf25ec840d5544ff0a4c60c7450c55a0, type: 2}
+  blockSpawnerChild: {fileID: 100000, guid: 4d4cc65c04440a242b9b60ed602a82eb, type: 2}
+  spawnPoints:
+  - {x: 10, y: 0, z: 0}
+  - {x: 10, y: 0, z: 5}
+  - {x: 10, y: 0, z: 10}
+  - {x: 10, y: 0, z: -5}
+  - {x: 10, y: 0, z: -10}
+  generateSpeed: .100000001
+  Min_Z_width: 1
+  Max_Z_width: 3
+  Min_X_width: 1
+  Max_X_width: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

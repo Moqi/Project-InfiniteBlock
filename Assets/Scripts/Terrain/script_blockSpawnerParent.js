@@ -7,6 +7,7 @@
 // Variables
 	
 	// Blocks to spawn:
+		var mainPlatform 			: GameObject;
 		var blocktypeMain 			: GameObject;
 	
 	// SpawnPoints: 
@@ -26,6 +27,7 @@ private var make_Z_extraBlocks 		: boolean 		= true;
 /////////////////
 function Start () 
 {
+
 	//Choose a random number based on the length of the array
 		var randomIndex : int = Random.Range(0, spawnPoints.length); 
 		
@@ -41,9 +43,11 @@ function Start ()
 		
 		transform.parent = GameObject.FindWithTag("blockSpawnMaster").transform;
 	
-	
 	// yields to generate in at a steady pace
 		yield WaitForSeconds(1);
+		
+	// Instantiates main platform
+		var mainPlatform : GameObject = Instantiate(mainPlatform, transform.position - Vector3(0, 2, 0), Quaternion.identity);	
 		
 	// Instantiates a new blockSpawner before creating the current platform		
 		var newBlockSpawnerChild : GameObject = Instantiate(blockSpawnerChild, transform.position, Quaternion.identity);
@@ -100,7 +104,7 @@ function Start ()
     			}
     		}
     	}
-    	
+   	
     // ######### Fill cubes ##########################################################################################	
    			for (var j : int = 0; j < x_width; j++)
     		{
@@ -110,7 +114,7 @@ function Start ()
       			
       				tile.transform.parent   = this.transform;
       			
-      			
+      		
       		// ############## random blocks ontop of fillerBlocks #####################################################
       			var randomNumFive : float = Random.Range(0.0, 9.0);
       			
@@ -208,7 +212,7 @@ function Start ()
     							}
   						}		
   				}	
-  
+  			
   				yield WaitForSeconds(generateSpeed);
   
     		}

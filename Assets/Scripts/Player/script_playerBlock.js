@@ -30,11 +30,13 @@ function Start ()
 // Update
 function Update () 
 {
+	/*
 	// Create a bullet
 	if(Input.GetMouseButtonDown(0))
 	{
 		Fire();
 	}
+	*/
 
 }
 

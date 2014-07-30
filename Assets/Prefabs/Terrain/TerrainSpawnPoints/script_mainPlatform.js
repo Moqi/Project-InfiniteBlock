@@ -1,13 +1,15 @@
 ﻿#pragma strict
 ////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////// BlockSpawner Script ////////////////////////////////////
+/////////////////////////////////// mainPlatform Script ////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
+// function LerpSize
+		var endScale    : Vector3;
+private var t 			= 0.0;
+private var speed 		: float;
 
-	// Blocks to spawn:
+// function SpawnDetails
 		var blocktypeMain 				 : GameObject;
-
-	// Generate block
 		var generateSpeed				 : float 		= 0.5;
 private var z_width		 				 : int; 			
 private var x_width		 				 : int; 			
@@ -15,30 +17,68 @@ private var x_width		 				 : int;
 		var Max_Z_width	 				 : int;
 		var Min_X_width  				 : int;
 		var Max_X_width  				 : int; 
-private var make_Z_extraBlocks 			 : boolean 		= true;
+private var make_Z_extraBlocks 			 : boolean 		= true;	
 
 
-/////////////////
-function Start () 
+
+
+///////////////////////////////////////
+function Start ()
+{		
+	speed = Random.Range ( 1.0, 2.5);
+
+	this.transform.localScale 		= Vector3.zero;
+	
+	LerpSize (this.transform);
+	
+	yield WaitForSeconds (2);
+	
+	SpawnDetails ();
+}
+
+///////////////////////////////////////
+function Update ()
 {
-	//////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////// Generate platform ///////////////////////////////////////
-		
-	z_width = Random.Range(Min_Z_width, Max_Z_width);
-	
-		//Debug.Log(z_width);
-	
-	x_width = Random.Range(Min_X_width, Max_X_width);
-	
-		//Debug.Log(x_width);
-		
-	
-	transform.position = transform.position - (Vector3( x_width, 0, z_width) / 2);		
-		
 
+}
+
+
+
+
+///////////////////////////////////////
+function LerpSize ( other : Transform )
+{
+	//ndScale = Vector3 ( Random.Range ( 15.0, 25.0 ), 15.0, Random.Range ( 15.0, 25.0 ) );
+	
+	//endScale = Vector3 ( 10.0, 10.0, 10.0 );
+	
+	while ( t < 1.0)
+	{
+		t += Time.deltaTime * speed;
+			
+		other.localScale = Vector3.Lerp(other.localScale, endScale, t);
+						
+		yield;	
+	}
+}				
+///////////////////////////////////////		
+	
+///////////////////////////////////////	
+function SpawnDetails ()
+{
+	
+	//blocktypeMain.transform.localScale = Vector3.zero;
+	
+	z_width = Random.Range(Min_Z_width, Max_Z_width);
+		//Debug.Log(z_width);
+	x_width = Random.Range(Min_X_width, Max_X_width);
+		//Debug.Log(x_width);
+	transform.position = transform.position - (Vector3( x_width, 0, z_width) / 2);	
+	
+	
 	for (var i : int = 0; i < z_width; i++) 
   	{
-  		var sideBlocks_Ypos = Random.Range(-1, 2);
+  		var sideBlocks_Ypos = Random.Range(1, 2);
 	
 		//print(sideBlocks_Ypos);
  							
@@ -225,8 +265,32 @@ function Start ()
       
     	yield WaitForSeconds(generateSpeed);
   	 }
-	
+ 
+}
+///////////////////////////////////////	
 
 
-	
-}			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

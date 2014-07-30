@@ -15,12 +15,16 @@ private var maxDistanceToPlayer 		 : float;
 		var spawnPoints 				 : Vector3[];	//create an array of positions
 
 	// Generate blocks:
+		var mainPlatform 			     : GameObject;
 private var spawnPlatform 				 : boolean 		= false;
 
 
 /////////////////
 function Start () 
 {
+	// Instantiates main platform
+		var mainPlatform : GameObject = Instantiate(mainPlatform, transform.position - Vector3(0, 2, 0), Quaternion.identity);	
+
 	// Making object child of parent
 		transform.parent = GameObject.FindWithTag("blockSpawnParent").transform;
 		
