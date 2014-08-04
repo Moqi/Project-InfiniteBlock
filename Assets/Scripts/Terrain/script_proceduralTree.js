@@ -172,7 +172,7 @@ if (randomPick == false) // if manual pick, then...
 /////////////////////////////////////////////////////////
 function Update () 
 {
-	MouseHitAndDestroy();
+	//MouseHitAndDestroy();
 }
 
 /////////////////////////////////////////////////////////
@@ -199,7 +199,7 @@ function TreeGenerator ()
 		var newLogPiece : Transform = Instantiate(logPiece, transform.position, transform.rotation);
 	
 			newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
+															
 			newLogPiece.renderer.material.color 	= lightBrown;
 	
 		// Change Size 
@@ -1420,6 +1420,7 @@ function randomColorVariant ()			// Sets color of blocks
 
 
 
+/*
 //////////////////////////////////////////
 function MouseHitAndDestroy()
 {
@@ -1448,7 +1449,7 @@ function MouseHitAndDestroy()
 			if ( hit.transform.localScale == Vector3.zero )
 			{
 				Message ( "Object destroyed!" );
-				/*
+				
 				if ( hit.collider.tag == "treeLogPiece" )
 				{
 					var newLogEffect : Transform = Instantiate ( effectWoodHit, hit.transform.position, Quaternion.identity );
@@ -1461,12 +1462,13 @@ function MouseHitAndDestroy()
 				{
 					var newRockEffect : Transform = Instantiate ( effectRockHit, hit.transform.position, Quaternion.identity );
 				}
-				*/
+				
 				Destroy(hit.collider.gameObject);
 			}
 		}
 	}
 }
+*/
 
 
 
