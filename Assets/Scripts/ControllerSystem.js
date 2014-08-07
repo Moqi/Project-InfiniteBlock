@@ -19,6 +19,16 @@ var skinMeshRenderer				: SkinnedMeshRenderer;							// need skinned mesh render
 var cameraObject					: Camera;										// player camera  (usually main camera)
 var colliderAttack					: GameObject;									// collider for player to attack with
 var colliderHurt					: GameObject;									// collider for player to get hurt
+
+// Harvest Effect
+		var harvestEffect 			: Transform;
+		var lootEffect 				: Transform;
+private var layerBreakable;
+private var lastEffectTime 			: float = 0.0;
+		var effectFrequency 		: float = 2.0;
+private var begunHarvesting 		: float = 0.0;
+
+
 var canWalk							: boolean 			= true;						// enabled walking
 var canJog							: boolean 			= true;						// enabled jogging
 var canRun							: boolean 			= true;						// enabled running
@@ -92,6 +102,7 @@ var pushLayers  					: LayerMask 		= -1;						// layers for pushing objects
 var gravity							: float				= 20.0;						// gravity (downward pull only, added to vector.y) 
 var health 							: int				= 100;						// hold health count
 
+var aniAttack 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
 var aniIdle_1 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
 var aniIdle_2						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
 var aniWalk 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
@@ -169,6 +180,16 @@ private var pushObject				: Transform 		= null;						// store push game object
 private var grabObject				: Transform 		= null;						// store grab / pickup / putdown game object																
 private var tempSpeed 				: float 			= 0.0;						// hold current speed
 
+// Base Colors
+private var green					= new Color(151/255.0F, 232/255.0F, 67/255.0F, 0/255.0F);	// light  green
+private var gray					= new Color(107/255.0F, 101/255.0F, 92/255.0F, 0/255.0F);	
+private var brown 					= new Color(113/255.0F, 103/255.0F, 82/255.0F, 0/255.0F);
+// Special Colors
+private var cobber 					= new Color(166/255.0F, 77/255.0F, 45/255.0F, 0/255.0F);	// cobber
+private var silver 					= new Color(166/255.0F, 158/255.0F, 157/255.0F, 0/255.0F);	// silver
+private var gold 					= new Color(220/255.0F, 148/255.0F, 27/255.0F, 0/255.0F);	// gold
+private var purple 					= new Color(102/255.0F, 0/255.0F, 153/255.0F, 50/255.0F);	// purple
+
 @script RequireComponent ( CharacterController )									// if no characterController assigned, apply one -later
 
 
@@ -245,11 +266,15 @@ function UpdateMoveDirection 	() 													// motor, ani, and direction of pl
 		IdleRotate		();															// check for player idle turning
 		JumpPad			();															// check for player moving onto jump pad
 		Hurt			();															// check for player getting hit by enemy
+		
+		Harvest			();															// check for player being able to harvest 
+		
 		Attack			();															// check for player attacking with feet collider
 		Grab 			();															// check for player grabbing gameObject tagged grab
 		Push 			();															// check for player pushing gameObject tagged push
 		
 		KeyboardMovementSpeed ();
+		
 	}
 	else																			// if player is in air 
 	{										
@@ -299,11 +324,13 @@ function Update 				() 													// loop for controller
 //////////////////////////////////
 function Idle 					() 													// idles player
 {												
-	if ( moveSpeed <= speedIdleMax && !isCrouching )								// check that speed is 0 for idle range
+	if ( moveSpeed <= speedIdleMax && !isCrouching )//|| !Input.anyKey )								// check that speed is 0 for idle range
 	{
-		animation.CrossFade ( aniIdle_1.name );										// play animation
+		animation[ aniIdle_1.name ].wrapMode = WrapMode.Loop;
+		
+		animation.CrossFade ( aniIdle_1.name, 0.3f );										// play animation
 		Message ( "Ani State: Idle" );												// print current animation state
-	}	
+	}
 }
 
 //////////////////////////////////
@@ -313,7 +340,9 @@ function Walk 					() 													// walks player
 	{
 		if ( moveSpeed > speedIdleMax && moveSpeed < speedJog )						// check that speed is within walk range
 		{
-			animation.CrossFade ( aniWalk.name );									// play animation
+			animation[ aniWalk.name ].wrapMode = WrapMode.Loop;
+
+			animation.CrossFade ( aniWalk.name, 0.3f );									// play animation
 			Message ( "Ani State: Walk" );											// print current animation state
 		}
 	}
@@ -326,7 +355,9 @@ function Jog	 				() 													// jogs player
 	{
 		if ( moveSpeed > speedWalk && moveSpeed < speedRun ) 					 	// check that speed is within jog range
 		{
-			animation.CrossFade ( aniJog.name );									// play animation
+			animation[ aniJog.name ].wrapMode = WrapMode.Loop;
+	
+			animation.CrossFade ( aniJog.name, 0.3f );									// play animation
 			Message ( "Ani State: Jog" );											// print current animation state
 		}
 	}
@@ -339,7 +370,9 @@ function Run 					() 													// runs player
 	{
 		if ( moveSpeed > speedJog && moveSpeed < speedSprint )						// check that speed is within run range 
 		{
-			animation.CrossFade ( aniRun.name );									// play animation
+			animation[ aniRun.name ].wrapMode = WrapMode.Loop;
+		
+			animation.CrossFade ( aniRun.name, 0.3f );									// play animation
 			Message ( "Ani State: Run" );											// print current animation state
 		}
 	}
@@ -352,7 +385,7 @@ function Sprint 				() 													// sprints player
 	{
 		if ( moveSpeed > speedRun && moveSpeed <= speedSprint && Input.GetButton ( "Fire1" ) )	// checks that speed is within the sprint range and specific button is pressed
 		{
-			animation.CrossFade ( aniSprint.name );
+			animation.CrossFade ( aniSprint.name, 0.3f );
 			Message ( "Ani State: Sprint" );
 		}
 	}
@@ -566,6 +599,120 @@ function Hurt					()													// player hurt by enemy objects
 }
 
 //////////////////////////////////
+function Harvest				()
+{
+	// Harvesting layer = breakable 
+	layerBreakable = LayerMask.NameToLayer("breakable");
+	
+	var t 							= 0.0;
+	var speed 						= 0.001;
+	var endScale 					= Vector3.zero;
+	var ray 		: Ray 			= Camera.main.ScreenPointToRay (Input.mousePosition);	
+	var hit 		: RaycastHit;
+
+	if ( Input.GetMouseButton ( 0 ) )
+	{	
+		if (Physics.Raycast (ray, hit, Mathf.Infinity) )
+		{			
+			// Distance between player and RaycastHit
+			var playerDistanceToHit : Vector3 = hit.transform.position - this.transform.position;
+ 				
+ 				// Distance limited to x- and z-axis
+				var playerDistanceToHitInX = Mathf.Abs(playerDistanceToHit.x);
+				var playerDistanceToHitInZ = Mathf.Abs(playerDistanceToHit.z);
+			
+			if ( playerDistanceToHitInX && playerDistanceToHitInZ < 2.5 && hit.transform.gameObject.layer == layerBreakable ) 
+			{	
+			// Animation	
+				animation[ aniAttack.name ].wrapMode = WrapMode.Loop;
+	
+				animation.CrossFade ( aniAttack.name, 0.3f );
+					
+			// Effect	
+				if (Time.time > lastEffectTime + 1 / effectFrequency ) 
+				{
+ 				// Hit effect
+ 					var newEffect : Transform = Instantiate ( harvestEffect, hit.transform.position, Quaternion.identity );	
+ 				
+ 		/////////////////////////////////
+ 				// Loot effect //
+ 					if ( 		hit.transform.tag == "treeLogPiece" )
+ 					{
+ 						Message ( "logPiece + 1" 	 );
+ 						var newLogEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
+ 						newLogEffect.transform.renderer.material.color 		= brown;
+ 					}
+ 					else if ( 	hit.transform.tag == "treeCrownPiece" )
+ 					{
+ 						Message ( "crownPiece + 1" );
+ 						var newCrownEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );
+ 						newCrownEffect.transform.renderer.material.color 	= green;		
+ 					}
+ 					else if ( 	hit.transform.tag == "rock" )
+ 					{
+ 						Message 	( "rock +1" 		);
+ 						var newRockEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );
+ 						newRockEffect.transform.renderer.material.color 	= gray;
+ 					}
+ 					else if ( 	hit.transform.tag == "bush" )
+ 					{
+ 						Message 	( "BushPiece + 1"	);
+ 						var newBushEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
+ 						newBushEffect.transform.renderer.material.color 	= green;
+ 					}
+ 					else if ( 	hit.transform.tag == "rareObject_cobber" )
+ 					{
+ 						Message 	( "Cobber + 1" 	 	);
+ 						var newCobberEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
+ 						newCobberEffect.transform.renderer.material.color 	= cobber;
+ 					}
+ 					else if ( 	hit.transform.tag == "veryRareObject_silver" )
+ 					{
+ 						Message 	( "Silver + 1" 	 	);
+ 						var newSilverEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
+ 						newSilverEffect.transform.renderer.material.color 	= silver;
+ 					}
+ 					else if ( 	hit.transform.tag == "epicObject_gold" )
+ 					{
+ 						Message 	( "Gold + 1" 	 	);
+ 						var newGoldEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
+ 						newGoldEffect.transform.renderer.material.color 	= gold;
+ 					}
+ 					else if ( 	hit.transform.tag == "legendaryObject_" )
+ 					{
+ 						Message 	( "LegendaryItem + 1" 	 	);
+ 						var newLegendaryEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
+ 						newLegendaryEffect.transform.renderer.material.color = purple;
+ 					}
+ 					
+ 					
+ 		/////////////////////////////////					
+ 										
+    				lastEffectTime = Time.time;
+				} 
+			// DownScaling						
+				while ( t < 1.0 && Input.GetMouseButton ( 0 ) )
+				{				
+					t += Time.deltaTime * speed;
+					
+					hit.transform.localScale = Vector3.Lerp(hit.transform.localScale, endScale, t);
+			
+			// Disabling 		
+						var minSize = Vector3(0.5, 0.5, 0.5);
+
+						if ( hit.transform.localScale.magnitude <= minSize.magnitude )
+						{
+							hit.collider.gameObject.active = false;
+						}
+					
+					yield;
+				}
+			}				
+		}
+	}
+}
+
+//////////////////////////////////
 function Killzone				()													// player killed if in this area, respawn at start
 {
 	if ( canKillzone )																// toggle killzone areas
@@ -739,6 +886,7 @@ function AnimationClipCheck 	() 													// in debug mode, check for clip, i
 {	
 	if ( !DebugMode ) return;
 	
+	if ( aniAttack 			== null ) {	Debug.Log ( "Missing Animation Clip: attack, adding default" 			); aniAttack 		 = animation.clip; }
 	if ( aniIdle_1 			== null ) {	Debug.Log ( "Missing Animation Clip: idle_1, adding default" 			); aniIdle_1 		 = animation.clip; }
 	if ( aniIdle_2 			== null ) {	Debug.Log ( "Missing Animation Clip: idle_2, adding default"  			); aniIdle_2 		 = animation.clip; }
 	if ( aniWalk 			== null ) {	Debug.Log ( "Missing Animation Clip: walk, adding default"  			); aniWalk 	 		 = animation.clip; }

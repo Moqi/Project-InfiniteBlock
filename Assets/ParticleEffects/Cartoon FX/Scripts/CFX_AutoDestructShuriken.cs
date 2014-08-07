@@ -12,7 +12,8 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 {
 	// If true, deactivate the object instead of destroying it
 	public bool OnlyDeactivate;
-	
+	public float timeBeforeDestroy = 0.5f;
+
 	void OnEnable()
 	{
 		StartCoroutine("CheckIfAlive");
@@ -24,7 +25,7 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 		
 		while(true && ps != null)
 		{
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(timeBeforeDestroy);
 			if(!ps.IsAlive(true))
 			{
 				if(OnlyDeactivate)

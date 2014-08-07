@@ -173,6 +173,8 @@ if (randomPick == false) // if manual pick, then...
 function Update () 
 {
 	//MouseHitAndDestroy();
+
+	
 }
 
 /////////////////////////////////////////////////////////

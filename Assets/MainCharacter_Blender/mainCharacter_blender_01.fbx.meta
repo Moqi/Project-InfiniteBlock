@@ -1,0 +1,1766 @@
+fileFormatVersion: 2
+guid: 1d0001b6dd059a447bf58294dd407f54
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature|arm_left_01
+    100004: Armature|arm_left_02
+    100006: Armature|arm_right_01
+    100008: Armature|arm_right_02
+    100010: Armature|head
+    100012: Armature|leg_left
+    100014: Armature|leg_right
+    100016: Armature|root
+    100018: Armature|shoulder_left
+    100020: Armature|shoulder_right
+    100022: Armature|spine_01
+    100024: Armature|spine_02
+    100026: mainCharacter
+    100028: //RootNode
+    400000: Armature
+    400002: Armature|arm_left_01
+    400004: Armature|arm_left_02
+    400006: Armature|arm_right_01
+    400008: Armature|arm_right_02
+    400010: Armature|head
+    400012: Armature|leg_left
+    400014: Armature|leg_right
+    400016: Armature|root
+    400018: Armature|shoulder_left
+    400020: Armature|shoulder_right
+    400022: Armature|spine_01
+    400024: Armature|spine_02
+    400026: mainCharacter
+    400028: //RootNode
+    4300000: mainCharacter
+    7400000: Armature|Attack
+    7400002: Armature|Idle
+    7400004: Armature|Jog
+    7400006: Armature|Jump_01
+    7400008: Armature|Jump_02
+    7400010: Armature|Jump_03
+    7400012: Armature|Jump_Fall
+    7400014: Armature|Jump_Land
+    7400016: Armature|Run
+    7400018: Armature|Walk
+    7400020: Armature|Attack //// Armature
+    7400022: Armature|Idle //// Armature
+    7400024: Armature|Jog //// Armature
+    7400026: Armature|Jump_01 //// Armature
+    7400028: Armature|Jump_02 //// Armature
+    7400030: Armature|Jump_03 //// Armature
+    7400032: Armature|Jump_Fall //// Armature
+    7400034: Armature|Jump_Land //// Armature
+    7400036: Armature|Run //// Armature
+    7400038: Armature|Walk //// Armature
+    7400040: Armature|Attack //// Armature
+    7400042: Armature|Idle //// Armature
+    7400044: Armature|Jog //// Armature
+    7400046: Armature|Jump_01 //// Armature
+    7400048: Armature|Jump_02 //// Armature
+    7400050: Armature|Jump_03 //// Armature
+    7400052: Armature|Jump_Fall //// Armature
+    7400054: Armature|Jump_Land //// Armature
+    7400056: Armature|Run //// Armature
+    7400058: Armature|Walk //// Armature
+    7400060: Armature|Attack //// Armature
+    7400062: Armature|Idle //// Armature
+    7400064: Armature|Jog //// Armature
+    7400066: Armature|Jump_01 //// Armature
+    7400068: Armature|Jump_02 //// Armature
+    7400070: Armature|Jump_03 //// Armature
+    7400072: Armature|Jump_Fall //// Armature
+    7400074: Armature|Jump_Land //// Armature
+    7400076: Armature|Run //// Armature
+    7400078: Armature|Walk //// Armature
+    7400080: Armature|Attack //// Armature
+    7400082: Armature|Idle //// Armature
+    7400084: Armature|Jog //// Armature
+    7400086: Armature|Jump_01 //// Armature
+    7400088: Armature|Jump_02 //// Armature
+    7400090: Armature|Jump_03 //// Armature
+    7400092: Armature|Jump_Fall //// Armature
+    7400094: Armature|Jump_Land //// Armature
+    7400096: Armature|Run //// Armature
+    7400098: Armature|Walk //// Armature
+    7400100: Armature|Attack //// Armature
+    7400102: Armature|Idle //// Armature
+    7400104: Armature|Jog //// Armature
+    7400106: Armature|Jump_01 //// Armature
+    7400108: Armature|Jump_02 //// Armature
+    7400110: Armature|Jump_03 //// Armature
+    7400112: Armature|Jump_Fall //// Armature
+    7400114: Armature|Jump_Land //// Armature
+    7400116: Armature|Run //// Armature
+    7400118: Armature|Walk //// Armature
+    7400120: Armature|Attack //// Armature
+    7400122: Armature|Idle //// Armature
+    7400124: Armature|Jog //// Armature
+    7400126: Armature|Jump_01 //// Armature
+    7400128: Armature|Jump_02 //// Armature
+    7400130: Armature|Jump_03 //// Armature
+    7400132: Armature|Jump_Fall //// Armature
+    7400134: Armature|Jump_Land //// Armature
+    7400136: Armature|Run //// Armature
+    7400138: Armature|Walk //// Armature
+    7400140: Armature|Attack //// Armature
+    7400142: Armature|Idle //// Armature
+    7400144: Armature|Jog //// Armature
+    7400146: Armature|Jump_01 //// Armature
+    7400148: Armature|Jump_02 //// Armature
+    7400150: Armature|Jump_03 //// Armature
+    7400152: Armature|Jump_Fall //// Armature
+    7400154: Armature|Jump_Land //// Armature
+    7400156: Armature|Run //// Armature
+    7400158: Armature|Walk //// Armature
+    7400160: Armature|Attack //// Armature
+    7400162: Armature|Idle //// Armature
+    7400164: Armature|Jog //// Armature
+    7400166: Armature|Jump_01 //// Armature
+    7400168: Armature|Jump_02 //// Armature
+    7400170: Armature|Jump_03 //// Armature
+    7400172: Armature|Jump_Fall //// Armature
+    7400174: Armature|Jump_Land //// Armature
+    7400176: Armature|Run //// Armature
+    7400178: Armature|Walk //// Armature
+    7400180: Armature|Attack //// Armature
+    7400182: Armature|Idle //// Armature
+    7400184: Armature|Jog //// Armature
+    7400186: Armature|Jump_01 //// Armature
+    7400188: Armature|Jump_02 //// Armature
+    7400190: Armature|Jump_03 //// Armature
+    7400192: Armature|Jump_Fall //// Armature
+    7400194: Armature|Jump_Land //// Armature
+    7400196: Armature|Run //// Armature
+    7400198: Armature|Walk //// Armature
+    7400200: Armature|Attack //// Armature
+    7400202: Armature|Idle //// Armature
+    7400204: Armature|Jog //// Armature
+    7400206: Armature|Jump_01 //// Armature
+    7400208: Armature|Jump_02 //// Armature
+    7400210: Armature|Jump_03 //// Armature
+    7400212: Armature|Jump_Fall //// Armature
+    7400214: Armature|Jump_Land //// Armature
+    7400216: Armature|Run //// Armature
+    7400218: Armature|Walk //// Armature
+    7400220: Armature|Attack //// Armature|spine_01
+    7400222: Armature|Idle //// Armature|spine_01
+    7400224: Armature|Jog //// Armature|spine_01
+    7400226: Armature|Jump_01 //// Armature|spine_01
+    7400228: Armature|Jump_02 //// Armature|spine_01
+    7400230: Armature|Jump_03 //// Armature|spine_01
+    7400232: Armature|Jump_Fall //// Armature|spine_01
+    7400234: Armature|Jump_Land //// Armature|spine_01
+    7400236: Armature|Run //// Armature|spine_01
+    7400238: Armature|Walk //// Armature|spine_01
+    7400240: Armature|Attack //// Armature|spine_02
+    7400242: Armature|Idle //// Armature|spine_02
+    7400244: Armature|Jog //// Armature|spine_02
+    7400246: Armature|Jump_01 //// Armature|spine_02
+    7400248: Armature|Jump_02 //// Armature|spine_02
+    7400250: Armature|Jump_03 //// Armature|spine_02
+    7400252: Armature|Jump_Fall //// Armature|spine_02
+    7400254: Armature|Jump_Land //// Armature|spine_02
+    7400256: Armature|Run //// Armature|spine_02
+    7400258: Armature|Walk //// Armature|spine_02
+    7400260: Armature|Attack //// Armature|head
+    7400262: Armature|Idle //// Armature|head
+    7400264: Armature|Jog //// Armature|head
+    7400266: Armature|Jump_01 //// Armature|head
+    7400268: Armature|Jump_02 //// Armature|head
+    7400270: Armature|Jump_03 //// Armature|head
+    7400272: Armature|Jump_Fall //// Armature|head
+    7400274: Armature|Jump_Land //// Armature|head
+    7400276: Armature|Run //// Armature|head
+    7400278: Armature|Walk //// Armature|head
+    7400280: Armature|Attack //// Armature|shoulder_left
+    7400282: Armature|Idle //// Armature|shoulder_left
+    7400284: Armature|Jog //// Armature|shoulder_left
+    7400286: Armature|Jump_01 //// Armature|shoulder_left
+    7400288: Armature|Jump_02 //// Armature|shoulder_left
+    7400290: Armature|Jump_03 //// Armature|shoulder_left
+    7400292: Armature|Jump_Fall //// Armature|shoulder_left
+    7400294: Armature|Jump_Land //// Armature|shoulder_left
+    7400296: Armature|Run //// Armature|shoulder_left
+    7400298: Armature|Walk //// Armature|shoulder_left
+    7400300: Armature|Attack //// Armature|arm_left_01
+    7400302: Armature|Idle //// Armature|arm_left_01
+    7400304: Armature|Jog //// Armature|arm_left_01
+    7400306: Armature|Jump_01 //// Armature|arm_left_01
+    7400308: Armature|Jump_02 //// Armature|arm_left_01
+    7400310: Armature|Jump_03 //// Armature|arm_left_01
+    7400312: Armature|Jump_Fall //// Armature|arm_left_01
+    7400314: Armature|Jump_Land //// Armature|arm_left_01
+    7400316: Armature|Run //// Armature|arm_left_01
+    7400318: Armature|Walk //// Armature|arm_left_01
+    7400320: Armature|Attack //// Armature|arm_left_02
+    7400322: Armature|Idle //// Armature|arm_left_02
+    7400324: Armature|Jog //// Armature|arm_left_02
+    7400326: Armature|Jump_01 //// Armature|arm_left_02
+    7400328: Armature|Jump_02 //// Armature|arm_left_02
+    7400330: Armature|Jump_03 //// Armature|arm_left_02
+    7400332: Armature|Jump_Fall //// Armature|arm_left_02
+    7400334: Armature|Jump_Land //// Armature|arm_left_02
+    7400336: Armature|Run //// Armature|arm_left_02
+    7400338: Armature|Walk //// Armature|arm_left_02
+    7400340: Armature|Attack //// Armature|shoulder_right
+    7400342: Armature|Idle //// Armature|shoulder_right
+    7400344: Armature|Jog //// Armature|shoulder_right
+    7400346: Armature|Jump_01 //// Armature|shoulder_right
+    7400348: Armature|Jump_02 //// Armature|shoulder_right
+    7400350: Armature|Jump_03 //// Armature|shoulder_right
+    7400352: Armature|Jump_Fall //// Armature|shoulder_right
+    7400354: Armature|Jump_Land //// Armature|shoulder_right
+    7400356: Armature|Run //// Armature|shoulder_right
+    7400358: Armature|Walk //// Armature|shoulder_right
+    7400360: Armature|Attack //// Armature|arm_right_01
+    7400362: Armature|Idle //// Armature|arm_right_01
+    7400364: Armature|Jog //// Armature|arm_right_01
+    7400366: Armature|Jump_01 //// Armature|arm_right_01
+    7400368: Armature|Jump_02 //// Armature|arm_right_01
+    7400370: Armature|Jump_03 //// Armature|arm_right_01
+    7400372: Armature|Jump_Fall //// Armature|arm_right_01
+    7400374: Armature|Jump_Land //// Armature|arm_right_01
+    7400376: Armature|Run //// Armature|arm_right_01
+    7400378: Armature|Walk //// Armature|arm_right_01
+    7400380: Armature|Attack //// Armature|arm_right_02
+    7400382: Armature|Idle //// Armature|arm_right_02
+    7400384: Armature|Jog //// Armature|arm_right_02
+    7400386: Armature|Jump_01 //// Armature|arm_right_02
+    7400388: Armature|Jump_02 //// Armature|arm_right_02
+    7400390: Armature|Jump_03 //// Armature|arm_right_02
+    7400392: Armature|Jump_Fall //// Armature|arm_right_02
+    7400394: Armature|Jump_Land //// Armature|arm_right_02
+    7400396: Armature|Run //// Armature|arm_right_02
+    7400398: Armature|Walk //// Armature|arm_right_02
+    7400400: Armature|Attack //// Armature|leg_left
+    7400402: Armature|Idle //// Armature|leg_left
+    7400404: Armature|Jog //// Armature|leg_left
+    7400406: Armature|Jump_01 //// Armature|leg_left
+    7400408: Armature|Jump_02 //// Armature|leg_left
+    7400410: Armature|Jump_03 //// Armature|leg_left
+    7400412: Armature|Jump_Fall //// Armature|leg_left
+    7400414: Armature|Jump_Land //// Armature|leg_left
+    7400416: Armature|Run //// Armature|leg_left
+    7400418: Armature|Walk //// Armature|leg_left
+    7400420: Armature|Attack //// Armature|leg_right
+    7400422: Armature|Idle //// Armature|leg_right
+    7400424: Armature|Jog //// Armature|leg_right
+    7400426: Armature|Jump_01 //// Armature|leg_right
+    7400428: Armature|Jump_02 //// Armature|leg_right
+    7400430: Armature|Jump_03 //// Armature|leg_right
+    7400432: Armature|Jump_Fall //// Armature|leg_right
+    7400434: Armature|Jump_Land //// Armature|leg_right
+    7400436: Armature|Run //// Armature|leg_right
+    7400438: Armature|Walk //// Armature|leg_right
+    7400440: Armature|Attack //// Armature|head
+    7400442: Armature|Idle //// Armature|head
+    7400444: Armature|Jog //// Armature|head
+    7400446: Armature|Jump_01 //// Armature|head
+    7400448: Armature|Jump_02 //// Armature|head
+    7400450: Armature|Jump_03 //// Armature|head
+    7400452: Armature|Jump_Fall //// Armature|head
+    7400454: Armature|Jump_Land //// Armature|head
+    7400456: Armature|Run //// Armature|head
+    7400458: Armature|Walk //// Armature|head
+    7400460: Armature|Attack //// Armature|spine_01
+    7400462: Armature|Idle //// Armature|spine_01
+    7400464: Armature|Jog //// Armature|spine_01
+    7400466: Armature|Jump_01 //// Armature|spine_01
+    7400468: Armature|Jump_02 //// Armature|spine_01
+    7400470: Armature|Jump_03 //// Armature|spine_01
+    7400472: Armature|Jump_Fall //// Armature|spine_01
+    7400474: Armature|Jump_Land //// Armature|spine_01
+    7400476: Armature|Run //// Armature|spine_01
+    7400478: Armature|Walk //// Armature|spine_01
+    7400480: Armature|Attack //// Armature|head
+    7400482: Armature|Idle //// Armature|head
+    7400484: Armature|Jog //// Armature|head
+    7400486: Armature|Jump_01 //// Armature|head
+    7400488: Armature|Jump_02 //// Armature|head
+    7400490: Armature|Jump_03 //// Armature|head
+    7400492: Armature|Jump_Fall //// Armature|head
+    7400494: Armature|Jump_Land //// Armature|head
+    7400496: Armature|Run //// Armature|head
+    7400498: Armature|Walk //// Armature|head
+    7400500: Armature|Attack //// Armature|shoulder_left
+    7400502: Armature|Idle //// Armature|shoulder_left
+    7400504: Armature|Jog //// Armature|shoulder_left
+    7400506: Armature|Jump_01 //// Armature|shoulder_left
+    7400508: Armature|Jump_02 //// Armature|shoulder_left
+    7400510: Armature|Jump_03 //// Armature|shoulder_left
+    7400512: Armature|Jump_Fall //// Armature|shoulder_left
+    7400514: Armature|Jump_Land //// Armature|shoulder_left
+    7400516: Armature|Run //// Armature|shoulder_left
+    7400518: Armature|Walk //// Armature|shoulder_left
+    7400520: Armature|Attack //// Armature|arm_left_01
+    7400522: Armature|Idle //// Armature|arm_left_01
+    7400524: Armature|Jog //// Armature|arm_left_01
+    7400526: Armature|Jump_01 //// Armature|arm_left_01
+    7400528: Armature|Jump_02 //// Armature|arm_left_01
+    7400530: Armature|Jump_03 //// Armature|arm_left_01
+    7400532: Armature|Jump_Fall //// Armature|arm_left_01
+    7400534: Armature|Jump_Land //// Armature|arm_left_01
+    7400536: Armature|Run //// Armature|arm_left_01
+    7400538: Armature|Walk //// Armature|arm_left_01
+    7400540: Armature|Attack //// Armature|arm_left_02
+    7400542: Armature|Idle //// Armature|arm_left_02
+    7400544: Armature|Jog //// Armature|arm_left_02
+    7400546: Armature|Jump_01 //// Armature|arm_left_02
+    7400548: Armature|Jump_02 //// Armature|arm_left_02
+    7400550: Armature|Jump_03 //// Armature|arm_left_02
+    7400552: Armature|Jump_Fall //// Armature|arm_left_02
+    7400554: Armature|Jump_Land //// Armature|arm_left_02
+    7400556: Armature|Run //// Armature|arm_left_02
+    7400558: Armature|Walk //// Armature|arm_left_02
+    7400560: Armature|Attack //// Armature|shoulder_right
+    7400562: Armature|Idle //// Armature|shoulder_right
+    7400564: Armature|Jog //// Armature|shoulder_right
+    7400566: Armature|Jump_01 //// Armature|shoulder_right
+    7400568: Armature|Jump_02 //// Armature|shoulder_right
+    7400570: Armature|Jump_03 //// Armature|shoulder_right
+    7400572: Armature|Jump_Fall //// Armature|shoulder_right
+    7400574: Armature|Jump_Land //// Armature|shoulder_right
+    7400576: Armature|Run //// Armature|shoulder_right
+    7400578: Armature|Walk //// Armature|shoulder_right
+    7400580: Armature|Attack //// Armature|arm_right_01
+    7400582: Armature|Idle //// Armature|arm_right_01
+    7400584: Armature|Jog //// Armature|arm_right_01
+    7400586: Armature|Jump_01 //// Armature|arm_right_01
+    7400588: Armature|Jump_02 //// Armature|arm_right_01
+    7400590: Armature|Jump_03 //// Armature|arm_right_01
+    7400592: Armature|Jump_Fall //// Armature|arm_right_01
+    7400594: Armature|Jump_Land //// Armature|arm_right_01
+    7400596: Armature|Run //// Armature|arm_right_01
+    7400598: Armature|Walk //// Armature|arm_right_01
+    7400600: Armature|Attack //// Armature|arm_right_02
+    7400602: Armature|Idle //// Armature|arm_right_02
+    7400604: Armature|Jog //// Armature|arm_right_02
+    7400606: Armature|Jump_01 //// Armature|arm_right_02
+    7400608: Armature|Jump_02 //// Armature|arm_right_02
+    7400610: Armature|Jump_03 //// Armature|arm_right_02
+    7400612: Armature|Jump_Fall //// Armature|arm_right_02
+    7400614: Armature|Jump_Land //// Armature|arm_right_02
+    7400616: Armature|Run //// Armature|arm_right_02
+    7400618: Armature|Walk //// Armature|arm_right_02
+    7400620: Armature|Attack //// Armature|leg_left
+    7400622: Armature|Idle //// Armature|leg_left
+    7400624: Armature|Jog //// Armature|leg_left
+    7400626: Armature|Jump_01 //// Armature|leg_left
+    7400628: Armature|Jump_02 //// Armature|leg_left
+    7400630: Armature|Jump_03 //// Armature|leg_left
+    7400632: Armature|Jump_Fall //// Armature|leg_left
+    7400634: Armature|Jump_Land //// Armature|leg_left
+    7400636: Armature|Run //// Armature|leg_left
+    7400638: Armature|Walk //// Armature|leg_left
+    7400640: Armature|Attack //// Armature|leg_right
+    7400642: Armature|Idle //// Armature|leg_right
+    7400644: Armature|Jog //// Armature|leg_right
+    7400646: Armature|Jump_01 //// Armature|leg_right
+    7400648: Armature|Jump_02 //// Armature|leg_right
+    7400650: Armature|Jump_03 //// Armature|leg_right
+    7400652: Armature|Jump_Fall //// Armature|leg_right
+    7400654: Armature|Jump_Land //// Armature|leg_right
+    7400656: Armature|Run //// Armature|leg_right
+    7400658: Armature|Walk //// Armature|leg_right
+    7400660: Armature|Attack //// Armature|root
+    7400662: Armature|Idle //// Armature|root
+    7400664: Armature|Jog //// Armature|root
+    7400666: Armature|Jump_01 //// Armature|root
+    7400668: Armature|Jump_02 //// Armature|root
+    7400670: Armature|Jump_03 //// Armature|root
+    7400672: Armature|Jump_Fall //// Armature|root
+    7400674: Armature|Jump_Land //// Armature|root
+    7400676: Armature|Run //// Armature|root
+    7400678: Armature|Walk //// Armature|root
+    7400680: Armature|Attack //// Armature|spine_01
+    7400682: Armature|Idle //// Armature|spine_01
+    7400684: Armature|Jog //// Armature|spine_01
+    7400686: Armature|Jump_01 //// Armature|spine_01
+    7400688: Armature|Jump_02 //// Armature|spine_01
+    7400690: Armature|Jump_03 //// Armature|spine_01
+    7400692: Armature|Jump_Fall //// Armature|spine_01
+    7400694: Armature|Jump_Land //// Armature|spine_01
+    7400696: Armature|Run //// Armature|spine_01
+    7400698: Armature|Walk //// Armature|spine_01
+    7400700: Armature|Attack //// Armature|spine_02
+    7400702: Armature|Idle //// Armature|spine_02
+    7400704: Armature|Jog //// Armature|spine_02
+    7400706: Armature|Jump_01 //// Armature|spine_02
+    7400708: Armature|Jump_02 //// Armature|spine_02
+    7400710: Armature|Jump_03 //// Armature|spine_02
+    7400712: Armature|Jump_Fall //// Armature|spine_02
+    7400714: Armature|Jump_Land //// Armature|spine_02
+    7400716: Armature|Run //// Armature|spine_02
+    7400718: Armature|Walk //// Armature|spine_02
+    7400720: Armature|Attack //// Armature|head
+    7400722: Armature|Idle //// Armature|head
+    7400724: Armature|Jog //// Armature|head
+    7400726: Armature|Jump_01 //// Armature|head
+    7400728: Armature|Jump_02 //// Armature|head
+    7400730: Armature|Jump_03 //// Armature|head
+    7400732: Armature|Jump_Fall //// Armature|head
+    7400734: Armature|Jump_Land //// Armature|head
+    7400736: Armature|Run //// Armature|head
+    7400738: Armature|Walk //// Armature|head
+    7400740: Armature|Attack //// Armature|shoulder_left
+    7400742: Armature|Idle //// Armature|shoulder_left
+    7400744: Armature|Jog //// Armature|shoulder_left
+    7400746: Armature|Jump_01 //// Armature|shoulder_left
+    7400748: Armature|Jump_02 //// Armature|shoulder_left
+    7400750: Armature|Jump_03 //// Armature|shoulder_left
+    7400752: Armature|Jump_Fall //// Armature|shoulder_left
+    7400754: Armature|Jump_Land //// Armature|shoulder_left
+    7400756: Armature|Run //// Armature|shoulder_left
+    7400758: Armature|Walk //// Armature|shoulder_left
+    7400760: Armature|Attack //// Armature|arm_left_01
+    7400762: Armature|Idle //// Armature|arm_left_01
+    7400764: Armature|Jog //// Armature|arm_left_01
+    7400766: Armature|Jump_01 //// Armature|arm_left_01
+    7400768: Armature|Jump_02 //// Armature|arm_left_01
+    7400770: Armature|Jump_03 //// Armature|arm_left_01
+    7400772: Armature|Jump_Fall //// Armature|arm_left_01
+    7400774: Armature|Jump_Land //// Armature|arm_left_01
+    7400776: Armature|Run //// Armature|arm_left_01
+    7400778: Armature|Walk //// Armature|arm_left_01
+    7400780: Armature|Attack //// Armature|arm_left_02
+    7400782: Armature|Idle //// Armature|arm_left_02
+    7400784: Armature|Jog //// Armature|arm_left_02
+    7400786: Armature|Jump_01 //// Armature|arm_left_02
+    7400788: Armature|Jump_02 //// Armature|arm_left_02
+    7400790: Armature|Jump_03 //// Armature|arm_left_02
+    7400792: Armature|Jump_Fall //// Armature|arm_left_02
+    7400794: Armature|Jump_Land //// Armature|arm_left_02
+    7400796: Armature|Run //// Armature|arm_left_02
+    7400798: Armature|Walk //// Armature|arm_left_02
+    7400800: Armature|Attack //// Armature|shoulder_right
+    7400802: Armature|Idle //// Armature|shoulder_right
+    7400804: Armature|Jog //// Armature|shoulder_right
+    7400806: Armature|Jump_01 //// Armature|shoulder_right
+    7400808: Armature|Jump_02 //// Armature|shoulder_right
+    7400810: Armature|Jump_03 //// Armature|shoulder_right
+    7400812: Armature|Jump_Fall //// Armature|shoulder_right
+    7400814: Armature|Jump_Land //// Armature|shoulder_right
+    7400816: Armature|Run //// Armature|shoulder_right
+    7400818: Armature|Walk //// Armature|shoulder_right
+    7400820: Armature|Attack //// Armature|arm_right_01
+    7400822: Armature|Idle //// Armature|arm_right_01
+    7400824: Armature|Jog //// Armature|arm_right_01
+    7400826: Armature|Jump_01 //// Armature|arm_right_01
+    7400828: Armature|Jump_02 //// Armature|arm_right_01
+    7400830: Armature|Jump_03 //// Armature|arm_right_01
+    7400832: Armature|Jump_Fall //// Armature|arm_right_01
+    7400834: Armature|Jump_Land //// Armature|arm_right_01
+    7400836: Armature|Run //// Armature|arm_right_01
+    7400838: Armature|Walk //// Armature|arm_right_01
+    7400840: Armature|Attack //// Armature|arm_right_02
+    7400842: Armature|Idle //// Armature|arm_right_02
+    7400844: Armature|Jog //// Armature|arm_right_02
+    7400846: Armature|Jump_01 //// Armature|arm_right_02
+    7400848: Armature|Jump_02 //// Armature|arm_right_02
+    7400850: Armature|Jump_03 //// Armature|arm_right_02
+    7400852: Armature|Jump_Fall //// Armature|arm_right_02
+    7400854: Armature|Jump_Land //// Armature|arm_right_02
+    7400856: Armature|Run //// Armature|arm_right_02
+    7400858: Armature|Walk //// Armature|arm_right_02
+    7400860: Armature|Attack //// Armature|leg_left
+    7400862: Armature|Idle //// Armature|leg_left
+    7400864: Armature|Jog //// Armature|leg_left
+    7400866: Armature|Jump_01 //// Armature|leg_left
+    7400868: Armature|Jump_02 //// Armature|leg_left
+    7400870: Armature|Jump_03 //// Armature|leg_left
+    7400872: Armature|Jump_Fall //// Armature|leg_left
+    7400874: Armature|Jump_Land //// Armature|leg_left
+    7400876: Armature|Run //// Armature|leg_left
+    7400878: Armature|Walk //// Armature|leg_left
+    7400880: Armature|Attack //// Armature|leg_right
+    7400882: Armature|Idle //// Armature|leg_right
+    7400884: Armature|Jog //// Armature|leg_right
+    7400886: Armature|Jump_01 //// Armature|leg_right
+    7400888: Armature|Jump_02 //// Armature|leg_right
+    7400890: Armature|Jump_03 //// Armature|leg_right
+    7400892: Armature|Jump_Fall //// Armature|leg_right
+    7400894: Armature|Jump_Land //// Armature|leg_right
+    7400896: Armature|Run //// Armature|leg_right
+    7400898: Armature|Walk //// Armature|leg_right
+    7400900: Armature|Attack //// Armature|root
+    7400902: Armature|Idle //// Armature|root
+    7400904: Armature|Jog //// Armature|root
+    7400906: Armature|Jump_01 //// Armature|root
+    7400908: Armature|Jump_02 //// Armature|root
+    7400910: Armature|Jump_03 //// Armature|root
+    7400912: Armature|Jump_Fall //// Armature|root
+    7400914: Armature|Jump_Land //// Armature|root
+    7400916: Armature|Run //// Armature|root
+    7400918: Armature|Walk //// Armature|root
+    7400920: Armature|Attack //// Armature|spine_01
+    7400922: Armature|Idle //// Armature|spine_01
+    7400924: Armature|Jog //// Armature|spine_01
+    7400926: Armature|Jump_01 //// Armature|spine_01
+    7400928: Armature|Jump_02 //// Armature|spine_01
+    7400930: Armature|Jump_03 //// Armature|spine_01
+    7400932: Armature|Jump_Fall //// Armature|spine_01
+    7400934: Armature|Jump_Land //// Armature|spine_01
+    7400936: Armature|Run //// Armature|spine_01
+    7400938: Armature|Walk //// Armature|spine_01
+    7400940: Armature|Attack //// Armature|head
+    7400942: Armature|Idle //// Armature|head
+    7400944: Armature|Jog //// Armature|head
+    7400946: Armature|Jump_01 //// Armature|head
+    7400948: Armature|Jump_02 //// Armature|head
+    7400950: Armature|Jump_03 //// Armature|head
+    7400952: Armature|Jump_Fall //// Armature|head
+    7400954: Armature|Jump_Land //// Armature|head
+    7400956: Armature|Run //// Armature|head
+    7400958: Armature|Walk //// Armature|head
+    7400960: Armature|Attack //// Armature|shoulder_left
+    7400962: Armature|Idle //// Armature|shoulder_left
+    7400964: Armature|Jog //// Armature|shoulder_left
+    7400966: Armature|Jump_01 //// Armature|shoulder_left
+    7400968: Armature|Jump_02 //// Armature|shoulder_left
+    7400970: Armature|Jump_03 //// Armature|shoulder_left
+    7400972: Armature|Jump_Fall //// Armature|shoulder_left
+    7400974: Armature|Jump_Land //// Armature|shoulder_left
+    7400976: Armature|Run //// Armature|shoulder_left
+    7400978: Armature|Walk //// Armature|shoulder_left
+    7400980: Armature|Attack //// Armature|arm_left_02
+    7400982: Armature|Idle //// Armature|arm_left_02
+    7400984: Armature|Jog //// Armature|arm_left_02
+    7400986: Armature|Jump_01 //// Armature|arm_left_02
+    7400988: Armature|Jump_02 //// Armature|arm_left_02
+    7400990: Armature|Jump_03 //// Armature|arm_left_02
+    7400992: Armature|Jump_Fall //// Armature|arm_left_02
+    7400994: Armature|Jump_Land //// Armature|arm_left_02
+    7400996: Armature|Run //// Armature|arm_left_02
+    7400998: Armature|Walk //// Armature|arm_left_02
+    7401000: Armature|Attack //// Armature|shoulder_right
+    7401002: Armature|Idle //// Armature|shoulder_right
+    7401004: Armature|Jog //// Armature|shoulder_right
+    7401006: Armature|Jump_01 //// Armature|shoulder_right
+    7401008: Armature|Jump_02 //// Armature|shoulder_right
+    7401010: Armature|Jump_03 //// Armature|shoulder_right
+    7401012: Armature|Jump_Fall //// Armature|shoulder_right
+    7401014: Armature|Jump_Land //// Armature|shoulder_right
+    7401016: Armature|Run //// Armature|shoulder_right
+    7401018: Armature|Walk //// Armature|shoulder_right
+    7401020: Armature|Attack //// Armature|arm_right_01
+    7401022: Armature|Idle //// Armature|arm_right_01
+    7401024: Armature|Jog //// Armature|arm_right_01
+    7401026: Armature|Jump_01 //// Armature|arm_right_01
+    7401028: Armature|Jump_02 //// Armature|arm_right_01
+    7401030: Armature|Jump_03 //// Armature|arm_right_01
+    7401032: Armature|Jump_Fall //// Armature|arm_right_01
+    7401034: Armature|Jump_Land //// Armature|arm_right_01
+    7401036: Armature|Run //// Armature|arm_right_01
+    7401038: Armature|Walk //// Armature|arm_right_01
+    7401040: Armature|Attack //// Armature|arm_right_02
+    7401042: Armature|Idle //// Armature|arm_right_02
+    7401044: Armature|Jog //// Armature|arm_right_02
+    7401046: Armature|Jump_01 //// Armature|arm_right_02
+    7401048: Armature|Jump_02 //// Armature|arm_right_02
+    7401050: Armature|Jump_03 //// Armature|arm_right_02
+    7401052: Armature|Jump_Fall //// Armature|arm_right_02
+    7401054: Armature|Jump_Land //// Armature|arm_right_02
+    7401056: Armature|Run //// Armature|arm_right_02
+    7401058: Armature|Walk //// Armature|arm_right_02
+    7401060: Armature|Attack //// Armature|leg_left
+    7401062: Armature|Idle //// Armature|leg_left
+    7401064: Armature|Jog //// Armature|leg_left
+    7401066: Armature|Jump_01 //// Armature|leg_left
+    7401068: Armature|Jump_02 //// Armature|leg_left
+    7401070: Armature|Jump_03 //// Armature|leg_left
+    7401072: Armature|Jump_Fall //// Armature|leg_left
+    7401074: Armature|Jump_Land //// Armature|leg_left
+    7401076: Armature|Run //// Armature|leg_left
+    7401078: Armature|Walk //// Armature|leg_left
+    7401080: Armature|Attack //// Armature|leg_right
+    7401082: Armature|Idle //// Armature|leg_right
+    7401084: Armature|Jog //// Armature|leg_right
+    7401086: Armature|Jump_01 //// Armature|leg_right
+    7401088: Armature|Jump_02 //// Armature|leg_right
+    7401090: Armature|Jump_03 //// Armature|leg_right
+    7401092: Armature|Jump_Fall //// Armature|leg_right
+    7401094: Armature|Jump_Land //// Armature|leg_right
+    7401096: Armature|Run //// Armature|leg_right
+    7401098: Armature|Walk //// Armature|leg_right
+    7401100: Armature|Attack //// Armature|root
+    7401102: Armature|Idle //// Armature|root
+    7401104: Armature|Jog //// Armature|root
+    7401106: Armature|Jump_01 //// Armature|root
+    7401108: Armature|Jump_02 //// Armature|root
+    7401110: Armature|Jump_03 //// Armature|root
+    7401112: Armature|Jump_Fall //// Armature|root
+    7401114: Armature|Jump_Land //// Armature|root
+    7401116: Armature|Run //// Armature|root
+    7401118: Armature|Walk //// Armature|root
+    7401120: Armature|Attack //// Armature|spine_01
+    7401122: Armature|Idle //// Armature|spine_01
+    7401124: Armature|Jog //// Armature|spine_01
+    7401126: Armature|Jump_01 //// Armature|spine_01
+    7401128: Armature|Jump_02 //// Armature|spine_01
+    7401130: Armature|Jump_03 //// Armature|spine_01
+    7401132: Armature|Jump_Fall //// Armature|spine_01
+    7401134: Armature|Jump_Land //// Armature|spine_01
+    7401136: Armature|Run //// Armature|spine_01
+    7401138: Armature|Walk //// Armature|spine_01
+    7401140: Armature|Attack //// Armature|spine_02
+    7401142: Armature|Idle //// Armature|spine_02
+    7401144: Armature|Jog //// Armature|spine_02
+    7401146: Armature|Jump_01 //// Armature|spine_02
+    7401148: Armature|Jump_02 //// Armature|spine_02
+    7401150: Armature|Jump_03 //// Armature|spine_02
+    7401152: Armature|Jump_Fall //// Armature|spine_02
+    7401154: Armature|Jump_Land //// Armature|spine_02
+    7401156: Armature|Run //// Armature|spine_02
+    7401158: Armature|Walk //// Armature|spine_02
+    7401160: Armature|Attack //// Armature|head
+    7401162: Armature|Idle //// Armature|head
+    7401164: Armature|Jog //// Armature|head
+    7401166: Armature|Jump_01 //// Armature|head
+    7401168: Armature|Jump_02 //// Armature|head
+    7401170: Armature|Jump_03 //// Armature|head
+    7401172: Armature|Jump_Fall //// Armature|head
+    7401174: Armature|Jump_Land //// Armature|head
+    7401176: Armature|Run //// Armature|head
+    7401178: Armature|Walk //// Armature|head
+    7401180: Armature|Attack //// Armature|shoulder_left
+    7401182: Armature|Idle //// Armature|shoulder_left
+    7401184: Armature|Jog //// Armature|shoulder_left
+    7401186: Armature|Jump_01 //// Armature|shoulder_left
+    7401188: Armature|Jump_02 //// Armature|shoulder_left
+    7401190: Armature|Jump_03 //// Armature|shoulder_left
+    7401192: Armature|Jump_Fall //// Armature|shoulder_left
+    7401194: Armature|Jump_Land //// Armature|shoulder_left
+    7401196: Armature|Run //// Armature|shoulder_left
+    7401198: Armature|Walk //// Armature|shoulder_left
+    7401200: Armature|Attack //// Armature|arm_left_01
+    7401202: Armature|Idle //// Armature|arm_left_01
+    7401204: Armature|Jog //// Armature|arm_left_01
+    7401206: Armature|Jump_01 //// Armature|arm_left_01
+    7401208: Armature|Jump_02 //// Armature|arm_left_01
+    7401210: Armature|Jump_03 //// Armature|arm_left_01
+    7401212: Armature|Jump_Fall //// Armature|arm_left_01
+    7401214: Armature|Jump_Land //// Armature|arm_left_01
+    7401216: Armature|Run //// Armature|arm_left_01
+    7401218: Armature|Walk //// Armature|arm_left_01
+    7401220: Armature|Attack //// Armature|arm_left_02
+    7401222: Armature|Idle //// Armature|arm_left_02
+    7401224: Armature|Jog //// Armature|arm_left_02
+    7401226: Armature|Jump_01 //// Armature|arm_left_02
+    7401228: Armature|Jump_02 //// Armature|arm_left_02
+    7401230: Armature|Jump_03 //// Armature|arm_left_02
+    7401232: Armature|Jump_Fall //// Armature|arm_left_02
+    7401234: Armature|Jump_Land //// Armature|arm_left_02
+    7401236: Armature|Run //// Armature|arm_left_02
+    7401238: Armature|Walk //// Armature|arm_left_02
+    7401240: Armature|Attack //// Armature|shoulder_right
+    7401242: Armature|Idle //// Armature|shoulder_right
+    7401244: Armature|Jog //// Armature|shoulder_right
+    7401246: Armature|Jump_01 //// Armature|shoulder_right
+    7401248: Armature|Jump_02 //// Armature|shoulder_right
+    7401250: Armature|Jump_03 //// Armature|shoulder_right
+    7401252: Armature|Jump_Fall //// Armature|shoulder_right
+    7401254: Armature|Jump_Land //// Armature|shoulder_right
+    7401256: Armature|Run //// Armature|shoulder_right
+    7401258: Armature|Walk //// Armature|shoulder_right
+    7401260: Armature|Attack //// Armature|arm_right_01
+    7401262: Armature|Idle //// Armature|arm_right_01
+    7401264: Armature|Jog //// Armature|arm_right_01
+    7401266: Armature|Jump_01 //// Armature|arm_right_01
+    7401268: Armature|Jump_02 //// Armature|arm_right_01
+    7401270: Armature|Jump_03 //// Armature|arm_right_01
+    7401272: Armature|Jump_Fall //// Armature|arm_right_01
+    7401274: Armature|Jump_Land //// Armature|arm_right_01
+    7401276: Armature|Run //// Armature|arm_right_01
+    7401278: Armature|Walk //// Armature|arm_right_01
+    7401280: Armature|Attack //// Armature|arm_right_02
+    7401282: Armature|Idle //// Armature|arm_right_02
+    7401284: Armature|Jog //// Armature|arm_right_02
+    7401286: Armature|Jump_01 //// Armature|arm_right_02
+    7401288: Armature|Jump_02 //// Armature|arm_right_02
+    7401290: Armature|Jump_03 //// Armature|arm_right_02
+    7401292: Armature|Jump_Fall //// Armature|arm_right_02
+    7401294: Armature|Jump_Land //// Armature|arm_right_02
+    7401296: Armature|Run //// Armature|arm_right_02
+    7401298: Armature|Walk //// Armature|arm_right_02
+    7401300: Armature|Attack //// Armature|leg_left
+    7401302: Armature|Idle //// Armature|leg_left
+    7401304: Armature|Jog //// Armature|leg_left
+    7401306: Armature|Jump_01 //// Armature|leg_left
+    7401308: Armature|Jump_02 //// Armature|leg_left
+    7401310: Armature|Jump_03 //// Armature|leg_left
+    7401312: Armature|Jump_Fall //// Armature|leg_left
+    7401314: Armature|Jump_Land //// Armature|leg_left
+    7401316: Armature|Run //// Armature|leg_left
+    7401318: Armature|Walk //// Armature|leg_left
+    7401320: Armature|Attack //// Armature|leg_right
+    7401322: Armature|Idle //// Armature|leg_right
+    7401324: Armature|Jog //// Armature|leg_right
+    7401326: Armature|Jump_01 //// Armature|leg_right
+    7401328: Armature|Jump_02 //// Armature|leg_right
+    7401330: Armature|Jump_03 //// Armature|leg_right
+    7401332: Armature|Jump_Fall //// Armature|leg_right
+    7401334: Armature|Jump_Land //// Armature|leg_right
+    7401336: Armature|Run //// Armature|leg_right
+    7401338: Armature|Walk //// Armature|leg_right
+    7401340: Armature|Attack //// Armature|head
+    7401342: Armature|Idle //// Armature|head
+    7401344: Armature|Jog //// Armature|head
+    7401346: Armature|Jump_01 //// Armature|head
+    7401348: Armature|Jump_02 //// Armature|head
+    7401350: Armature|Jump_03 //// Armature|head
+    7401352: Armature|Jump_Fall //// Armature|head
+    7401354: Armature|Jump_Land //// Armature|head
+    7401356: Armature|Run //// Armature|head
+    7401358: Armature|Walk //// Armature|head
+    7401360: Armature|Attack //// Armature|arm_left_02
+    7401362: Armature|Idle //// Armature|arm_left_02
+    7401364: Armature|Jog //// Armature|arm_left_02
+    7401366: Armature|Jump_01 //// Armature|arm_left_02
+    7401368: Armature|Jump_02 //// Armature|arm_left_02
+    7401370: Armature|Jump_03 //// Armature|arm_left_02
+    7401372: Armature|Jump_Fall //// Armature|arm_left_02
+    7401374: Armature|Jump_Land //// Armature|arm_left_02
+    7401376: Armature|Run //// Armature|arm_left_02
+    7401378: Armature|Walk //// Armature|arm_left_02
+    7401380: Armature|Attack //// Armature|arm_right_02
+    7401382: Armature|Idle //// Armature|arm_right_02
+    7401384: Armature|Jog //// Armature|arm_right_02
+    7401386: Armature|Jump_01 //// Armature|arm_right_02
+    7401388: Armature|Jump_02 //// Armature|arm_right_02
+    7401390: Armature|Jump_03 //// Armature|arm_right_02
+    7401392: Armature|Jump_Fall //// Armature|arm_right_02
+    7401394: Armature|Jump_Land //// Armature|arm_right_02
+    7401396: Armature|Run //// Armature|arm_right_02
+    7401398: Armature|Walk //// Armature|arm_right_02
+    7401400: Armature|Attack //// Armature|leg_left
+    7401402: Armature|Idle //// Armature|leg_left
+    7401404: Armature|Jog //// Armature|leg_left
+    7401406: Armature|Jump_01 //// Armature|leg_left
+    7401408: Armature|Jump_02 //// Armature|leg_left
+    7401410: Armature|Jump_03 //// Armature|leg_left
+    7401412: Armature|Jump_Fall //// Armature|leg_left
+    7401414: Armature|Jump_Land //// Armature|leg_left
+    7401416: Armature|Run //// Armature|leg_left
+    7401418: Armature|Walk //// Armature|leg_left
+    7401420: Armature|Attack //// Armature|leg_right
+    7401422: Armature|Idle //// Armature|leg_right
+    7401424: Armature|Jog //// Armature|leg_right
+    7401426: Armature|Jump_01 //// Armature|leg_right
+    7401428: Armature|Jump_02 //// Armature|leg_right
+    7401430: Armature|Jump_03 //// Armature|leg_right
+    7401432: Armature|Jump_Fall //// Armature|leg_right
+    7401434: Armature|Jump_Land //// Armature|leg_right
+    7401436: Armature|Run //// Armature|leg_right
+    7401438: Armature|Walk //// Armature|leg_right
+    7401440: Armature|Attack //// Armature|root
+    7401442: Armature|Idle //// Armature|root
+    7401444: Armature|Jog //// Armature|root
+    7401446: Armature|Jump_01 //// Armature|root
+    7401448: Armature|Jump_02 //// Armature|root
+    7401450: Armature|Jump_03 //// Armature|root
+    7401452: Armature|Jump_Fall //// Armature|root
+    7401454: Armature|Jump_Land //// Armature|root
+    7401456: Armature|Run //// Armature|root
+    7401458: Armature|Walk //// Armature|root
+    7401460: Armature|Attack //// Armature|spine_01
+    7401462: Armature|Idle //// Armature|spine_01
+    7401464: Armature|Jog //// Armature|spine_01
+    7401466: Armature|Jump_01 //// Armature|spine_01
+    7401468: Armature|Jump_02 //// Armature|spine_01
+    7401470: Armature|Jump_03 //// Armature|spine_01
+    7401472: Armature|Jump_Fall //// Armature|spine_01
+    7401474: Armature|Jump_Land //// Armature|spine_01
+    7401476: Armature|Run //// Armature|spine_01
+    7401478: Armature|Walk //// Armature|spine_01
+    7401480: Armature|Attack //// Armature|spine_02
+    7401482: Armature|Idle //// Armature|spine_02
+    7401484: Armature|Jog //// Armature|spine_02
+    7401486: Armature|Jump_01 //// Armature|spine_02
+    7401488: Armature|Jump_02 //// Armature|spine_02
+    7401490: Armature|Jump_03 //// Armature|spine_02
+    7401492: Armature|Jump_Fall //// Armature|spine_02
+    7401494: Armature|Jump_Land //// Armature|spine_02
+    7401496: Armature|Run //// Armature|spine_02
+    7401498: Armature|Walk //// Armature|spine_02
+    7401500: Armature|Attack //// Armature|head
+    7401502: Armature|Idle //// Armature|head
+    7401504: Armature|Jog //// Armature|head
+    7401506: Armature|Jump_01 //// Armature|head
+    7401508: Armature|Jump_02 //// Armature|head
+    7401510: Armature|Jump_03 //// Armature|head
+    7401512: Armature|Jump_Fall //// Armature|head
+    7401514: Armature|Jump_Land //// Armature|head
+    7401516: Armature|Run //// Armature|head
+    7401518: Armature|Walk //// Armature|head
+    7401520: Armature|Attack //// Armature|shoulder_left
+    7401522: Armature|Idle //// Armature|shoulder_left
+    7401524: Armature|Jog //// Armature|shoulder_left
+    7401526: Armature|Jump_01 //// Armature|shoulder_left
+    7401528: Armature|Jump_02 //// Armature|shoulder_left
+    7401530: Armature|Jump_03 //// Armature|shoulder_left
+    7401532: Armature|Jump_Fall //// Armature|shoulder_left
+    7401534: Armature|Jump_Land //// Armature|shoulder_left
+    7401536: Armature|Run //// Armature|shoulder_left
+    7401538: Armature|Walk //// Armature|shoulder_left
+    7401540: Armature|Attack //// Armature|arm_left_01
+    7401542: Armature|Idle //// Armature|arm_left_01
+    7401544: Armature|Jog //// Armature|arm_left_01
+    7401546: Armature|Jump_01 //// Armature|arm_left_01
+    7401548: Armature|Jump_02 //// Armature|arm_left_01
+    7401550: Armature|Jump_03 //// Armature|arm_left_01
+    7401552: Armature|Jump_Fall //// Armature|arm_left_01
+    7401554: Armature|Jump_Land //// Armature|arm_left_01
+    7401556: Armature|Run //// Armature|arm_left_01
+    7401558: Armature|Walk //// Armature|arm_left_01
+    7401560: Armature|Attack //// Armature|arm_left_02
+    7401562: Armature|Idle //// Armature|arm_left_02
+    7401564: Armature|Jog //// Armature|arm_left_02
+    7401566: Armature|Jump_01 //// Armature|arm_left_02
+    7401568: Armature|Jump_02 //// Armature|arm_left_02
+    7401570: Armature|Jump_03 //// Armature|arm_left_02
+    7401572: Armature|Jump_Fall //// Armature|arm_left_02
+    7401574: Armature|Jump_Land //// Armature|arm_left_02
+    7401576: Armature|Run //// Armature|arm_left_02
+    7401578: Armature|Walk //// Armature|arm_left_02
+    7401580: Armature|Attack //// Armature|shoulder_right
+    7401582: Armature|Idle //// Armature|shoulder_right
+    7401584: Armature|Jog //// Armature|shoulder_right
+    7401586: Armature|Jump_01 //// Armature|shoulder_right
+    7401588: Armature|Jump_02 //// Armature|shoulder_right
+    7401590: Armature|Jump_03 //// Armature|shoulder_right
+    7401592: Armature|Jump_Fall //// Armature|shoulder_right
+    7401594: Armature|Jump_Land //// Armature|shoulder_right
+    7401596: Armature|Run //// Armature|shoulder_right
+    7401598: Armature|Walk //// Armature|shoulder_right
+    7401600: Armature|Attack //// Armature|arm_right_01
+    7401602: Armature|Idle //// Armature|arm_right_01
+    7401604: Armature|Jog //// Armature|arm_right_01
+    7401606: Armature|Jump_01 //// Armature|arm_right_01
+    7401608: Armature|Jump_02 //// Armature|arm_right_01
+    7401610: Armature|Jump_03 //// Armature|arm_right_01
+    7401612: Armature|Jump_Fall //// Armature|arm_right_01
+    7401614: Armature|Jump_Land //// Armature|arm_right_01
+    7401616: Armature|Run //// Armature|arm_right_01
+    7401618: Armature|Walk //// Armature|arm_right_01
+    7401620: Armature|Attack //// Armature|arm_right_02
+    7401622: Armature|Idle //// Armature|arm_right_02
+    7401624: Armature|Jog //// Armature|arm_right_02
+    7401626: Armature|Jump_01 //// Armature|arm_right_02
+    7401628: Armature|Jump_02 //// Armature|arm_right_02
+    7401630: Armature|Jump_03 //// Armature|arm_right_02
+    7401632: Armature|Jump_Fall //// Armature|arm_right_02
+    7401634: Armature|Jump_Land //// Armature|arm_right_02
+    7401636: Armature|Run //// Armature|arm_right_02
+    7401638: Armature|Walk //// Armature|arm_right_02
+    7401640: Armature|Attack //// Armature|leg_left
+    7401642: Armature|Idle //// Armature|leg_left
+    7401644: Armature|Jog //// Armature|leg_left
+    7401646: Armature|Jump_01 //// Armature|leg_left
+    7401648: Armature|Jump_02 //// Armature|leg_left
+    7401650: Armature|Jump_03 //// Armature|leg_left
+    7401652: Armature|Jump_Fall //// Armature|leg_left
+    7401654: Armature|Jump_Land //// Armature|leg_left
+    7401656: Armature|Run //// Armature|leg_left
+    7401658: Armature|Walk //// Armature|leg_left
+    7401660: Armature|Attack //// Armature|leg_right
+    7401662: Armature|Idle //// Armature|leg_right
+    7401664: Armature|Jog //// Armature|leg_right
+    7401666: Armature|Jump_01 //// Armature|leg_right
+    7401668: Armature|Jump_02 //// Armature|leg_right
+    7401670: Armature|Jump_03 //// Armature|leg_right
+    7401672: Armature|Jump_Fall //// Armature|leg_right
+    7401674: Armature|Jump_Land //// Armature|leg_right
+    7401676: Armature|Run //// Armature|leg_right
+    7401678: Armature|Walk //// Armature|leg_right
+    7401680: Armature|Attack //// Armature|spine_01
+    7401682: Armature|Idle //// Armature|spine_01
+    7401684: Armature|Jog //// Armature|spine_01
+    7401686: Armature|Jump_01 //// Armature|spine_01
+    7401688: Armature|Jump_02 //// Armature|spine_01
+    7401690: Armature|Jump_03 //// Armature|spine_01
+    7401692: Armature|Jump_Fall //// Armature|spine_01
+    7401694: Armature|Jump_Land //// Armature|spine_01
+    7401696: Armature|Run //// Armature|spine_01
+    7401698: Armature|Walk //// Armature|spine_01
+    7401700: Armature|Attack //// Armature|spine_02
+    7401702: Armature|Idle //// Armature|spine_02
+    7401704: Armature|Jog //// Armature|spine_02
+    7401706: Armature|Jump_01 //// Armature|spine_02
+    7401708: Armature|Jump_02 //// Armature|spine_02
+    7401710: Armature|Jump_03 //// Armature|spine_02
+    7401712: Armature|Jump_Fall //// Armature|spine_02
+    7401714: Armature|Jump_Land //// Armature|spine_02
+    7401716: Armature|Run //// Armature|spine_02
+    7401718: Armature|Walk //// Armature|spine_02
+    7401720: Armature|Attack //// Armature|head
+    7401722: Armature|Idle //// Armature|head
+    7401724: Armature|Jog //// Armature|head
+    7401726: Armature|Jump_01 //// Armature|head
+    7401728: Armature|Jump_02 //// Armature|head
+    7401730: Armature|Jump_03 //// Armature|head
+    7401732: Armature|Jump_Fall //// Armature|head
+    7401734: Armature|Jump_Land //// Armature|head
+    7401736: Armature|Run //// Armature|head
+    7401738: Armature|Walk //// Armature|head
+    7401740: Armature|Attack //// Armature|shoulder_left
+    7401742: Armature|Idle //// Armature|shoulder_left
+    7401744: Armature|Jog //// Armature|shoulder_left
+    7401746: Armature|Jump_01 //// Armature|shoulder_left
+    7401748: Armature|Jump_02 //// Armature|shoulder_left
+    7401750: Armature|Jump_03 //// Armature|shoulder_left
+    7401752: Armature|Jump_Fall //// Armature|shoulder_left
+    7401754: Armature|Jump_Land //// Armature|shoulder_left
+    7401756: Armature|Run //// Armature|shoulder_left
+    7401758: Armature|Walk //// Armature|shoulder_left
+    7401760: Armature|Attack //// Armature|arm_left_01
+    7401762: Armature|Idle //// Armature|arm_left_01
+    7401764: Armature|Jog //// Armature|arm_left_01
+    7401766: Armature|Jump_01 //// Armature|arm_left_01
+    7401768: Armature|Jump_02 //// Armature|arm_left_01
+    7401770: Armature|Jump_03 //// Armature|arm_left_01
+    7401772: Armature|Jump_Fall //// Armature|arm_left_01
+    7401774: Armature|Jump_Land //// Armature|arm_left_01
+    7401776: Armature|Run //// Armature|arm_left_01
+    7401778: Armature|Walk //// Armature|arm_left_01
+    7401780: Armature|Attack //// Armature|arm_left_02
+    7401782: Armature|Idle //// Armature|arm_left_02
+    7401784: Armature|Jog //// Armature|arm_left_02
+    7401786: Armature|Jump_01 //// Armature|arm_left_02
+    7401788: Armature|Jump_02 //// Armature|arm_left_02
+    7401790: Armature|Jump_03 //// Armature|arm_left_02
+    7401792: Armature|Jump_Fall //// Armature|arm_left_02
+    7401794: Armature|Jump_Land //// Armature|arm_left_02
+    7401796: Armature|Run //// Armature|arm_left_02
+    7401798: Armature|Walk //// Armature|arm_left_02
+    7401800: Armature|Attack //// Armature|shoulder_right
+    7401802: Armature|Idle //// Armature|shoulder_right
+    7401804: Armature|Jog //// Armature|shoulder_right
+    7401806: Armature|Jump_01 //// Armature|shoulder_right
+    7401808: Armature|Jump_02 //// Armature|shoulder_right
+    7401810: Armature|Jump_03 //// Armature|shoulder_right
+    7401812: Armature|Jump_Fall //// Armature|shoulder_right
+    7401814: Armature|Jump_Land //// Armature|shoulder_right
+    7401816: Armature|Run //// Armature|shoulder_right
+    7401818: Armature|Walk //// Armature|shoulder_right
+    7401820: Armature|Attack //// Armature|arm_right_01
+    7401822: Armature|Idle //// Armature|arm_right_01
+    7401824: Armature|Jog //// Armature|arm_right_01
+    7401826: Armature|Jump_01 //// Armature|arm_right_01
+    7401828: Armature|Jump_02 //// Armature|arm_right_01
+    7401830: Armature|Jump_03 //// Armature|arm_right_01
+    7401832: Armature|Jump_Fall //// Armature|arm_right_01
+    7401834: Armature|Jump_Land //// Armature|arm_right_01
+    7401836: Armature|Run //// Armature|arm_right_01
+    7401838: Armature|Walk //// Armature|arm_right_01
+    7401840: Armature|Attack //// Armature|arm_right_02
+    7401842: Armature|Idle //// Armature|arm_right_02
+    7401844: Armature|Jog //// Armature|arm_right_02
+    7401846: Armature|Jump_01 //// Armature|arm_right_02
+    7401848: Armature|Jump_02 //// Armature|arm_right_02
+    7401850: Armature|Jump_03 //// Armature|arm_right_02
+    7401852: Armature|Jump_Fall //// Armature|arm_right_02
+    7401854: Armature|Jump_Land //// Armature|arm_right_02
+    7401856: Armature|Run //// Armature|arm_right_02
+    7401858: Armature|Walk //// Armature|arm_right_02
+    7401860: Armature|Attack //// Armature|leg_left
+    7401862: Armature|Idle //// Armature|leg_left
+    7401864: Armature|Jog //// Armature|leg_left
+    7401866: Armature|Jump_01 //// Armature|leg_left
+    7401868: Armature|Jump_02 //// Armature|leg_left
+    7401870: Armature|Jump_03 //// Armature|leg_left
+    7401872: Armature|Jump_Fall //// Armature|leg_left
+    7401874: Armature|Jump_Land //// Armature|leg_left
+    7401876: Armature|Run //// Armature|leg_left
+    7401878: Armature|Walk //// Armature|leg_left
+    7401880: Armature|Attack //// Armature|leg_right
+    7401882: Armature|Idle //// Armature|leg_right
+    7401884: Armature|Jog //// Armature|leg_right
+    7401886: Armature|Jump_01 //// Armature|leg_right
+    7401888: Armature|Jump_02 //// Armature|leg_right
+    7401890: Armature|Jump_03 //// Armature|leg_right
+    7401892: Armature|Jump_Fall //// Armature|leg_right
+    7401894: Armature|Jump_Land //// Armature|leg_right
+    7401896: Armature|Run //// Armature|leg_right
+    7401898: Armature|Walk //// Armature|leg_right
+    7401900: Armature|Attack //// Armature|spine_01
+    7401902: Armature|Idle //// Armature|spine_01
+    7401904: Armature|Jog //// Armature|spine_01
+    7401906: Armature|Jump_01 //// Armature|spine_01
+    7401908: Armature|Jump_02 //// Armature|spine_01
+    7401910: Armature|Jump_03 //// Armature|spine_01
+    7401912: Armature|Jump_Fall //// Armature|spine_01
+    7401914: Armature|Jump_Land //// Armature|spine_01
+    7401916: Armature|Run //// Armature|spine_01
+    7401918: Armature|Walk //// Armature|spine_01
+    7401920: Armature|Attack //// Armature|head
+    7401922: Armature|Idle //// Armature|head
+    7401924: Armature|Jog //// Armature|head
+    7401926: Armature|Jump_01 //// Armature|head
+    7401928: Armature|Jump_02 //// Armature|head
+    7401930: Armature|Jump_03 //// Armature|head
+    7401932: Armature|Jump_Fall //// Armature|head
+    7401934: Armature|Jump_Land //// Armature|head
+    7401936: Armature|Run //// Armature|head
+    7401938: Armature|Walk //// Armature|head
+    7401940: Armature|Attack //// Armature|shoulder_left
+    7401942: Armature|Idle //// Armature|shoulder_left
+    7401944: Armature|Jog //// Armature|shoulder_left
+    7401946: Armature|Jump_01 //// Armature|shoulder_left
+    7401948: Armature|Jump_02 //// Armature|shoulder_left
+    7401950: Armature|Jump_03 //// Armature|shoulder_left
+    7401952: Armature|Jump_Fall //// Armature|shoulder_left
+    7401954: Armature|Jump_Land //// Armature|shoulder_left
+    7401956: Armature|Run //// Armature|shoulder_left
+    7401958: Armature|Walk //// Armature|shoulder_left
+    7401960: Armature|Attack //// Armature|arm_left_01
+    7401962: Armature|Idle //// Armature|arm_left_01
+    7401964: Armature|Jog //// Armature|arm_left_01
+    7401966: Armature|Jump_01 //// Armature|arm_left_01
+    7401968: Armature|Jump_02 //// Armature|arm_left_01
+    7401970: Armature|Jump_03 //// Armature|arm_left_01
+    7401972: Armature|Jump_Fall //// Armature|arm_left_01
+    7401974: Armature|Jump_Land //// Armature|arm_left_01
+    7401976: Armature|Run //// Armature|arm_left_01
+    7401978: Armature|Walk //// Armature|arm_left_01
+    7401980: Armature|Attack //// Armature|arm_left_02
+    7401982: Armature|Idle //// Armature|arm_left_02
+    7401984: Armature|Jog //// Armature|arm_left_02
+    7401986: Armature|Jump_01 //// Armature|arm_left_02
+    7401988: Armature|Jump_02 //// Armature|arm_left_02
+    7401990: Armature|Jump_03 //// Armature|arm_left_02
+    7401992: Armature|Jump_Fall //// Armature|arm_left_02
+    7401994: Armature|Jump_Land //// Armature|arm_left_02
+    7401996: Armature|Run //// Armature|arm_left_02
+    7401998: Armature|Walk //// Armature|arm_left_02
+    7402000: Armature|Attack //// Armature|shoulder_right
+    7402002: Armature|Idle //// Armature|shoulder_right
+    7402004: Armature|Jog //// Armature|shoulder_right
+    7402006: Armature|Jump_01 //// Armature|shoulder_right
+    7402008: Armature|Jump_02 //// Armature|shoulder_right
+    7402010: Armature|Jump_03 //// Armature|shoulder_right
+    7402012: Armature|Jump_Fall //// Armature|shoulder_right
+    7402014: Armature|Jump_Land //// Armature|shoulder_right
+    7402016: Armature|Run //// Armature|shoulder_right
+    7402018: Armature|Walk //// Armature|shoulder_right
+    7402020: Armature|Attack //// Armature|arm_right_02
+    7402022: Armature|Idle //// Armature|arm_right_02
+    7402024: Armature|Jog //// Armature|arm_right_02
+    7402026: Armature|Jump_01 //// Armature|arm_right_02
+    7402028: Armature|Jump_02 //// Armature|arm_right_02
+    7402030: Armature|Jump_03 //// Armature|arm_right_02
+    7402032: Armature|Jump_Fall //// Armature|arm_right_02
+    7402034: Armature|Jump_Land //// Armature|arm_right_02
+    7402036: Armature|Run //// Armature|arm_right_02
+    7402038: Armature|Walk //// Armature|arm_right_02
+    7402040: Armature|Attack //// Armature|leg_left
+    7402042: Armature|Idle //// Armature|leg_left
+    7402044: Armature|Jog //// Armature|leg_left
+    7402046: Armature|Jump_01 //// Armature|leg_left
+    7402048: Armature|Jump_02 //// Armature|leg_left
+    7402050: Armature|Jump_03 //// Armature|leg_left
+    7402052: Armature|Jump_Fall //// Armature|leg_left
+    7402054: Armature|Jump_Land //// Armature|leg_left
+    7402056: Armature|Run //// Armature|leg_left
+    7402058: Armature|Walk //// Armature|leg_left
+    7402060: Armature|Attack //// Armature|leg_right
+    7402062: Armature|Idle //// Armature|leg_right
+    7402064: Armature|Jog //// Armature|leg_right
+    7402066: Armature|Jump_01 //// Armature|leg_right
+    7402068: Armature|Jump_02 //// Armature|leg_right
+    7402070: Armature|Jump_03 //// Armature|leg_right
+    7402072: Armature|Jump_Fall //// Armature|leg_right
+    7402074: Armature|Jump_Land //// Armature|leg_right
+    7402076: Armature|Run //// Armature|leg_right
+    7402078: Armature|Walk //// Armature|leg_right
+    7402080: Armature|Reset
+    7402082: Armature|Idle_test
+    9500000: //RootNode
+    11100000: //RootNode
+    11100002: Armature
+    11100004: Armature|arm_left_01
+    11100006: Armature|arm_left_02
+    11100008: Armature|arm_right_01
+    11100010: Armature|arm_right_02
+    11100012: Armature|head
+    11100014: Armature|leg_left
+    11100016: Armature|leg_right
+    11100018: Armature|root
+    11100020: Armature|shoulder_left
+    11100022: Armature|shoulder_right
+    11100024: Armature|spine_01
+    11100026: Armature|spine_02
+    11100028: mainCharacter
+    13700000: mainCharacter
+    13700002: Armature|root
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Attack
+      takeName: Armature|Attack
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Jog
+      takeName: Armature|Jog
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Jump_01
+      takeName: Armature|Jump_01
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Jump_02
+      takeName: Armature|Jump_02
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Jump_03
+      takeName: Armature|Jump_03
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Jump_Fall
+      takeName: Armature|Jump_Fall
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Jump_Land
+      takeName: Armature|Jump_Land
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Run
+      takeName: Armature|Run
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Walk
+      takeName: Armature|Walk
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Reset
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Armature|root
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|leg_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_left/Armature|arm_left_01/Armature|arm_left_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|shoulder_right/Armature|arm_right_01/Armature|arm_right_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02
+        weight: 1
+      - path: Armature/Armature|root/Armature|spine_01/Armature|spine_02/Armature|head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: Armature|root
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
