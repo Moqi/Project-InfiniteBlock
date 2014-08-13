@@ -14,171 +14,200 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 */
-
-var skinMeshRenderer				: SkinnedMeshRenderer;							// need skinned mesh renderer to toggle hide/unhide option for player
-var cameraObject					: Camera;										// player camera  (usually main camera)
-var colliderAttack					: GameObject;									// collider for player to attack with
-var colliderHurt					: GameObject;									// collider for player to get hurt
-
-// Harvest Effect
-		var harvestEffect 			: Transform;
-		var lootEffect 				: Transform;
+// Renderable playerObjects
+		var playerBody						: SkinnedMeshRenderer;							// need skinned mesh renderer to toggle hide/unhide option for player
+		var playerFace 						: GameObject;
+		var triangleTop						: GameObject;
+		var useAbleObjects 					: GameObject;
+//////////////////////////////////////////////////////////		
+		var cameraObject					: Camera;										// player camera  (usually main camera)
+		var colliderAttack					: GameObject;									// collider for player to attack with
+		var colliderHurt					: GameObject;									// collider for player to get hurt
+//////////////////////////////////////////////////////////
+// Harvest Effect ////////////////////////////////////////
+		var harvestEffect 					: Transform;
+		var lootEffect 						: Transform;
+		var guitextPoints					: Transform;
 private var layerBreakable;
-private var lastEffectTime 			: float = 0.0;
-		var effectFrequency 		: float = 2.0;
-private var begunHarvesting 		: float = 0.0;
+private var lastEffectTime 					: float = 0.0;
+private var begunHarvesting 				: float = 0.0;
+//////////////////////////////////////////////////////////
+// PlayerEffects /////////////////////////////////////////
+		var effectSleepy					: Transform;
+		
+//////////////////////////////////////////////////////////
+		var canSleep						: boolean			= true;
+		var canWalk							: boolean 			= true;						// enabled walking
+		var canJog							: boolean 			= true;						// enabled jogging
+		var canRun							: boolean 			= true;						// enabled running
+		var canSprint						: boolean 			= true;						// enabled sprint
+		var canBoost						: boolean 			= true;						// enabled boost
+		var canJumpAll						: boolean			= true;						// enabled any jump
+		var canJump_1						: boolean			= true;						// enabled jump 1
+		var canJump_2						: boolean			= true;						// enabled jump 2
+		var canJump_3						: boolean			= true;						// enabled jump 3
+		var canJumpFromAir 					: boolean 			= true;						// enabled jumping from air
+		var canJumpFromCrouch				: boolean			= true;						// enabled jumping from crouch
+		var canJumpFromObject 				: boolean			= true;						// enabled jumping off object
+		var canControlDecent				: boolean			= true;						// enabled controlling decent
+		var canCrouch						: boolean			= true;						// enabled crouching
+		var canCrouchHoldKeyDown			: boolean 			= true;						// enabled crouching while holding key down
+		var canAngleSlide					: boolean 			= true;						// enabled crouching while holding key down
+		var canIdleRotate					: boolean			= true;						// enabled idle turning 
+		var canJumpFromPad					: boolean			= true;						// enable jumping from pads
+		var canFall							: boolean			= true;						// enable falling from jumps
+		var canLand							: boolean			= true;						// enable landing from jumps
+		var canHurt							: boolean			= true;						// enable hurting from enemies
+		var canAttack						: boolean			= true;						// enable attack ability
+		var canKillzone						: boolean			= true;						// enable killzones for player
+		var canGrab							: boolean			= true;						// enable pushable objects for player
+		var canPush							: boolean			= true;						// enable pushable objects for player
+		var autoPush						: boolean			= true;						// enable automatic pushing of objects
+		var keyboardControls 				: boolean 			= false;					// enable keyboard overide for speed control
 
+		var speedAttack						: float				= 1.5;						// speed of attack animation
+		var speedIdleMax					: float 			= 0.2;						// maxium idle speed before moving 
+		var speedIdleRotate					: float 			= 1.2;						// rotate speed on idle turn
+		var speedWalk						: float				= 3.0;						// maximum walking speed
+		var speedJog						: float				= 5.0;						// maximum jogging speed
+		var speedRun						: float				= 8.0;						// maximum running speed
+		var speedSprint						: float				= 12.0;						// maximum sprint speed
+		var speedBoost  					: float   			= 20.0;						// maximum boost speed
+		var speedSlide						: float 			= 3.0;						// maximum sliding speed
+		var speedPush						: float				= 1.5;						// maximum push speed
+		var speedGrab						: float				= 2.0;						// maximum push speed
+		var speedJumpFromCrouch 			: float				= 3.0;						// maximum jump from crouch height
+		var speedJumpFromObject 			: float				= 10.0;						// maximum jump from object height 
+		var speedCrouch						: float 			= 0.0;						// maximum crouching speed
+		var speedInAir						: float				= 1.0;						// var inAirControlAcceleration
+		var speedSmoothing					: float				= 10.0;						// amount to smooth by
+		var speedRotation					: float				= 50.0;						// amount to rotate by
 
-var canWalk							: boolean 			= true;						// enabled walking
-var canJog							: boolean 			= true;						// enabled jogging
-var canRun							: boolean 			= true;						// enabled running
-var canSprint						: boolean 			= true;						// enabled sprint
-var canBoost						: boolean 			= true;						// enabled boost
-var canJumpAll						: boolean			= true;						// enabled any jump
-var canJump_1						: boolean			= true;						// enabled jump 1
-var canJump_2						: boolean			= true;						// enabled jump 2
-var canJump_3						: boolean			= true;						// enabled jump 3
-var canJumpFromAir 					: boolean 			= true;						// enabled jumping from air
-var canJumpFromCrouch				: boolean			= true;						// enabled jumping from crouch
-var canJumpFromObject 				: boolean			= true;						// enabled jumping off object
-var canControlDecent				: boolean			= true;						// enabled controlling decent
-var canCrouch						: boolean			= true;						// enabled crouching
-var canCrouchHoldKeyDown			: boolean 			= true;						// enabled crouching while holding key down
-var canAngleSlide					: boolean 			= true;						// enabled crouching while holding key down
-var canIdleRotate					: boolean			= true;						// enabled idle turning 
-var canJumpFromPad					: boolean			= true;						// enable jumping from pads
-var canFall							: boolean			= true;						// enable falling from jumps
-var canLand							: boolean			= true;						// enable landing from jumps
-var canHurt							: boolean			= true;						// enable hurting from enemies
-var canAttack						: boolean			= true;						// enable attack ability
-var canKillzone						: boolean			= true;						// enable killzones for player
-var canGrab							: boolean			= true;						// enable pushable objects for player
-var canPush							: boolean			= true;						// enable pushable objects for player
-var autoPush						: boolean			= true;						// enable automatic pushing of objects
-var keyboardControls 				: boolean 			= false;					// enable keyboard overide for speed control
+		var currentSpeed					: float 			= 10.0;						// store speed of character (walk, jog, run, sprint)
+		var currentJumpHeight				: float 			= 0.0;						// current height of character
 
-var speedIdleMax					: float 			= 0.2;						// maxium idle speed before moving 
-var speedIdleRotate					: float 			= 1.2;						// rotate speed on idle turn
-var speedWalk						: float				= 3.0;						// maximum walking speed
-var speedJog						: float				= 5.0;						// maximum jogging speed
-var speedRun						: float				= 8.0;						// maximum running speed
-var speedSprint						: float				= 12.0;						// maximum sprint speed
-var speedBoost  					: float   			= 20.0;						// maximum boost speed
-var speedSlide						: float 			= 3.0;						// maximum sliding speed
-var speedPush						: float				= 1.5;						// maximum push speed
-var speedGrab						: float				= 2.0;						// maximum push speed
-var speedJumpFromCrouch 			: float				= 3.0;						// maximum jump from crouch height
-var speedJumpFromObject 			: float				= 10.0;						// maximum jump from object height 
-var speedCrouch						: float 			= 0.0;						// maximum crouching speed
-var speedInAir						: float				= 1.0;						// var inAirControlAcceleration
-var speedSmoothing					: float				= 10.0;						// amount to smooth by
-var speedRotation					: float				= 50.0;						// amount to rotate by
+		var jump_1							: float				= 8.0;						// height for first jump
+		var jump_2							: float				= 10.0;						// height for second jump
+		var jump_3							: float				= 15.0;						// height for third jump
 
-var currentSpeed					: float 			= 10.0;						// store speed of character (walk, jog, run, sprint)
-var currentJumpHeight				: float 			= 0.0;						// current height of character
+		var jumpFromAir 					: float 			= 15.0;						// height for air jumping
+		var jumpFromCrouch					: float 			= 14.0;						// height for jump from crouch
+		var jumpFromObject					: float 			= 8.0;						// height for jump from object
+		var jumpFromObjectTag 				: String 			= "wall";					// tag name of object player can jump from
 
-var jump_1							: float				= 8.0;						// height for first jump
-var jump_2							: float				= 10.0;						// height for second jump
-var jump_3							: float				= 15.0;						// height for third jump
+		var jumpComboTime					: float 			= 1.5;						// combo time between jumps to go to next jump mode (jump 1,2,3)
+		var jumpDelayTime 					: float 			= 0.5;						// time delay amount (currently used in jump 1 to keep animation from skipping to default stance)
 
-var jumpFromAir 					: float 			= 15.0;						// height for air jumping
-var jumpFromCrouch					: float 			= 14.0;						// height for jump from crouch
-var jumpFromObject					: float 			= 8.0;						// height for jump from object
-var jumpFromObjectTag 				: String 			= "wall";					// tag name of object player can jump from
+		var crouchControllerHeight  		: float 			= 1.0;						// value for height of controller box
+		var crouchControllerCenterY 		: float 			= 0.5;						// amount to move controller down 
 
-var jumpComboTime					: float 			= 1.5;						// combo time between jumps to go to next jump mode (jump 1,2,3)
-var jumpDelayTime 					: float 			= 0.5;						// time delay amount (currently used in jump 1 to keep animation from skipping to default stance)
+		var slideTag 						: String			= "slide";					// tag name for any object that player can slide on (you can just set it to slide based on value only
+		var slideThreshold 					: float 			= 0.88;						// amount of angle when slide-able
+		var slideControllableSpeed 			: float 			= 5.0;						// speed where player still has control sliding down
 
-var crouchControllerHeight  		: float 			= 1.0;						// value for height of controller box
-var crouchControllerCenterY 		: float 			= 0.5;						// amount to move controller down 
+		var pushPower 						: float 			= 0.5;						// how hard the player can push
+		var pushLayers  					: LayerMask 		= -1;						// layers for pushing objects
 
-var slideTag 						: String			= "slide";					// tag name for any object that player can slide on (you can just set it to slide based on value only
-var slideThreshold 					: float 			= 0.88;						// amount of angle when slide-able
-var slideControllableSpeed 			: float 			= 5.0;						// speed where player still has control sliding down
+		var gravity							: float				= 20.0;						// gravity (downward pull only, added to vector.y) 
+		var health 							: int				= 100;						// hold health count
 
-var pushPower 						: float 			= 0.5;						// how hard the player can push
-var pushLayers  					: LayerMask 		= -1;						// layers for pushing objects
+		var aniAttack 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniIdle_1 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniIdle_2						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniIdle_3						: AnimationClip;
+		var aniWalk 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJog 							: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniRun 							: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniSprint 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniCrouchIdle					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniLeanLeft						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniLeanRight					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJumpFromCrouch				: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJumpFromObject				: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJump_1 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJump_2 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJump_3 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJumpFall						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniJumpLand						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniSlide 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniGrab		 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniGrabIdle	 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniPush		 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniLand		 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
+		var aniLookingDown					: AnimationClip;
+		var aniSleep 						: AnimationClip;
+		var aniEnterSleep					: AnimationClip;
+		var aniWakeUpFromSleep				: AnimationClip;
 
-var gravity							: float				= 20.0;						// gravity (downward pull only, added to vector.y) 
-var health 							: int				= 100;						// hold health count
+//////////////////////////////////////////////////////////////////
+// Multipliers for changing harvest speed according to material	//	
+private var logPiece_multiplier				: float				= 1.0;
+private var leaf_multiplier					: float				= 1.5;
+private var stone_multiplier				: float				= 0.7;
+private	var copper_multiplier				: float				= 0.5;
+private var silver_multiplier				: float				= 0.5;
+private var gold_multiplier					: float				= 0.3;
+private var legendary_multiplier			: float				= 0.0;
+		
+//////////////////////////////////////////////////////////////////
 
-var aniAttack 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniIdle_1 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniIdle_2						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniWalk 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJog 							: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniRun 							: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniSprint 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniCrouchIdle					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniLeanLeft						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniLeanRight					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJumpFromCrouch				: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJumpFromObject				: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJump_1 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJump_2 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJump_3 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJumpFall						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniJumpLand						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniSlide 						: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniGrab		 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniGrabIdle	 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniPush		 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-var aniLand		 					: AnimationClip;								// animation clip for calling up animations (use this rather than direct call)
-
-var DebugMode						: boolean			= true;						// sets mode to debug and prints messages to console
+		var DebugMode						: boolean			= true;						// sets mode to debug and prints messages to console
 
 @HideInInspector																	// hide characterController in the inspector but keep public - for now
-var characterController 			: CharacterController;							// instance of character controller
+		var characterController 			: CharacterController;							// instance of character controller
 @HideInInspector 
 
-static var moveSpeed				: float 			= 0.0;						// current player moving speed
+static  var moveSpeed						: float 			= 0.0;						// current player moving speed
 
-private var targetSpeed				: float;
-private var moveDirection			: Vector3			= Vector3.zero;				// store initial forward direction of player
-private var inAirVelocity			: Vector3			= Vector3.zero;				// current currentSpeed while in air 
+private var targetSpeed						: float;
+private var moveDirection					: Vector3			= Vector3.zero;				// store initial forward direction of player
+private var inAirVelocity					: Vector3			= Vector3.zero;				// current currentSpeed while in air 
 
-private var smoothDirection			: float 			= 10.0;						// amount to smooth camera catching up to player
-private var jumpRepeatTime			: float				= 0.15;						// amount of time between jumps to make combo happen
-private var jumpFromObjectDelay 	: float				= 0.15;						// delay time so player can't just jump constantly from objects
-private var jumpDelay				: float				= 0.15;						// standard jump delay time
-private var groundedDelay			: float				= 0.15;						// 
-private var cameraTimeDelay			: float				= 0.0;						// delay on camera time (to allow smoother follow after player movement)
-private var sprintLastTime			: float				= 0.0;						// time last sprint happened
-private var speedReset				: float				= 0.0;						// reset speed 
-private var verticalSpeed			: float				= 0.0;						// speed for vertical use
-private var walkTimeStart			: float 			= 0.0;						// store when user started walking to transition to jog
+private var smoothDirection					: float 			= 10.0;						// amount to smooth camera catching up to player
+private var jumpRepeatTime					: float				= 0.15;						// amount of time between jumps to make combo happen
+private var jumpFromObjectDelay 			: float				= 0.15;						// delay time so player can't just jump constantly from objects
+private var jumpDelay						: float				= 0.15;						// standard jump delay time
+private var groundedDelay					: float				= 0.15;						// 
+private var cameraTimeDelay					: float				= 0.0;						// delay on camera time (to allow smoother follow after player movement)
+private var sprintLastTime					: float				= 0.0;						// time last sprint happened
+private var speedReset						: float				= 0.0;						// reset speed 
+private var verticalSpeed					: float				= 0.0;						// speed for vertical use
+private var walkTimeStart					: float 			= 0.0;						// store when user started walking to transition to jog
 
-private var isControllable			: boolean			= true;						// control for all movement (could be public)
-private var isMoving				: boolean			= false; 					// is player pressing any keys
-static  var isCrouching				: boolean 			= false;					// crouching enabled
-private var isJumping_1				: boolean 			= true;						// jumping 1 enabled
-private var isJumping_2 			: boolean 			= false;					// jumping 2 enabled
-private var isJumping_3 			: boolean			= false;					// jumping 3 enabled
-private var isLanding 				: boolean			= false;					// is player landing
-private var isKilled				: boolean			= false;					// killzone for player
-private var curTime					: float 			= 0.0;						// current time 
-private var showPlayer				: boolean   		= true;						// hide / show player toggle
-private var resetCharController		: boolean			= false;					// resets controller for character toggle
-private var objectJumpContactNormal : Vector3;										// average normal of the last touched geometry
-private var touchObjectJumpTime 	: float 			= -1.0;						// when did we touch the wall the first time during this jump (Used for wall jumping)
-private var wallJumpTimeout 		: float 			= 0.5;						// delay time from jumping off walls again
-private var jumpableObject			: boolean			= false;					// toggle for jumping off walls
-private var controllerHeightDefault : float;										// value of controller original height
-private var controllerCenterYDefault: float;										// value of controller original center Y
-private var slideDirection 			: Vector3;										// direction player is sliding
-private var collisionFlags			: CollisionFlags;								// last collision flag returned from control move
-private var coin 					: int 				= 0;						// hold coin count	
-private var key  					: int 				= 0;						// hold key count
-private var jumpingFromPad 			: boolean 			= false;					// disable jumpPad till ready
-private var playerStartPosition		: Vector3;										// value to hold player position at start
-private var playerStartRotation		: Quaternion;									// value to hold player position at start
-private var enemyHit 				: boolean;										// enable enemy hitting player 
-private var enemyHurt				: GameObject;									// health reset to store original health value
-private var resetHealth				: int;											// health reset to store original health value
-private var hitDirection 			: Vector3 			= Vector3(0,10,-2.5);		// hit direction to send player (could make it complicated, but lets not)
-private var pushObject				: Transform 		= null;						// store push game object																
-private var grabObject				: Transform 		= null;						// store grab / pickup / putdown game object																
-private var tempSpeed 				: float 			= 0.0;						// hold current speed
+private var isSleeping 						: boolean			= false;
+private var isWakingUp						: boolean			= false;
+private var isAboutToSleep					: boolean			= false;
+private var isControllable					: boolean			= true;						// control for all movement (could be public)
+private var isMoving						: boolean			= false; 					// is player pressing any keys
+static  var isCrouching						: boolean 			= false;					// crouching enabled
+private var isJumping_1						: boolean 			= true;						// jumping 1 enabled
+private var isJumping_2 					: boolean 			= false;					// jumping 2 enabled
+private var isJumping_3 					: boolean			= false;					// jumping 3 enabled
+private var isLanding 						: boolean			= false;					// is player landing
+private var isKilled						: boolean			= false;					// killzone for player
+private var curTime							: float 			= 0.0;						// current time 
+private var showPlayer						: boolean   		= true;						// hide / show player toggle
+private var resetCharController				: boolean			= false;					// resets controller for character toggle
+private var objectJumpContactNormal 		: Vector3;										// average normal of the last touched geometry
+private var touchObjectJumpTime 			: float 			= -1.0;						// when did we touch the wall the first time during this jump (Used for wall jumping)
+private var wallJumpTimeout 				: float 			= 0.5;						// delay time from jumping off walls again
+private var jumpableObject					: boolean			= false;					// toggle for jumping off walls
+private var controllerHeightDefault 		: float;										// value of controller original height
+private var controllerCenterYDefault		: float;										// value of controller original center Y
+private var slideDirection 					: Vector3;										// direction player is sliding
+private var collisionFlags					: CollisionFlags;								// last collision flag returned from control move
+private var coin 							: int 				= 0;						// hold coin count	
+private var key  							: int 				= 0;						// hold key count
+private var jumpingFromPad 					: boolean 			= false;					// disable jumpPad till ready
+private var playerStartPosition				: Vector3;										// value to hold player position at start
+private var playerStartRotation				: Quaternion;									// value to hold player position at start
+private var enemyHit 						: boolean;										// enable enemy hitting player 
+private var enemyHurt						: GameObject;									// health reset to store original health value
+private var resetHealth						: int;											// health reset to store original health value
+private var hitDirection 					: Vector3 			= Vector3(0,10,-2.5);		// hit direction to send player (could make it complicated, but lets not)
+private var pushObject						: Transform 		= null;						// store push game object																
+private var grabObject						: Transform 		= null;						// store grab / pickup / putdown game object																
+private var tempSpeed 						: float 			= 0.0;						// hold current speed
 
 // Base Colors
 private var green					= new Color(151/255.0F, 232/255.0F, 67/255.0F, 0/255.0F);	// light  green
@@ -268,6 +297,9 @@ function UpdateMoveDirection 	() 													// motor, ani, and direction of pl
 		Hurt			();															// check for player getting hit by enemy
 		
 		Harvest			();															// check for player being able to harvest 
+		EnterSleep 		();
+		Sleep 			();
+		WakingUp 		();
 		
 		Attack			();															// check for player attacking with feet collider
 		Grab 			();															// check for player grabbing gameObject tagged grab
@@ -317,21 +349,116 @@ function Update 				() 													// loop for controller
 			transform.rotation = Quaternion.LookRotation ( moveDirection );			// quick adjustment for jumping off wall, turn player around in air
 		}
 	}
-	
+
 	ExampleShowHidePlayer ();														// example usage of show/hide functions	
+}
+
+
+///////////////////////////////////
+function EnterSleep 			 ()
+{
+	if ( Input.GetKeyDown ( KeyCode.Z ) )
+	{
+		isAboutToSleep 	= true;
+	}
+	if ( isAboutToSleep == true )
+	{
+		isControllable 	= false;
+		animation[ aniEnterSleep.name ].wrapMode = WrapMode.Once;
+		animation.CrossFade ( aniEnterSleep.name, 0.3f );								
+		Message ( "Ani State: Is about to sleep" );	
+		script_playerFaceEyes.isEyesSleeping 	= true;
+		script_playerFaceMouth.isMouthSleeping 	= true;
+		// Wait for the animation to finish, then...	
+		yield WaitForSeconds ( aniEnterSleep.length - 0.5 );
+		
+		isControllable 	= true;
+		canSleep 		= true;
+		Sleep ();
+		isAboutToSleep = false;
+	}
+			
+}
+
+///////////////////////////////////
+function Sleep 					 ()
+{
+	if ( canSleep )
+	{	
+		if ( Input.anyKeyDown )
+		{
+			canSleep 	= false;
+			isWakingUp 	= true;
+			isControllable = false;
+		}
+	
+		if ( moveSpeed <= speedIdleMax && !isCrouching && !Input.anyKey )
+		{	
+			animation[ aniSleep.name ].wrapMode = WrapMode.Loop;
+			animation.CrossFade ( aniSleep.name, 0.3f );								
+			Message ( "Ani State: Sleeping" );
+			script_playerFaceEyes.isEyesSleeping 	= true;
+			script_playerFaceMouth.isMouthSleeping 	= true;
+			effectSleepy.active 					= true;
+		}
+		else 
+		{
+			script_playerFaceEyes.isEyesSleeping 	= false;
+			script_playerFaceMouth.isMouthSleeping 	= false;
+			effectSleepy.active = false;
+		}		
+	}
+}
+
+//////////////////////////////////
+function WakingUp 				()
+{
+	if ( !canSleep )
+	{	
+		if ( isWakingUp )
+		{
+				animation[ aniWakeUpFromSleep.name ].wrapMode = WrapMode.Once;
+				animation.CrossFade ( aniWakeUpFromSleep.name, 0.3f );								
+				Message ( "Ani State: Waking up" );	
+				script_playerFaceEyes.isEyesSuspicious 		= true;
+				script_playerFaceMouth.isMouthSuspicious 	= true;
+				
+			// Disable feet to avoid particle effect while sitting down.
+				var allChildren 	= this.gameObject.GetComponentsInChildren(Transform);
+ 				for ( var child : Transform in allChildren )
+ 				{	
+ 					if ( child.name == "foot_left_collider" )	{	child.transform.collider.enabled = false;	}
+ 					if ( child.name == "foot_right_collider" )	{	child.transform.collider.enabled = false;	}
+				}
+			// Wait for the animation to finish, then...	
+			yield WaitForSeconds ( aniWakeUpFromSleep.length - 0.5 );
+			
+				animation.Stop ( aniWakeUpFromSleep.name );
+				isWakingUp 			= false;
+				isControllable 		= true;
+				
+				for ( var child : Transform in allChildren )
+ 				{	
+ 					if ( child.name == "foot_left_collider" )	{	child.transform.collider.enabled = true;	}
+ 					if ( child.name == "foot_right_collider" )	{	child.transform.collider.enabled = true;	}
+				}	
+		}	
+	}
 }
 
 //////////////////////////////////
 function Idle 					() 													// idles player
 {												
-	if ( moveSpeed <= speedIdleMax && !isCrouching )//|| !Input.anyKey )								// check that speed is 0 for idle range
-	{
+	if ( moveSpeed <= speedIdleMax && !isCrouching && !isWakingUp )								// check that speed is 0 for idle range
+	{		
 		animation[ aniIdle_1.name ].wrapMode = WrapMode.Loop;
-		
-		animation.CrossFade ( aniIdle_1.name, 0.3f );										// play animation
-		Message ( "Ani State: Idle" );												// print current animation state
+		animation.CrossFade ( aniIdle_1.name, 0.3f );										
+		Message ( "Ani State: Idle_01" );								
+		script_playerFaceEyes.isEyesIdle 		= true;
+		script_playerFaceMouth.isMouthIdle 		= true;									
 	}
 }
+
 
 //////////////////////////////////
 function Walk 					() 													// walks player
@@ -514,7 +641,9 @@ function JumpFromAir 			()
 			if ( !IsGrounded () )
 			{
 				if ( Input.GetButtonDown ( "Jump" ) )
-				{
+				{	
+					script_playerFaceEyes.isEyesSurprised 	= true;
+					script_playerFaceMouth.isMouthSurprised = true;
 					currentJumpHeight = jumpFromAir;
 					inAirVelocity.y = jumpFromAir;
 				} 
@@ -526,25 +655,103 @@ function JumpFromAir 			()
 //////////////////////////////////
 function JumpFromCrouch			()													// jump from crouch position
 {
-
+	if ( canJumpFromCrouch )
+	{
+		if ( isCrouching && Input.GetButtonDown ( "Jump" ) )
+		{
+			isCrouching 		= false;
+			animation.CrossFade ( aniJumpFromCrouch.name );
+			currentJumpHeight 	= jumpFromCrouch;
+			inAirVelocity.y 	= currentJumpHeight;
+			Message ( "Ani State: Jump From Crouch" );
+		}
+	}
 }
 
 //////////////////////////////////
 function JumpFromObject			()													// jumping from an object 
 {
-
+	if ( canJumpFromObject )
+	{
+		if ( !IsGrounded () && jumpableObject && Input.GetButtonDown ( "Jump" ) )	// if player in air, jump button pressed down and colliding against a tag (wall) object
+		{
+			jumpableObject = false;													// Reset to play once
+			
+			if ( collisionFlags == CollisionFlags.CollidedSides )					// only if player is colliding from sides
+			{
+				isJumping_1 = true;													// enabled jump 1 - this one will keep it useable even after grounded
+				isJumping_2 = false;												// disabled jump 2
+				isJumping_3 = false;												// disabled jump 3
+			}
+			
+			if ( Mathf.Abs ( objectJumpContactNormal.y ) < 0.2 )					// Check angle of normal - so if wall is rotated by more than x, then we can't jump from it
+			{
+				animation.Play ( aniJumpFromObject.name );
+				Message ( "Ani State: Jump from Object" );
+				objectJumpContactNormal.y  = 0;										// reset y to 0
+				moveDirection	= objectJumpContactNormal.normalized;				// normalize player direction
+				moveSpeed 		= speedJumpFromObject;								// set move speed to jump from object speed
+			}
+			else
+			{
+				moveSpeed 		= 0;												// if this doesn't work, set move to 0
+			}
+			verticalSpeed 		= 0.02;												// add just a bit to verttical speed so player doesn't start heading downward due to gravity
+			inAirVelocity.y 	= jumpFromObject;									// set jumpFromObject amount for y
+		}
+	}
 }
 
 //////////////////////////////////
 function JumpPad				()													// jump from crouch position 
 {
-
+	if ( canJumpFromPad )
+	{
+		if ( jumpingFromPad )
+		{
+			jumpingFromPad 		= false;
+			animation.CrossFade ( aniJump_3.name );
+			currentJumpHeight 	= jumpFromCrouch;
+			inAirVelocity.y 	= currentJumpHeight;
+			Message ( "Ani State: Jump from Pad" );
+		}
+	}
 }
 
 //////////////////////////////////
 function AngleSlide				()													// sliding if slope (angle) too much 
 {
-
+	if ( canAngleSlide )
+	{
+		slideDirection = Vector3.zero;												// Set slide direction to zero
+		var hitInfo : RaycastHit;													// store hit information
+		
+		if ( Physics.Raycast ( transform.position, Vector3.down, hitInfo ) )		// cast a ray and find objects position and what it hit
+		{
+			if ( hitInfo.collider.tag != slideTag )									// if the collider tag name is not tagged with slide, then exit out
+			{
+				return;																// return out
+			}
+			if ( hitInfo.normal.y < slideThreshold )								// if our normal direction on that slope is less than slide threshold
+			{
+				slideDirection = new Vector3 ( hitInfo.normal.x, 0, hitInfo.normal.z );	// the direction for the player to slide.y is set to 0 to keep playing
+			}
+		}
+		if ( slideDirection.magnitude < slideControllableSpeed )					// checks against slide speed, if less than, allow same control
+		{
+			moveDirection += slideDirection;										// this allows for a bit of movement (kinda jerky), clean up
+		}
+		else
+		{
+			moveDirection = slideDirection;											// force the slide to go straight down based on slide direction
+		}
+		if ( slideDirection.magnitude > 0 )											// if player is sliding
+		{
+			moveSpeed = speedSlide;													// move player down at slide speed
+			animation.CrossFade ( aniSlide.name );									// play slide animation while moving down
+			Message ( "Ani State: Sliding Down" );									
+		}
+	}
 }
 
 //////////////////////////////////
@@ -570,7 +777,49 @@ function IdleRotate				()													// turn left/right while in idle
 //////////////////////////////////
 function Crouch					()													// crouch player 
 {
-
+	if ( canCrouch )																// Toggle crouching
+	{
+		if ( canCrouchHoldKeyDown )
+		{
+			if ( Input.GetButton ( "Crouch" ) )
+			{
+				isCrouching = true;
+			}
+			else
+			{
+				isCrouching = false;
+			}
+		}
+		else 
+		{
+			if ( Input.GetButtonDown ( "Crouch" ) )
+			{
+				isCrouching = !isCrouching;
+			}
+		}
+		if ( isCrouching )
+		{
+			moveSpeed = speedCrouch;												// change moveSpeed to crouching speed (0)
+			characterController.height 		= crouchControllerHeight;				// use crouchControllerheight for amount to crouch
+			characterController.center.y 	= crouchControllerCenterY;				// move height y, down just a bit when character crouch
+			canJump_1 						= false;								// 
+			animation.CrossFade ( aniCrouchIdle.name );								
+			Message ( "Ani State: Crouch" );
+		}
+		if ( Input.GetButtonUp ( "Crouch" ) )
+		{
+			resetCharController = true;												// Reset character controller height, gravity
+		}
+		if ( resetCharController )
+		{
+			var tempGravity 		: float = gravity;								// hold gravity value temperary
+			resetCharController 			= false;								// turn off reset controler 
+			gravity 						= 0;									// turn gravity to zero, making it impossible for the player to fall through object when crouching
+			characterController.height 		= controllerHeightDefault;				// Set back to default
+			characterController.center.y 	= controllerCenterYDefault;				// Set back to default
+			gravity 						= tempGravity;							// Set gravity back to original value
+		}
+	}
 }
 
 //////////////////////////////////
@@ -589,13 +838,48 @@ function Fall					()													// player is in the air
 //////////////////////////////////
 function Attack					()													// player jumps on enemy head - with feet 
 {
-
+	if ( canAttack )
+	{
+		if ( colliderAttack == null )
+		{
+			Message ( "Need colliderAttack assigned" );
+			return;
+		}
+		if ( ControllerColliderAttack.isAttacking )
+		{
+			ControllerColliderAttack.isAttacking = false;
+			inAirVelocity.y = 10;								// WARNING: hardcoded - place variable instead
+			animation.Play ( aniJump_2.name );
+			Message ( "Player attacked and killed enemy" );
+		}
+	}
 }
 
 //////////////////////////////////
 function Hurt					()													// player hurt by enemy objects 
 {
-
+	if ( canHurt )
+	{
+		if ( colliderHurt == null )
+		{
+			Message ( "Need collider hurt assigned" );
+			return;
+		}
+		if ( ControllerColliderHurt.enemyHit )
+		{
+			ControllerColliderHurt.enemyHit = false;								// disable enemyHit from script attached to the controllerColliderHurt (child of player)
+			inAirVelocity 	= transform.TransformDirection ( hitDirection );		// set in air velocity to slam direction (enemyController.js)
+			animation.Play ( aniJumpLand.name );
+			health 			-= ControllerColliderHurt.damageAmount;
+			yield;																	// yield means it skips one frame - will help avoid being hit very fast twice in a row 
+			if ( health <= 0 )
+			{
+				isKilled = true;
+				Message ( "Player was killed, starting over" );
+			}
+			Message ( "Player was hurt" );
+		}
+	}
 }
 
 //////////////////////////////////
@@ -605,12 +889,14 @@ function Harvest				()
 	layerBreakable = LayerMask.NameToLayer("breakable");
 	
 	var t 							= 0.0;
-	var speed 						= 0.001;
+	var speed 						= 0.0003;
 	var endScale 					= Vector3.zero;
 	var ray 		: Ray 			= Camera.main.ScreenPointToRay (Input.mousePosition);	
 	var hit 		: RaycastHit;
 
-	if ( Input.GetMouseButton ( 0 ) )
+	var playerBuilder : script_player_builder = this.gameObject.GetComponent (script_player_builder);
+
+	if ( Input.GetMouseButton ( 0 ) && playerBuilder.buildModeEnabled == false )
 	{	
 		if (Physics.Raycast (ray, hit, Mathf.Infinity) )
 		{			
@@ -627,75 +913,81 @@ function Harvest				()
 				animation[ aniAttack.name ].wrapMode = WrapMode.Loop;
 	
 				animation.CrossFade ( aniAttack.name, 0.3f );
-					
-			// Effect	
-				if (Time.time > lastEffectTime + 1 / effectFrequency ) 
+				
+				animation[ aniAttack.name ].speed = speedAttack;	// Sets the speed of attackAnimation
+				
+			// Effect	// OMVENDT !!!! 
+				var effectFrequency : float = speedAttack;	// Effects occurs every x (effectFrequency) seconds 
+			
+				if (Time.time > lastEffectTime + effectFrequency )
 				{
  				// Hit effect
  					var newEffect : Transform = Instantiate ( harvestEffect, hit.transform.position, Quaternion.identity );	
  				
  		/////////////////////////////////
  				// Loot effect //
+					var sceneManagerObject 					= GameObject.FindWithTag("scenemanager");
+					var sceneManager : script_sceneManager 	= sceneManagerObject.GetComponent(script_sceneManager);					
+
  					if ( 		hit.transform.tag == "treeLogPiece" )
  					{
- 						Message ( "logPiece + 1" 	 );
- 						var newLogEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
- 						newLogEffect.transform.renderer.material.color 		= brown;
+ 						HarvestObject ( hit, "wood", hit.transform.position, brown, logPiece_multiplier, speed ); 
+ 						sceneManager.fragment_wood += 1;
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "treeCrownPiece" )
  					{
- 						Message ( "crownPiece + 1" );
- 						var newCrownEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );
- 						newCrownEffect.transform.renderer.material.color 	= green;		
+ 						HarvestObject ( hit, "leaf", hit.transform.position, green, leaf_multiplier, speed ); 
+ 						sceneManager.fragment_leaf += 1;
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "rock" )
  					{
- 						Message 	( "rock +1" 		);
- 						var newRockEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );
- 						newRockEffect.transform.renderer.material.color 	= gray;
+ 						HarvestObject ( hit, "stone", hit.transform.position, gray, stone_multiplier, speed ); 
+ 						sceneManager.fragment_stone += 1;
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "bush" )
  					{
- 						Message 	( "BushPiece + 1"	);
- 						var newBushEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
- 						newBushEffect.transform.renderer.material.color 	= green;
+ 						HarvestObject ( hit, "leaf", hit.transform.position, green, leaf_multiplier, speed ); 
+ 						sceneManager.fragment_leaf += 1;
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "rareObject_cobber" )
  					{
- 						Message 	( "Cobber + 1" 	 	);
- 						var newCobberEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
- 						newCobberEffect.transform.renderer.material.color 	= cobber;
+ 						HarvestObject ( hit, "Copper", hit.transform.position, cobber, copper_multiplier, speed ); 
+ 						sceneManager.fragment_copper += 1;
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "veryRareObject_silver" )
  					{
- 						Message 	( "Silver + 1" 	 	);
- 						var newSilverEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
- 						newSilverEffect.transform.renderer.material.color 	= silver;
+ 						HarvestObject ( hit, "Silver", hit.transform.position, silver, silver_multiplier, speed ); 
+ 						sceneManager.fragment_silver += 1;
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "epicObject_gold" )
  					{
- 						Message 	( "Gold + 1" 	 	);
- 						var newGoldEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
- 						newGoldEffect.transform.renderer.material.color 	= gold;
+ 						HarvestObject ( hit, "Gold", hit.transform.position, gold, gold_multiplier, speed ); 
+ 						sceneManager.fragment_gold += 1;		
+ 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "legendaryObject_" )
  					{
- 						Message 	( "LegendaryItem + 1" 	 	);
- 						var newLegendaryEffect 	: Transform = Instantiate ( lootEffect, hit.transform.position, Quaternion.identity );	
- 						newLegendaryEffect.transform.renderer.material.color = purple;
- 					}
- 					
- 					
+ 						HarvestObject ( hit, "legendary", hit.transform.position, purple, legendary_multiplier, speed );
+ 						sceneManager.fragment_legendary += 1;
+ 						PlusScoreGUI ("+1");
+ 					}			
  		/////////////////////////////////					
  										
     				lastEffectTime = Time.time;
 				} 
+	
 			// DownScaling						
-				while ( t < 1.0 && Input.GetMouseButton ( 0 ) )
-				{				
-					t += Time.deltaTime * speed;
-					
-					hit.transform.localScale = Vector3.Lerp(hit.transform.localScale, endScale, t);
+				//while ( t < 1.0 )
+				//{				
+					//t += Time.deltaTime * speed;
+
+					//hit.transform.localScale = Vector3.Lerp(hit.transform.localScale, endScale, t);
 			
 			// Disabling 		
 						var minSize = Vector3(0.5, 0.5, 0.5);
@@ -705,11 +997,35 @@ function Harvest				()
 							hit.collider.gameObject.active = false;
 						}
 					
-					yield;
-				}
+					//yield;
+				//}		
 			}				
 		}
 	}
+}
+
+/////////////////// fx :               Wood , hit (raycasthit).transform.location, brown   , logPiece_multiplier        , logPiece          
+function HarvestObject ( hit : RaycastHit, message : String, effectLocation : Vector3, effectColor : Color, animationMultiplier : float, speed : float ) 
+{
+	// Calculating size of hit object:
+		var hitX 				= hit.transform.localScale.x;
+		var hitY 				= hit.transform.localScale.y;
+		var hitZ 				= hit.transform.localScale.z;
+		var hitAmount : Vector3 = Vector3 ( hitX * 0.33, hitY * 0.33, hitZ * 0.33 );	// every object should approximately gain 3 hits before destroyed
+	
+	// Destroy effect	
+		hit.transform.localScale -= hitAmount;
+	
+	Message ( message + " + 1" );
+ 	var newTempEffect 	: Transform = Instantiate ( lootEffect, effectLocation, Quaternion.identity );	
+ 		
+ 		newTempEffect.transform.renderer.material.color = effectColor;
+ 
+ 		PlusScoreGUI ("+1");
+ 						
+ 		//speed = speed * ( speedAttack / animationMultiplier ); 
+ 		speed = speed * speedAttack * animationMultiplier; 
+ 		Message ( "HarvestSpeed [" + message + "]: " + speed );
 }
 
 //////////////////////////////////
@@ -753,7 +1069,8 @@ function Push 					()													// player can push objects by moving in to the
 			if ( ControllerColliderPush.isPushing && !isCrouching && !ControllerColliderGrab.isGrabbing && moveSpeed >= speedIdleMax )	// is pushing and not crouching
 			{
 				currentSpeed = speedPush;											// when push player slows to half speed				
-				animation.CrossFade ( aniPush.name );								// play push animation if button pressed																			// print pushing it							
+				animation.CrossFade ( aniPush.name );								// play push animation if button pressed	
+				Message ( "Ani State: Pushing" );																		// print pushing it						
 			}		
 			if (  !ControllerColliderPush.isPushing && moveSpeed < speedIdleMax )	// when button up, detach object from player
 			{	
@@ -763,15 +1080,16 @@ function Push 					()													// player can push objects by moving in to the
 		}
 		else if ( ControllerColliderPush.push && !autoPush )						// if autopush off, then require button press to push objects
 		{
-			if ( Input.GetButton ( "RightBumper" ) && ControllerColliderPush.isPushing && !isCrouching && !ControllerColliderGrab.isGrabbing && moveSpeed >= speedIdleMax )
+			if ( Input.GetKey ( KeyCode.E ) && ControllerColliderPush.isPushing && !isCrouching && !ControllerColliderGrab.isGrabbing && moveSpeed >= speedIdleMax )
 			{
 				currentSpeed = speedPush;											// when push player slows to half speed				
-				animation.CrossFade ( aniPush.name );								// play push animation if button pressed		
+				animation.CrossFade ( aniPush.name );								// play push animation if button pressed
+				Message ( "Ani State: Pushing" );			
 			}
-			if ( Input.GetButtonUp ( "RightBumper" ) && ControllerColliderPush.isPushing )	// when button up turn off pushing
+			if ( Input.GetKeyUp ( KeyCode.E ) && ControllerColliderPush.isPushing )	// when button up turn off pushing
 			{
 				currentSpeed = tempSpeed;											// reset currentSpeed to default
-				Message ("Dropping it");											// print dropping it				
+				Message ("Dropping it");											// print dropping it			
 			}
 		}
 	}
@@ -780,20 +1098,43 @@ function Push 					()													// player can push objects by moving in to the
 //////////////////////////////////
 function Grab					()													// player can grab objects 
 {
-
+	if ( canGrab )
+	{
+		if ( ControllerColliderGrab.isGrabbing && !isCrouching && moveSpeed <= speedIdleMax )	// is grabbing and not crouching 
+		{
+			animation.CrossFade ( aniGrab.name );
+			Message ( "Ani State: Grab Idle" );
+		}
+		else if ( ControllerColliderGrab.isGrabbing && !isCrouching && moveSpeed > speedIdleMax ) 
+		{
+			currentSpeed = speedGrab;
+			animation.CrossFade ( aniGrab.name );
+			Message ( "Ani State: Grab Walk" );
+		}
+		else 
+		{
+			currentSpeed = tempSpeed; 												// Sets speed back to default
+		}
+	}
 }
 
 //////////////////////////////////
 function ShowPlayer				()													// turn player rendering mesh 'on' 
 {
-	skinMeshRenderer.enabled 	= true;
+	playerBody.enabled 			= true;
+	playerFace.SetActive		( true );
+	triangleTop.SetActive		( true );
+	useAbleObjects.SetActive 	( true );
 	isControllable				= true;
 }
 
 //////////////////////////////////
 function HidePlayer				()													// turn player rendering mesh 'off' 
 {
-	skinMeshRenderer.enabled 	= false;
+	playerBody.enabled 			= false;
+	playerFace.SetActive		( false );
+	triangleTop.SetActive		( false );
+	useAbleObjects.SetActive 	( false );
 	isControllable 				= false;
 }
 
@@ -802,10 +1143,10 @@ function KeyboardMovementSpeed 	()													// controls for keyboard movement
 {
 	if ( keyboardControls )															// enable keyboard controls if no joystick
 	{
-		currentSpeed = 3;															// hardcode cur speed to 3
-		var curTimer 	: float = 0.0;												// store current time of game
-		var curSmooth 	: float = speedSmoothing * Time.deltaTime;					// smooth out with speed value and delta
-		var timeStopped : boolean = false;											// toggle for stopping time
+		currentSpeed 				= 6;											// hardcode cur speed to 3
+		var curTimer 	: float 	= 0.0;											// store current time of game
+		var curSmooth 	: float 	= speedSmoothing * Time.deltaTime;				// smooth out with speed value and delta
+		var timeStopped : boolean 	= false;										// toggle for stopping time
 
 		if ( !Input.anyKey )														// if no key is pressed
 		{
@@ -889,6 +1230,7 @@ function AnimationClipCheck 	() 													// in debug mode, check for clip, i
 	if ( aniAttack 			== null ) {	Debug.Log ( "Missing Animation Clip: attack, adding default" 			); aniAttack 		 = animation.clip; }
 	if ( aniIdle_1 			== null ) {	Debug.Log ( "Missing Animation Clip: idle_1, adding default" 			); aniIdle_1 		 = animation.clip; }
 	if ( aniIdle_2 			== null ) {	Debug.Log ( "Missing Animation Clip: idle_2, adding default"  			); aniIdle_2 		 = animation.clip; }
+	if ( aniIdle_3 			== null ) {	Debug.Log ( "Missing Animation Clip: idle_3, adding default"  			); aniIdle_3 		 = animation.clip; }
 	if ( aniWalk 			== null ) {	Debug.Log ( "Missing Animation Clip: walk, adding default"  			); aniWalk 	 		 = animation.clip; }
 	if ( aniJog 			== null ) {	Debug.Log ( "Missing Animation Clip: jog, adding default"  				); aniJog 			 = animation.clip; }
 	if ( aniRun 			== null ) {	Debug.Log ( "Missing Animation Clip: run, adding default"  				); aniRun 		 	 = animation.clip; }
@@ -907,6 +1249,10 @@ function AnimationClipCheck 	() 													// in debug mode, check for clip, i
 	if ( aniGrab	 		== null ) {	Debug.Log ( "Missing Animation Clip: grabPush, adding default"  		); aniGrab			 = animation.clip; }
 	if ( aniGrabIdle	 	== null ) {	Debug.Log ( "Missing Animation Clip: grabIdle, adding default"  		); aniGrabIdle		 = animation.clip; }
 	if ( aniPush	 		== null ) {	Debug.Log ( "Missing Animation Clip: aniPush, adding default"  			); aniPush	 		 = animation.clip; }
+	if ( aniLookingDown	 	== null ) {	Debug.Log ( "Missing Animation Clip: aniLookingDown, adding default"  	); aniLookingDown	 = animation.clip; }
+	if ( aniSleep	 		== null ) {	Debug.Log ( "Missing Animation Clip: aniSleep, adding default"  		); aniSleep	 		 = animation.clip; }
+	if ( aniEnterSleep	 	== null ) {	Debug.Log ( "Missing Animation Clip: aniEnterSleep, adding default"  	); aniEnterSleep	 = animation.clip; }
+	if ( aniWakeUpFromSleep	== null ) {	Debug.Log ( "Missing Animation Clip: aniWakeUpFromSleep, adding default"); aniWakeUpFromSleep= animation.clip; }
 }
 
 //////////////////////////////////
@@ -923,19 +1269,56 @@ function ExampleShowHidePlayer 	() 													// example show hide player - sh
 ////////////////////////////////////////////
 function OnTriggerEnter ( other : Collider ) 										// trigger events for coin, key, bridge, jumpPad
 {	
-	
+	if ( other.tag == "jumpPad" )
+	{
+		jumpingFromPad 	= true;
+		isJumping_1 	= false;
+		isJumping_2 	= false;
+		isJumping_3 	= false;
+		
+		Message ( "JumpPad activated!" );
+		
+		if ( other.animation != null )
+		{
+			other.animation.Play ( "jumpPad_up" );
+			yield WaitForSeconds ( 0.3 );
+			other.animation.Play ( "jumPad_down" );
+		}
+	}
+	if ( other.tag == "killzone" )
+	{
+		isKilled = true;
+	}
+	if ( other.tag == "coin" ) 
+	{
+		coin += 1;
+		Destroy ( other.gameObject );
+		Message ( "You have colled "  + coin + " coins" );
+	}
 }
 
 ////////////////////////////////////////////
 function OnTriggerStay  ( other : Collider ) 										// trigger event while in collider (for platforms)
 {
-
+	if ( other.tag == "platform" )	// moving platform!
+	{
+		this.transform.parent = other.transform.parent;
+		Message ( "Jumped on a platform" );
+	}
 }
 
 ////////////////////////////////////////////
 function OnTriggerExit  ( other : Collider ) 										// trigger even when leaving collider (for platforms)
 {
-
+	if ( other.tag == "jumpPad" )
+	{
+		jumpingFromPad = false;
+	}
+	if ( other.tag == "platform" )
+	{
+		this.transform.parent = null;	// Detaches the tranform from its parent
+		Message ( "Jumped off a platform" );
+	}
 }
 
 ////////////////////////////////////////////////////////////////
@@ -974,6 +1357,7 @@ function OnControllerColliderHit ( hit : ControllerColliderHit ) 					// check f
 	body.velocity = pushDir * pushPower; 											// push object based on direction and strength						
 }
 
+/*
 //////////////////////////////////
 function OnGUI 					() 													// quick gui for coins and key display
 {
@@ -982,10 +1366,15 @@ function OnGUI 					() 													// quick gui for coins and key display
 	GUI.Label ( Rect ( 10,20,100,100 ), "Coins: "  + coin   );						// gui label to show coin and current value
 	GUI.Label ( Rect ( 10,35,100,100 ), "Keys: "   + key    );						// gui label to show key and current value
 }
+*/
 
 
-
-
+function PlusScoreGUI ( scoreText : String )
+{
+	var newGUIText 		: Transform = Instantiate ( guitextPoints, Vector3(0.5, 0.55, 0), Quaternion.identity );
+ 							
+ 		newGUIText.guiText.text = scoreText;
+}
 
 
 

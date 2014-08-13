@@ -16,17 +16,24 @@ function Update 		() {													// loop through events
 	Grab ();
 }
 function Grab 			() {													// grab system
-	if ( isPickingUp && Input.GetButtonDown ( "Fire1" )  )						// grab object
+	if ( isPickingUp && Input.GetKeyDown ( KeyCode.E )  )						// grab object
 	{	
 		isPickingUp = false;													// disable picking up
 		Destroy ( otherObject.gameObject.GetComponent( "Rigidbody" ) );			// get rid of the rigidbody to player can pickup object with no issues
 		otherObject.transform.parent = transform;								// set other objects parent to players object (colliderGrab)
-		animation.Play ( "grab_pickup" );										// play the pickup animation
+		if ( animation.clip != null )
+		{
+			animation.Play ( "grab_pickup" );										// play the pickup animation
+		}
+		else
+		{
+			Debug.Log ( "ControllerColliderGrab.js: No grab_pickup animation currently attaches" );
+		}
 		otherObject.position = transform.position;								// align other object with player center position (based on the colliderGrab ga)
 		isGrabbing = true;														// if all worked out, enable grabbing
 		yield;																	// break out for one frame so that the next if check doesn't happen till then
 	}
-	if ( isGrabbing && Input.GetButtonDown ( "Fire1" ) )						// throw object
+	if ( isGrabbing && Input.GetKeyDown ( KeyCode.E ) )						// throw object
 	{	
 		var forward : Vector3 = this.transform.forward * ( ControllerSystem.moveSpeed + .5 );	 // forward stores player forward direction with speed
 		var up : Vector3 = Vector3 ( 0, 2, 0 );									// up holds vec3 up direction 
@@ -35,7 +42,14 @@ function Grab 			() {													// grab system
 		otherObject.gameObject.AddComponent ( Rigidbody );						// add the rigidbody back to the object
 		Destroy(otherObject.gameObject.GetComponent ( "BoxCollider" ) );		// get rid of the boxcollider - it hits him while throwing so if we destroy it, there's no issue
 		otherObject.gameObject.rigidbody.AddForce ( ( direction ) * 150 );		// add force to throw object from player
-		animation.Play ( "grab_putdown" );										// play the grab put down animation
+		if ( animation.clip != null )
+		{
+			animation.Play ( "grab_putdown" );										// play the grab put down animation
+		}
+		else
+		{
+			Debug.Log ( "ControllerColliderGrab.js: No grab_putDown animation currently attaches" );
+		}	
 		isGrabbing = false;														// disable grabbing 
 		yield WaitForSeconds ( .1 );											// wait a second before adding box collider back in so that it doesn't hit the player
 		otherObject.gameObject.AddComponent ( BoxCollider );					// add the box collider back

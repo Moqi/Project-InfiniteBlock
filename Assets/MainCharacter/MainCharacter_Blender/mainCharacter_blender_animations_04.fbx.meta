@@ -1,0 +1,1062 @@
+fileFormatVersion: 2
+guid: b511d89baeb93e34bb9e4e342fa3e2d6
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: arm_left_01
+    100002: arm_left_02
+    100004: arm_right_01
+    100006: arm_right_02
+    100008: Armature
+    100010: head
+    100012: leg_left
+    100014: leg_right
+    100016: mainCharacter
+    100018: //RootNode
+    100020: root
+    100022: shoulder_left
+    100024: shoulder_right
+    100026: spine_01
+    100028: spine_02
+    400000: arm_left_01
+    400002: arm_left_02
+    400004: arm_right_01
+    400006: arm_right_02
+    400008: Armature
+    400010: head
+    400012: leg_left
+    400014: leg_right
+    400016: mainCharacter
+    400018: //RootNode
+    400020: root
+    400022: shoulder_left
+    400024: shoulder_right
+    400026: spine_01
+    400028: spine_02
+    4300000: mainCharacter
+    7400000: Default Take
+    7400002: Attack
+    7400004: Idle_01
+    7400006: Idle_02
+    7400008: Idle_03
+    7400010: Jog
+    7400012: Jump_01
+    7400014: Jump_02
+    7400016: Jump_03
+    7400018: Jump_Fall
+    7400020: Jump_Land
+    7400022: LookingDown
+    7400024: Run
+    7400026: Sleep
+    7400028: Sleep_enter
+    7400030: Sleep_wakeUp
+    7400032: Walk
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: mainCharacter
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: -1
+      lastFrame: 149
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Attack
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle_01
+      takeName: Idle_01
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle_02
+      takeName: Idle_02
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle_03
+      takeName: Idle_03
+      firstFrame: -1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jog
+      takeName: Jog
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_01
+      takeName: Jump_01
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_02
+      takeName: Jump_02
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_03
+      takeName: Jump_03
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_Fall
+      takeName: Jump_Fall
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_Land
+      takeName: Jump_Land
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: LookingDown
+      takeName: LookingDown
+      firstFrame: -1
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Run
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Sleep
+      takeName: Sleep
+      firstFrame: -1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Sleep_enter
+      takeName: Sleep_enter
+      firstFrame: -1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Sleep_wakeUp
+      takeName: Sleep_wakeUp
+      firstFrame: -1
+      lastFrame: 150
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/leg_left
+        weight: 1
+      - path: Armature/root/leg_right
+        weight: 1
+      - path: Armature/root/spine_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_left/arm_left_01/arm_left_02
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01
+        weight: 1
+      - path: Armature/root/spine_01/shoulder_right/arm_right_01/arm_right_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02
+        weight: 1
+      - path: Armature/root/spine_01/spine_02/head
+        weight: 1
+      - path: mainCharacter
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

@@ -22,12 +22,13 @@
 		var zoomDampening 			: float 			= 5.0;			// speed of zoom easing
 		var offsetFromWall 			: float 			= 0.1;			// distance away from walls
 	
-static var x					: float				= 0.0;			// store axis x from input
-private var y 					: float 			= 0.0;			// store axis y from input
-private var currentDistance 	: float;							// current distance between target and camera
-private var desiredDistance 	: float;							// wanted distance between target and camera
-private var correctedDistance 	: float;							// amount to correct for between target and camera
-
+static  var x					: float					= 0.0;			// store axis x from input
+private var y 					: float 				= 0.0;			// store axis y from input
+private var currentDistance 	: float;								// current distance between target and camera
+private var desiredDistance 	: float;								// wanted distance between target and camera
+private var correctedDistance 	: float;								// amount to correct for between target and camera
+private var otherGameObject		: GameObject;
+private var reduceOpacity 		: boolean				= false;
 	
 
 //////////////////////////////////////////
@@ -64,12 +65,14 @@ function LateUpdate ()
 	
 	var position = target.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
 	
-	var collisionHit : RaycastHit;
-	var trueTargetPosition : Vector3 = new Vector3 (target.position.x, target.position.y + targetHeight, target.position.z);
+	var collisionHit 		: RaycastHit;
+	var trueTargetPosition 	: Vector3 = new Vector3 (target.position.x, target.position.y + targetHeight, target.position.z);
 	
-	var isCorrected : boolean = false;
+	var isCorrected 		: boolean = false;
+	
 	if(Physics.Linecast (trueTargetPosition, position, collisionHit, collisionLayers.value))
 	{
+		otherGameObject = collisionHit.transform.gameObject;
 		correctedDistance = Vector3.Distance (trueTargetPosition, collisionHit.point) - offsetFromWall;
 		isCorrected = true;
 	}
@@ -77,13 +80,30 @@ function LateUpdate ()
 	if(!isCorrected || correctedDistance > currentDistance)
 	{
 		currentDistance = Mathf.Lerp (currentDistance, correctedDistance, Time.deltaTime * zoomDampening);
+		reduceOpacity 	= false;
 	}
 	else
 	{
-		isCorrected = false;
+		isCorrected 	= false;
 		currentDistance = correctedDistance; 
+		reduceOpacity 	= true;
 	}
 	
+	if ( reduceOpacity )
+	{
+		if ( otherGameObject != null && otherGameObject.renderer != null )
+		{
+			otherGameObject.transform.renderer.material.color.a = 0.2;				// Material needs to be Transparent!
+		}	
+	}
+	else
+	{
+		if ( otherGameObject != null && otherGameObject.renderer != null )
+		{
+			otherGameObject.transform.renderer.material.color.a = 1.0;
+		}
+	}
+
 	currentDistance = Mathf.Clamp (currentDistance, zoomMinLimit, zoomMaxLimit);
 	position = target.position - (rotation * Vector3.forward * currentDistance + vTargetOffset);
 	

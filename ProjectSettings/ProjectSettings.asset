@@ -13,7 +13,7 @@ PlayerSettings:
   companyName: By Christian Krogh
   productName: To The Clouds
   defaultCursor: {fileID: 0}
-  cursorHotspot: {x: 0, y: 0}
+  cursorHotspot: {x: 10, y: 10}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
   defaultScreenWidthWeb: 960

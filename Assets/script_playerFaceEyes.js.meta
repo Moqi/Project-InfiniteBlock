@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 895a828034764b44aa3b205fe00699b5
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - aniEyeIdle: {fileID: 7400000, guid: 56b4073287f605046960bb37fbcbc057, type: 2}
+  - aniEyeSleep: {fileID: 7400000, guid: 43a26372ff3300049ab8e95d54be6b87, type: 2}
+  - aniEyeSurprised: {fileID: 7400000, guid: 04870ecf097457e4db80f7615e1f8ce0, type: 2}
+  - aniEyeSuspicious: {fileID: 7400000, guid: faf14749c07cc344eb1f0c46e6acde32, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -40,6 +40,14 @@ TagManager:
   - worldSpawnPoint
   - platFormTrigger
   - playerLootCollector
+  - snapPoint
+  - slide
+  - wall
+  - jumpPad
+  - killzone
+  - platform
+  - grab
+  - push
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -51,9 +59,9 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Background Image
   User Layer 9: breakable
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
+  User Layer 10: dynamic
+  User Layer 11: wall
+  User Layer 12: pushableObject
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 

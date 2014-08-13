@@ -13,7 +13,8 @@ static	var overAllPoints 						: int			= 0;
 	
 // Progress GUI:
 		
-		var showProgressGUI 					: boolean 		= true;
+		var showProgressGUI 					: boolean		= false;
+		var mainMenuLootstats 					: Transform;
 		var progressGUI 						: GUISkin;
 private var startGenerateProgress 				: float 		= 0.0;
 		var duration 							: float 		= 17.0;
@@ -73,8 +74,23 @@ static 	var newBlockSpawnerChildCanSpawn 		: boolean 			= true;
 private var current_BlockSpawnChildAmount 		: int 				= 0;
 
 // Sound & music
-		//var backgroundWind 				: AudioClip;		
+		//var backgroundWind 				: AudioClip;	
 
+////////////////					
+// Looting stats 
+
+	// Fragments
+static var fragment_wood 						: int				= 0;
+static var fragment_leaf						: int				= 0;
+static var fragment_stone 						: int				= 0;
+static var fragment_copper						: int				= 0;
+static var fragment_silver						: int				= 0;
+static var fragment_gold						: int				= 0;
+static var fragment_legendary					: int				= 0;
+
+////////////////
+
+/////////////////
 function Start () 
 {					
 	if (showMainMenu == false)
@@ -91,11 +107,12 @@ function Start ()
 	
 	sceneCamOriginalPos = sceneCam.transform.position;
 	
-	playerOriginalPos = player.transform.position;
-	
+	playerOriginalPos 	= player.transform.position;
+
 	//InvokeRepeating("SpawnEnemy", 5, 10);
 	
 	audio.Play();
+			
 }
 
 
@@ -103,6 +120,12 @@ function Start ()
 //////////////////
 function Update () 
 {
+	// Toggle progressGUI on/off 
+	if ( Input.GetKeyDown ( KeyCode.Tab ) )
+	{
+		showProgressGUI = !showProgressGUI;
+	}
+
 	//////////////////////
 	// TerrainChilds spawn
 	var current_BlockSpawnChilds_inTheScene : int = GameObject.FindGameObjectsWithTag("blockSpawnChild").Length;
@@ -239,6 +262,36 @@ function OnGUI()
 	////////////////////////////////////// OnGUI start ///////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////
 	
+	////////////////////////////////////////////
+	////////////// LootTable ///////////////////
+	////////////////////////////////////////////
+	
+		if ( showProgressGUI == true )
+		{
+			mainMenuLootstats.active = true;										
+	
+				//		Type of point to add, at what object				  , set active to true
+			PlusScoreGUI ( fragment_wood, "guiTexture_lootTable_icon_wood", true );						
+
+			PlusScoreGUI ( fragment_leaf, "guiTexture_lootTable_icon_leaf", true );									
+			
+			PlusScoreGUI ( fragment_stone, "guiTexture_lootTable_icon_stone", true );										
+			
+			PlusScoreGUI ( fragment_copper, "guiTexture_lootTable_icon_copper", true );									
+			
+			PlusScoreGUI ( fragment_silver, "guiTexture_lootTable_icon_silver", true );												
+
+			PlusScoreGUI ( fragment_gold, "guiTexture_lootTable_icon_gold", true );									
+	
+			PlusScoreGUI ( fragment_legendary, "guiTexture_lootTable_icon_legendary", true );									
+		}
+		else 
+		{
+			mainMenuLootstats.active = false;
+		}
+
+	////////////////////////////////////////////
+
 	// Fades in mainMenu:
 		var guiLerpDuration : float = 10.0;
 		var tempColor 		: Color = GUI.color.white;
@@ -446,29 +499,10 @@ function OnGUI()
 			showProgressGUI = false;				
 		}
 		*/
-
-			
-			
-	GUI.EndGroup ();
-	
-// ############## New group! ###############
-	
-	GUI.BeginGroup (new Rect (Screen.width / 2 - 400, Screen.height / 2 - Screen.height / 2, 800, Screen.height));
-	
-		if (showProgressGUI == false && overAllPoints > 1)
-		{
-			GUI.Label(Rect(0, 0, 800, 100), overAllPoints.ToString());
-		}
 		
 	GUI.EndGroup ();
-					
+																							
 }
-
-
-
-
-
-
 
 
 
@@ -519,7 +553,26 @@ function MainMenuSkyLerp()
 }
 
 
+function PlusScoreGUI ( scoreVariable : int, iconName : String, childActive : boolean )
+{
+ 	var score : String 	= scoreVariable.ToString();	
+ 	
+ 	var allChildren 	= this.gameObject.GetComponentsInChildren(Transform);
 
+ 	for ( var child : Transform in allChildren )
+ 	{
+ 		if ( child.name == iconName )
+ 		{
+ 				if ( scoreVariable >= 1 )
+ 				{
+ 					child.gameObject.guiTexture.enabled 	= childActive;
+ 					child.gameObject.guiText.enabled 		= childActive;
+ 				}
+ 		
+ 				child.transform.GetComponent(GUIText).guiText.text = score;
+		}
+ 	}	
+}
 
 
 
