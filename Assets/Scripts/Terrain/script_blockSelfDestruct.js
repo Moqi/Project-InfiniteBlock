@@ -54,40 +54,47 @@ function Update()
 	var distanceToPlayer = Vector3.Distance(transform.position, playerPos);
 	
 	if ( playerPos.y >= -5)
-	{
-	
-		var parentAndChildRenderer = GetComponentsInChildren(Renderer);
-	
-		if(distanceToPlayer > maxDistanceToPlayer)
+	{	
+		if ( distanceToPlayer > maxDistanceToPlayer )
 		{	
-			
-			for (var r : Renderer in parentAndChildRenderer)
-			{
-				if (r.CompareTag("groundObject"))
-				{
-					r.enabled = false;
-				}	
-			}
-			//gameObject.GetComponent(MeshRenderer).enabled = false;
+			gameObject.GetComponent(Renderer).enabled = false;
 		}
 		else
 		{
-			for (var r : Renderer in parentAndChildRenderer)
-			{
-				if (r.CompareTag("groundObject"))
-				{
-					r.enabled = true;
-				}	
-			}
-			//gameObject.GetComponent(MeshRenderer).enabled = true;
+			gameObject.GetComponent(Renderer).enabled = true;	
 		}
 	}
-    
-  
 }
-
-
-
+/*
+for (var r : Transform in this.transform)
+		{
+			for (var rr : Transform in r.transform)
+			{
+				var childsT : Transform[] = new Transform[rr.childCount];
+				var i : int = 0;
+				for ( var child : Transform in rr )
+				{
+				    childsT[i] = child;
+				    i++;
+				    //Debug.Log(child.name);
+				    
+				    if ( !child.transform )
+				    {
+					    if ( distanceToPlayer > maxDistanceToPlayer )
+					    {
+					    	child.transform.GetComponent ( Collider ).enabled = false;
+					   		child.transform.GetComponent ( Renderer ).enabled = false;
+					    }
+					    else
+					    {
+					    	child.transform.GetComponent ( Collider ).enabled = true;
+					    	child.transform.GetComponent ( Renderer ).enabled = true;
+					    }
+					} 
+				}
+			}	
+		}
+*/
 
 
 

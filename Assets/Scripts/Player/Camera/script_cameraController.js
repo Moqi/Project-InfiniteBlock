@@ -12,7 +12,7 @@
 		var targetHeight 			: float 			= 1.0;			// height of target
 		var collisionLayers 		: LayerMask			= -1;			// collision layers for camera
 		var distance 				: float 			= 8.0;			// distance between target and camera
-		var xSpeed 					: float 			= 250.0;		// movement on horizontal
+private var xSpeed 					: float 			= 0.0;		// movement on horizontal
 	    var ySpeed 					: float 			= 120.0;		// movement on vertical
 	 	var yMinLimit 				: float 			= 40.0;			// limit how low on vertical to rotate
 		var yMaxLimit 				: float 			= 50.0;			// limit how high on vertical to rotate
@@ -54,12 +54,24 @@ function LateUpdate ()
 	//x += Input.GetAxis("CameraX") * xSpeed * 0.02;
 	//y -= Input.GetAxis("CameraY") * ySpeed * 0.02;
 	
-	x += Input.GetAxis("Horizontal") * xSpeed * 0.02;
+	//x += Input.GetAxis("Horizontal") * xSpeed * 0.02;
 	y -= Input.GetAxis("Vertical") * ySpeed * 0.02;
 	
 	y = ClampAngle(y, yMinLimit, yMaxLimit);
 	
-	var rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(y, x, 0), Time.deltaTime * 3);
+	var rotation : Quaternion;
+	
+	if ( Input.GetMouseButton ( 1 ) )	// Right click
+	{
+	 	x 			+= Input.GetAxis("Mouse X") * xSpeed * 0.02;
+        rotation 	= Quaternion.Slerp(transform.rotation, Quaternion.Euler(y, x, 0), Time.deltaTime * 3);
+		xSpeed 		= 5;
+	}
+	else
+	{
+		rotation 	= Quaternion.Slerp(transform.rotation, Quaternion.Euler(y, x, 0), Time.deltaTime * 3);
+		xSpeed	 	= 0;
+	}
 	
 	var vTargetOffset = new Vector3 (0, -targetHeight, 0);
 	
@@ -71,7 +83,10 @@ function LateUpdate ()
 	var isCorrected 		: boolean = false;
 	
 	if(Physics.Linecast (trueTargetPosition, position, collisionHit, collisionLayers.value))
+	//if(Physics.SphereCast (trueTargetPosition, 4.0, trueTargetPosition.back, collisionHit, Mathf.Infinity, collisionLayers.value))
 	{
+		Debug.DrawLine (Camera.mainCamera.transform.position, collisionHit.point);
+		
 		otherGameObject = collisionHit.transform.gameObject;
 		correctedDistance = Vector3.Distance (trueTargetPosition, collisionHit.point) - offsetFromWall;
 		isCorrected = true;
@@ -107,7 +122,8 @@ function LateUpdate ()
 	currentDistance = Mathf.Clamp (currentDistance, zoomMinLimit, zoomMaxLimit);
 	position = target.position - (rotation * Vector3.forward * currentDistance + vTargetOffset);
 	
-	transform.rotation = rotation;
+	
+	transform.rotation = rotation;	
 	transform.position = position;
 }
 

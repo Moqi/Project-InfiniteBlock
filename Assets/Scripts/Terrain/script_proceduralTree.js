@@ -74,6 +74,8 @@ private var rockArray 							= new Array();
 ////////////////////////////////////////////////////////////
 function Start () 
 {	
+	transform.position.y -= 1.0;
+
 	generatorStartPos 		= transform.position;
 
 	if (manualHeightActive == true)
@@ -172,18 +174,15 @@ if (randomPick == false) // if manual pick, then...
 /////////////////////////////////////////////////////////
 function Update () 
 {
-	//MouseHitAndDestroy();
-
 	
 }
 
 /////////////////////////////////////////////////////////
 function TreeGenerator ()
 {
-	randomColorVariant ();	// Sets color
+	// Define object color:
+	randomColorVariant ();
 	
-	transform.localScale = Vector3.zero;
-
 	// LogPieceGenerator
 	
 	for (var i : int = 0; i < logHeight; i++)
@@ -200,15 +199,9 @@ function TreeGenerator ()
 		// Generate new piece
 		var newLogPiece : Transform = Instantiate(logPiece, transform.position, transform.rotation);
 	
-			newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-															
-			newLogPiece.renderer.material.color 	= lightBrown;
-	
 		// Change Size 
-				
-				var endScale_01    : Vector3;
-				var t 			= 0.0;
-				var speed 		= Random.Range ( 1.0, 3.5);
+				var endScale_01  	: Vector3;
+				var objectHeight 	: float = 0.5;
 				
 			// logSize from ground and up	
 				var log_level_1_min : float = 0.75;
@@ -234,180 +227,52 @@ function TreeGenerator ()
 			
 									
 			if ( 		transform.position.y 	>= generatorStartPos.y + 0.5 && transform.position.y <= generatorStartPos.y + 1 )
-			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_1_min, log_level_1_max ), 0.5, Random.Range ( log_level_1_min, log_level_1_max ) );			
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-					Message ( "logStart.level (1)" );
+			{	
+				LerpScale (endScale_01, log_level_1_min, log_level_1_max, objectHeight, newLogPiece, lightBrown, 		"logStart.level (1)" 	);		
 			}
 			else if ( 	transform.position.y 	>= generatorStartPos.y + 1 && transform.position.y <= generatorStartPos.y + 1.5 )
 			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_2_min, log_level_2_max ), 0.5, Random.Range ( log_level_2_min, log_level_2_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-				newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newLogPiece.renderer.material.color 	= mediumBrown;
-				
-					Message ( "logStart.level (2)" );
+				LerpScale (endScale_01, log_level_2_min, log_level_2_max, objectHeight, newLogPiece, mediumBrown, 	"logStart.level (2)" 	);	
 			}
 			else if ( 	transform.position.y 	>= generatorStartPos.y + 1.5 && transform.position.y <= generatorStartPos.y + 2 )
 			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_3_min, log_level_3_max ), 0.5, Random.Range ( log_level_3_min, log_level_3_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-				newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newLogPiece.renderer.material.color 	= darkBrown;
-				
-					Message ( "logStart.level (3)" );
+				LerpScale (endScale_01, log_level_3_min, log_level_3_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (3)" 	);	
 			}
 			else if ( 	transform.position.y 	>= generatorStartPos.y + 2 && transform.position.y <= generatorStartPos.y + 2.5 )
 			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_4_min, log_level_4_max ), 0.5, Random.Range ( log_level_4_min, log_level_4_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-				newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newLogPiece.renderer.material.color 	= darkBrown;
-				
-					Message ( "logStart.level (4)" );
+				LerpScale (endScale_01, log_level_4_min, log_level_4_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (4)" 	);	
 			}
 			else if (	transform.position.y 	>= generatorStartPos.y + 2.5 && transform.position.y <= generatorStartPos.y + 3 )
 			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_5_min, log_level_5_max ), 0.5, Random.Range ( log_level_5_min, log_level_5_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-				newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newLogPiece.renderer.material.color 	= darkBrown;
-				
-					Message ( "logStart.level (5)" );
+				LerpScale (endScale_01, log_level_5_min, log_level_5_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (5)" 	);	
 			}
 			else if (	transform.position.y 	>= generatorStartPos.y + 3 && transform.position.y <= generatorStartPos.y + 3.5 )
 			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_6_min, log_level_6_max ), 0.5, Random.Range ( log_level_6_min, log_level_6_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-				newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newLogPiece.renderer.material.color 	= darkBrown;
-				
-					Message ( "logStart.level (6)" );
+				LerpScale (endScale_01, log_level_6_min, log_level_6_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (6)" 	);	
 			}
 			else if (	transform.position.y 	>= generatorStartPos.y + 3.5 && transform.position.y <= generatorStartPos.y + 4 )
 			{
-				endScale_01 = Vector3 ( Random.Range ( log_level_7_min, log_level_7_max ), 0.5, Random.Range ( log_level_7_min, log_level_7_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newLogPiece.localScale = Vector3.Lerp(transform.localScale, endScale_01, t);	
-						
-					yield;	
-				}
-				
-				newLogPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newLogPiece.renderer.material.color 	= darkBrown;
-				
-						Message ( "logStart.level (7)" );
+				LerpScale (endScale_01, log_level_7_min, log_level_7_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (7)" 	);	
 			}
 		
 			treeArray.Push(newLogPiece);	// Pushing instantiated object to treeArray		
 		
-		// Define the rarity of object:
-		if ( rareObject == true )
-		{
-			Message ( "This is a rare LogPiece!" );
-		
-			newLogPiece.tag = "treeLogPiece";
-		}
-		else if ( veryRareObject == true )
-		{
-			Message ( "This is a very rare LogPiece" );
-		
-			newLogPiece.tag = "treeLogPiece";
-		}
-		else if ( epicObject == true )
-		{
-			Message ( "This is an epic LogPiece!" );
-		
-			newLogPiece.tag = "treeLogPiece";
-		}
-		else if ( legendaryObject == true )
-		{
-			Message ( "This is a legendary LogPiece" );
-		
-			newLogPiece.tag = "treeLogPiece";
-		
-			//var newLegendaryEffect : Transform = Instantiate(effectLegendary, transform.position, Quaternion.identity);
-		}
-		else 
-		{
-			newLogPiece.tag = "treeLogPiece";
-		}
+		// Define tagname based on rarity
+		RarityHandler ( newLogPiece, 
+						"treeLogPiece", 	// commonTagName
+						"treeLogPiece", 	// rareTagName
+						"treeLogPiece", 	// very rare tagName
+						"treeLogPiece", 	// epic tagName
+						"treeLogPiece");	// legendary tagName
 		
 		yield WaitForSeconds(0.5);
 	}
 	
-		transform.localScale = endScale_01;	// makes sure the new scale is permanent!
-
+	////////////////////////////////////////
 	// CrownGenerator
 	
 	if (i >= logHeight)
 	{
-		transform.localScale = Vector3.zero;
-	
 		for (var j : int = 0; j < crownHeight; j++)
 		{
 			// Rotate new generated piece by variable 'logPieceRotateBy'
@@ -422,15 +287,8 @@ function TreeGenerator ()
 			// Generate new piece
 			var newCrownPiece : Transform = Instantiate(crownPiece, transform.position, transform.rotation);
 	
-				newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-				newCrownPiece.renderer.material.color 	= darkGreen;
-	
 			// Change Size
-			
 				var endScale_02    : Vector3;
-				var t_02 			= 0.0;
-				var speed_02 		= Random.Range ( 1.0, 3.5);
 				
 			// CrownSize from middle and down	
 				var crown_level_1_min : float = 0.5;		
@@ -476,298 +334,83 @@ function TreeGenerator ()
 				
 				var crown_topLevel_8_min : float = 0.2;		
 				var crown_topLevel_8_max : float = 0.4;		
-				
-				
-				var crownPieceHeight 	 : float = 0.5;
-			
 			
 			if (j < crownHeight / crownHeightDividedBy)
 			{
 				if ( 		transform.position.y 	>= generatorStartPos.y + 2.5 && transform.position.y <= generatorStartPos.y + 3 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_level_1_min, crown_level_1_max ), crownPieceHeight, Random.Range ( crown_level_1_min, crown_level_1_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-						Message ( "crownStart.level (1)" );
+					LerpScale (endScale_02, crown_level_1_min, crown_level_1_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (1)" );	
 				}
 				else if ( 	transform.position.y 	>= generatorStartPos.y + 3 && transform.position.y <= generatorStartPos.y + 3.5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_level_2_min, crown_level_2_max ), crownPieceHeight, Random.Range ( crown_level_2_min, crown_level_2_max ) );
-
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-
-						Message ( "crownStart.level (2)" );
+					LerpScale (endScale_02, crown_level_2_min, crown_level_2_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (2)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 3.5 && transform.position.y <= generatorStartPos.y + 4 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_level_3_min, crown_level_3_max ), crownPieceHeight, Random.Range ( crown_level_3_min, crown_level_3_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-						Message ( "crownStart.level (3)" );
+					LerpScale (endScale_02, crown_level_3_min, crown_level_3_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (3)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 4 && transform.position.y <= generatorStartPos.y + 4.5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_level_4_min, crown_level_4_max ), crownPieceHeight, Random.Range ( crown_level_4_min, crown_level_4_max ) );
-
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-
-						Message ( "crownStart.level (4)" );
+					LerpScale (endScale_02, crown_level_4_min, crown_level_4_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (4)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 4.5 && transform.position.y <= generatorStartPos.y + 5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_level_5_min, crown_level_5_max ), crownPieceHeight, Random.Range ( crown_level_5_min, crown_level_5_max ) );
-
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}					
-															
-						Message ( "crownStart.level (5)" );
+					LerpScale (endScale_02, crown_level_5_min, crown_level_5_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (5)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 5 && transform.position.y <= generatorStartPos.y + 5.5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_level_6_min, crown_level_6_max ), crownPieceHeight, Random.Range ( crown_level_6_min, crown_level_6_max ) );
-
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-
-						Message ( "crownStart.level (6)" );
+					LerpScale (endScale_02, crown_level_6_min, crown_level_6_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (6)" );
 				}
 			}
 			else 
 			{	
 				if ( 		transform.position.y 	>= generatorStartPos.y + 3.5 && transform.position.y <= generatorStartPos.y + 4 )
 				{	
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_1_min, crown_topLevel_1_max ), crownPieceHeight, Random.Range ( crown_topLevel_1_min, crown_topLevel_1_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= mediumGreen;
-						
-						Message ( "crownMiddle.level (1)" );
+					LerpScale (endScale_02, crown_topLevel_1_min, crown_topLevel_1_max, objectHeight, newCrownPiece, mediumGreen, "crownMiddle.level (1)" );
 				}
 				else if ( 	transform.position.y 	>= generatorStartPos.y + 4 && transform.position.y <= generatorStartPos.y + 4.5)
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_2_min, crown_topLevel_2_max ), crownPieceHeight, Random.Range ( crown_topLevel_2_min, crown_topLevel_2_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= mediumGreen;
-					
-						Message ( "crownMiddle.level (2)" );
+					LerpScale (endScale_02, crown_topLevel_2_min, crown_topLevel_2_max, objectHeight, newCrownPiece, mediumGreen, "crownMiddle.level (2)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 4.5 && transform.position.y <= generatorStartPos.y + 5 )
-				{
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_3_min, crown_topLevel_3_max ), crownPieceHeight, Random.Range ( crown_topLevel_3_min, crown_topLevel_3_max ) );	
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= lightGreen;
-					
-						Message ( "crownMiddle.level (3)" );
+				{	
+					LerpScale (endScale_02, crown_topLevel_3_min, crown_topLevel_3_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (3)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 5 && transform.position.y <= generatorStartPos.y + 5.5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_4_min, crown_topLevel_4_max ), crownPieceHeight, Random.Range ( crown_topLevel_4_min, crown_topLevel_4_max ) );	
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= lightGreen;
-					
-						Message ( "crownMiddle.level (4)" );
+					LerpScale (endScale_02, crown_topLevel_4_min, crown_topLevel_4_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (4)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 5.5 && transform.position.y <= generatorStartPos.y + 6 )
 				{	
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_5_min, crown_topLevel_5_max ), crownPieceHeight, Random.Range ( crown_topLevel_5_min, crown_topLevel_5_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= lightGreen;
-					
-						Message ( "crownMiddle.level (5)" );
+					LerpScale (endScale_02, crown_topLevel_5_min, crown_topLevel_5_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (5)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 6 && transform.position.y <= generatorStartPos.y + 6.5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_6_min, crown_topLevel_6_max ), crownPieceHeight, Random.Range ( crown_topLevel_6_min, crown_topLevel_6_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= lightGreen;
-					
-						Message ( "crownMiddle.level (6)" );
+					LerpScale (endScale_02, crown_topLevel_6_min, crown_topLevel_6_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (6)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 6.5 && transform.position.y <= generatorStartPos.y + 7 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_7_min, crown_topLevel_7_max ), crownPieceHeight, Random.Range ( crown_topLevel_7_min, crown_topLevel_7_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= lightGreen;
-					
-						Message ( "crownMiddle.level (7)" );
+					LerpScale (endScale_02, crown_topLevel_7_min, crown_topLevel_7_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (7)" );
 				}								 
 				else if (	transform.position.y 	>= generatorStartPos.y + 7 && transform.position.y <= generatorStartPos.y + 7.5 )
 				{
-					endScale_02 = Vector3 ( Random.Range ( crown_topLevel_8_min, crown_topLevel_8_max ), crownPieceHeight, Random.Range ( crown_topLevel_8_min, crown_topLevel_8_max ) );
-					
-					while ( t_02 < 1.0)
-					{
-						t_02 += Time.deltaTime * speed_02;
-			
-							newCrownPiece.localScale = Vector3.Lerp(transform.localScale, endScale_02, t_02);	
-						
-						yield;	
-					}
-					
-					newCrownPiece.renderer.material 		= new Material(Shader.Find("Diffuse"));
-					
-					newCrownPiece.renderer.material.color 	= lightGreen;
-					
-						Message ( "crownMiddle.level (8)" );
+					LerpScale (endScale_02, crown_topLevel_8_min, crown_topLevel_8_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (8)" );
 				}	
 			}
 	
 			treeArray.Push(newCrownPiece);	// Pushing instantiated object to treeArray
-	
-		// Define the rarity of object:
-		if ( rareObject == true )
-		{
-			Message ( "This is a rare CrownPiece!" );
 		
-			newCrownPiece.tag = "treeCrownPiece";
-		}
-		else if ( veryRareObject == true )
-		{
-			Message ( "This is a very rare CrownPiece" );
-		
-			newCrownPiece.tag = "treeCrownPiece";
-		}
-		else if ( epicObject == true )
-		{
-			Message ( "This is an epic CrownPiece!" );
-		
-			newCrownPiece.tag = "treeCrownPiece";
-		}
-		else if ( legendaryObject == true )
-		{
-			Message ( "This is a legendary CrownPiece" );
-		
-			newCrownPiece.tag = "treeCrownPiece";
-		
-			//var newLegendaryEffect : Transform = Instantiate(effectLegendary, transform.position, Quaternion.identity);
-		}
-		else 
-		{
-			newCrownPiece.tag = "treeCrownPiece";
-		}
+		// Define tagname based on rarity
+		RarityHandler ( newCrownPiece, 
+						"treeCrownPiece", 	// commonTagName
+						"treeCrownPiece", 	// rareTagName
+						"treeCrownPiece", 	// very rare tagName
+						"treeCrownPiece", 	// epic tagName
+						"treeCrownPiece");	// legendary tagName	
 	
 			yield WaitForSeconds(0.5);
 		}
 	}
-		transform.localScale = endScale_02;	// makes sure the new scale is permanent!
 		
 	// Make treeParts (logs and crowns) childs of this object (parent)
 	if (i >= logHeight && j >= crownHeight)
@@ -784,8 +427,6 @@ function TreeGenerator ()
 function BushGenerator ()
 {
 	randomColorVariant ();	// Sets color
-	
-	transform.localScale = Vector3.zero;
 
 	// BushGenerator
 	
@@ -803,15 +444,9 @@ function BushGenerator ()
 		// Generate new piece
 		var newBushPiece : Transform = Instantiate(bushPiece, transform.position, transform.rotation);
 	
-			newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-			newBushPiece.renderer.material.color 	= darkGreen;
-	
-		// Change Size 
-				
-				var endScale    : Vector3;
-				var t 			= 0.0;
-				var speed 		= Random.Range ( 1.0, 3.5);
+		// Change Size 		
+				var endScale    	 : Vector3;
+				var objectHeight	 : float = 0.3;
 				
 			// bushSize from ground and up	(NOTE: numbers = numbers minus originalsize) 
 				var bush_level_1_min : float = 0.90;
@@ -838,172 +473,45 @@ function BushGenerator ()
 									
 			if ( 		transform.position.y 		>= generatorStartPos.y + 0.3 && transform.position.y <= generatorStartPos.y + 0.6 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_1_min, bush_level_1_max ), 0.3, Random.Range ( bush_level_1_min, bush_level_1_max ) );			
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-					Message ( "bushStart.level (1)" );
+				LerpScale (endScale, bush_level_1_min, bush_level_1_max, objectHeight, newBushPiece, darkGreen, "bushStart.level (1)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.6 && transform.position.y <= generatorStartPos.y + 0.9 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_2_min, bush_level_2_max ), 0.3, Random.Range ( bush_level_2_min, bush_level_2_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-				newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newBushPiece.renderer.material.color 	= mediumGreen;
-				
-					Message ( "bushStart.level (2)" );
+				LerpScale (endScale, bush_level_2_min, bush_level_2_max, objectHeight, newBushPiece, mediumGreen, "bushStart.level (2)" );
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.9 && transform.position.y <= generatorStartPos.y + 1.2 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_3_min, bush_level_3_max ), 0.3, Random.Range ( bush_level_3_min, bush_level_3_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-				newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newBushPiece.renderer.material.color 	= mediumGreen;
-				
-					Message ( "bushStart.level (3)" );
+				LerpScale (endScale, bush_level_3_min, bush_level_3_max, objectHeight, newBushPiece, mediumGreen, "bushStart.level (3)" );
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 1.2 && transform.position.y <= generatorStartPos.y + 1.5 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_4_min, bush_level_4_max ), 0.3, Random.Range ( bush_level_4_min, bush_level_4_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-				newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newBushPiece.renderer.material.color 	= lightGreen;
-				
-					Message ( "bushStart.level (4)" );
+				LerpScale (endScale, bush_level_4_min, bush_level_4_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (4)" );
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.5 && transform.position.y <= generatorStartPos.y + 1.8 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_5_min, bush_level_5_max ), 0.3, Random.Range ( bush_level_5_min, bush_level_5_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-				newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newBushPiece.renderer.material.color 	= lightGreen;
-				
-					Message ( "bushStart.level (5)" );
+				LerpScale (endScale, bush_level_5_min, bush_level_5_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (5)" );
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.8 && transform.position.y <= generatorStartPos.y + 2.1 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_6_min, bush_level_6_max ), 0.3, Random.Range ( bush_level_6_min, bush_level_6_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-				newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newBushPiece.renderer.material.color 	= lightGreen;
-				
-					Message ( "bushStart.level (6)" );
+				LerpScale (endScale, bush_level_6_min, bush_level_6_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (6)" );
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 2.1 && transform.position.y <= generatorStartPos.y + 2.4 )
 			{
-				endScale = Vector3 ( Random.Range ( bush_level_7_min, bush_level_7_max ), 0.3, Random.Range ( bush_level_7_min, bush_level_7_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newBushPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-				
-				newBushPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newBushPiece.renderer.material.color 	= lightGreen;
-				
-					Message ( "bushStart.level (7)" );
+				LerpScale (endScale, bush_level_7_min, bush_level_7_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (7)" );
 			}
 		
 			bushArray.Push(newBushPiece);	// Pushing instantiated object to bushArray		
 	
-		// Define the rarity of object:
-		if ( rareObject == true )
-		{
-			Message ( "This is a rare bush!" );
-		
-			newBushPiece.tag = "bush";
-		}
-		else if ( veryRareObject == true )
-		{
-			Message ( "This is a very rare bush" );
-		
-			newBushPiece.tag = "bush";
-		}
-		else if ( epicObject == true )
-		{
-			Message ( "This is an epic bush!" );
-		
-			newBushPiece.tag = "bush";
-		}
-		else if ( legendaryObject == true )
-		{
-			Message ( "This is a legendary bush" );
-		
-			newBushPiece.tag = "bush";
-		
-			//var newLegendaryEffect : Transform = Instantiate(effectLegendary, transform.position, Quaternion.identity);
-		}
-		else 
-		{
-			newBushPiece.tag = "bush";
-		}
+		// Define tagname based on rarity
+		RarityHandler ( newBushPiece, 
+						"bush", 	// commonTagName
+						"bush", 	// rareTagName
+						"bush", 	// very rare tagName
+						"bush", 	// epic tagName
+						"bush");	// legendary tagName
 	
 		yield WaitForSeconds(0.5);
 	}
-	
-		transform.localScale = endScale;	// makes sure the new scale is permanent!
 
 	// Make bushParts childs of this object (parent)
 	if (i >= bushHeight)
@@ -1015,14 +523,11 @@ function BushGenerator ()
 	} 
 }
 
-
 /////////////////////////////////////////////////
 function RockGenerator ()
 {
 	randomColorVariant ();	// Sets color
 	
-	transform.localScale = Vector3.zero;
-
 	// rockGenerator
 	
 	for (var i : int = 0; i < rockHeight; i++)
@@ -1039,14 +544,9 @@ function RockGenerator ()
 		// Generate new piece
 		var newRockPiece : Transform = Instantiate(rockPiece, transform.position, transform.rotation);
 	
-			newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-				
-			newRockPiece.renderer.material.color 	= darkGray;
-		
 		// Change Size 
-			var endScale    : Vector3;
-			var t 			= 0.0;
-			var speed 		= Random.Range ( 1.0, 3.5);
+			var endScale    	: Vector3;
+			var objectHeight	: float	 = 0.3;
 							
 			// rockSize from ground and up	(NOTE: numbers = numbers minus originalsize) 
 			var rock_level_1_min : float = 0.70;	
@@ -1073,173 +573,45 @@ function RockGenerator ()
 									
 			if ( 		transform.position.y 		>= generatorStartPos.y + 0.3 && transform.position.y <= generatorStartPos.y + 0.6 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_1_min, rock_level_1_max ), 0.3, Random.Range ( rock_level_1_min, rock_level_1_max ) );
-						
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);	
-						
-					yield;	
-				}	
-							
-					Message ( "rockStart.level (1)" );
+				LerpScale (endScale, rock_level_1_min, rock_level_1_max, objectHeight, newRockPiece, darkGray, "rockStart.level (1)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.6 && transform.position.y <= generatorStartPos.y + 0.9 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_2_min, rock_level_2_max ), 0.3, Random.Range ( rock_level_2_min, rock_level_2_max ) );
-						
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);
-	
-					yield;
-				}
-				
-				newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newRockPiece.renderer.material.color 	= mediumGray;
-				
-					Message ( "rockStart.level (2)" );
+				LerpScale (endScale, rock_level_2_min, rock_level_2_max, objectHeight, newRockPiece, mediumGray, "rockStart.level (2)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.9 && transform.position.y <= generatorStartPos.y + 1.2 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_3_min, rock_level_3_max ), 0.3, Random.Range ( rock_level_3_min, rock_level_3_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);
-	
-					yield;
-				}
-				
-				newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newRockPiece.renderer.material.color 	= mediumGray;
-				
-					Message ( "rockStart.level (3)" );
+				LerpScale (endScale, rock_level_3_min, rock_level_3_max, objectHeight, newRockPiece, mediumGray, "rockStart.level (3)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 1.2 && transform.position.y <= generatorStartPos.y + 1.5 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_4_min, rock_level_4_max ), 0.3, Random.Range ( rock_level_4_min, rock_level_4_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);
-	
-					yield;
-				}
-				
-				newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newRockPiece.renderer.material.color 	= lightGray;
-				
-					Message ( "rockStart.level (4)" );
+				LerpScale (endScale, rock_level_4_min, rock_level_4_max, objectHeight, newRockPiece, lightGray, "rockStart.level (4)" 	);
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.5 && transform.position.y <= generatorStartPos.y + 1.8 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_5_min, rock_level_5_max ), 0.3, Random.Range ( rock_level_5_min, rock_level_5_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);
-	
-					yield;
-				}
-				
-				newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newRockPiece.renderer.material.color 	= lightGray;
-				
-					Message ( "rockStart.level (5)" );
+				LerpScale (endScale, rock_level_5_min, rock_level_5_max, objectHeight, newRockPiece, lightGray, "rockStart.level (5)" 	);
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.8 && transform.position.y <= generatorStartPos.y + 2.1 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_6_min, rock_level_6_max ), 0.3, Random.Range ( rock_level_6_min, rock_level_6_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);
-	
-					yield;
-				}
-				
-				newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newRockPiece.renderer.material.color 	= lightGray;
-				
-					Message ( "rockStart.level (6)" );
+				LerpScale (endScale, rock_level_6_min, rock_level_6_max, objectHeight, newRockPiece, lightGray, "rockStart.level (6)" 	);
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 2.1 && transform.position.y <= generatorStartPos.y + 2.4 )
 			{
-				endScale = Vector3 ( Random.Range ( rock_level_7_min, rock_level_7_max ), 0.3, Random.Range ( rock_level_7_min, rock_level_7_max ) );
-				
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-			
-						newRockPiece.localScale = Vector3.Lerp(transform.localScale, endScale, t);
-	
-					yield;
-				}
-				
-				newRockPiece.renderer.material 			= new Material(Shader.Find("Diffuse"));
-					
-				newRockPiece.renderer.material.color 	= lightGray;
-				
-					Message ( "rockStart.level (7)" );					
+				LerpScale (endScale, rock_level_7_min, rock_level_7_max, objectHeight, newRockPiece, lightGray, "rockStart.level (7)" 	);				
 			}
 			
 			rockArray.Push(newRockPiece);	// Pushing instantiated object to bushArray		
 		
-		// Define the rarity of object:
-		if ( rareObject == true )
-		{
-			Message ( "This is a rare Rock!" );
-		
-			newRockPiece.tag = "rareObject_cobber";
-		}
-		else if ( veryRareObject == true )
-		{
-			Message ( "This is a very rare Rock" );
-		
-			newRockPiece.tag = "veryRareObject_silver";
-		}
-		else if ( epicObject == true )
-		{
-			Message ( "This is an epic Rock!" );
-		
-			newRockPiece.tag = "epicObject_gold";
-		}
-		else if ( legendaryObject == true )
-		{
-			Message ( "This is a legendary Rock" );
-		
-			newRockPiece.tag = "legendaryObject_";
-		
-			var newLegendaryEffect : Transform = Instantiate(effectLegendary, transform.position, Quaternion.identity);
-		}
-		else 
-		{
-			newRockPiece.tag = "rock";
-		}
+		// Define tagname based on rarity
+		RarityHandler ( newRockPiece, 
+						"rock", 					// commonTagName
+						"rareObject_cobber", 		// rareTagName
+						"veryRareObject_silver", 	// very rare tagName
+						"epicObject_gold", 			// epic tagName
+						"legendaryObject_");		// legendary tagName
 	  	
 		yield WaitForSeconds(0.5);
 	}
-	
-		transform.localScale = endScale;	// makes sure the new scale is permanent!
-		
 	
 	// Make rockParts childs of this object (parent)
 	if (i >= rockHeight)
@@ -1249,10 +621,7 @@ function RockGenerator ()
 			rockParts.transform.parent = this.transform;
 		}	
 	}
-
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1279,6 +648,73 @@ function Message ( text : int )    		// debug mode handling for development - ea
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function LerpScale (endScale : Vector3, minRange : float, maxRange : float, objectHeight : float, scaleObject : Transform, color : Color, message : String )
+{
+	//////////////////////////
+	// Material & color
+	scaleObject.renderer.material 			= new Material(Shader.Find("Transparent/Diffuse"));
+					
+	scaleObject.renderer.material.color 	= color;
+	
+	scaleObject.renderer.material.color.a 	= 1.0;
+	//////////////////////////
+	// Calculate scale 
+	var t 			: float		= 0.0;
+	var speed 		: float		= 0.0;
+	var startScale 	: Vector3 	= Vector3.zero;
+	
+	endScale = Vector3 ( Random.Range ( minRange, maxRange ), objectHeight, Random.Range ( minRange, maxRange ) );			
+	
+	speed 						= Random.Range ( 1.0, 3.5 );
+							
+	while ( t < 1.0)
+	{
+		t += Time.deltaTime * speed;
+			
+		scaleObject.localScale 	= Vector3.Lerp ( startScale, endScale, t );	
+						
+		yield;	
+		
+		transform.localScale 	= endScale;				
+	}						
+	Message ( message );
+}
+
+/////////////////////////////////////////////////////////
+function RarityHandler ( object : Transform, commonTagName : String, rareTagName : String, veryRareTagName : String, epicTagName : String, legendaryTagName : String )
+{
+	// Define the rarity of object:
+	if ( rareObject == true )
+	{
+		Message ( "This is a rare object!" );
+	
+		object.tag = rareTagName;
+	}
+	else if ( veryRareObject == true )
+	{
+		Message ( "This is a very rare object" );
+	
+		object.tag = veryRareTagName;
+	}
+	else if ( epicObject == true )
+	{
+		Message ( "This is an epic object!" );
+	
+		object.tag = epicTagName;
+	}
+	else if ( legendaryObject == true )
+	{
+		Message ( "This is a legendary object" );
+	
+		object.tag = legendaryTagName;
+	}
+	else 
+	{
+		object.tag = commonTagName;
+	}
+}
+
 //////////////////////////////
 function randomColorVariant ()			// Sets color of blocks
 {
@@ -1288,7 +724,6 @@ function randomColorVariant ()			// Sets color of blocks
 	var chanceOfColor_03 : float = 8.0;
 	var chanceOfColor_04 : float = 4.0;
 	var chanceOfColor_05 : float = 2.0;
-	
 	
 	var randomNum 		 : float = Random.Range(0.0, 100.0); 
 	
@@ -1309,8 +744,7 @@ function randomColorVariant ()			// Sets color of blocks
 					// Brown Variant 1 - most common
 					lightBrown 			= new Color(113/255.0F, 103/255.0F, 82/255.0F, 0/255.0F);
 					mediumBrown 		= new Color(100/255.0F, 91/255.0F, 73/255.0F, 0/255.0F);
-					darkBrown 			= new Color(74/255.0F, 68/255.0F, 54/255.0F, 0/255.0F);
-					
+					darkBrown 			= new Color(74/255.0F, 68/255.0F, 54/255.0F, 0/255.0F);				
 	}
 	else if ( randomNum < chanceOfColor_01 + chanceOfColor_02)
 	{
@@ -1417,60 +851,47 @@ function randomColorVariant ()			// Sets color of blocks
 					mediumBrown 		= new Color(100/255.0F, 91/255.0F, 73/255.0F, 0/255.0F);
 					darkBrown 			= new Color(74/255.0F, 68/255.0F, 54/255.0F, 0/255.0F);
 	}
-
 }
 
 
 
-/*
-//////////////////////////////////////////
-function MouseHitAndDestroy()
-{
-	if ( Input.GetMouseButtonDown ( 0 ) )
-	{
-		var t 							= 0.0;
-		var speed 						= 1.0;
-		var endScale 					= Vector3.zero;
-		var ray 		: Ray 			= Camera.main.ScreenPointToRay (Input.mousePosition);	
-		var hit 		: RaycastHit;
-	
-		if (Physics.Raycast (ray, hit, 1000))
-		{
-			Debug.DrawRay (ray.origin, hit.point, Color.red);
-			
-			if ( hit.collider.tag == "treeLogPiece" || "treeCrownPiece" || "bush" || "rock" )
-			{	
-				while ( t < 1.0)
-				{
-					t += Time.deltaTime * speed;
-					hit.transform.localScale = Vector3.Lerp(hit.transform.localScale, endScale, t);
-					yield;
-				}
-			}
-				
-			if ( hit.transform.localScale == Vector3.zero )
-			{
-				Message ( "Object destroyed!" );
-				
-				if ( hit.collider.tag == "treeLogPiece" )
-				{
-					var newLogEffect : Transform = Instantiate ( effectWoodHit, hit.transform.position, Quaternion.identity );
-				}
-				else if ( hit.collider.tag == "treeCrownPiece" || "bush" )
-				{
-					var newCrownEffect : Transform = Instantiate ( effectPlantHit, hit.transform.position, Quaternion.identity );
-				}
-				else if ( hit.collider.tag == "rock")
-				{
-					var newRockEffect : Transform = Instantiate ( effectRockHit, hit.transform.position, Quaternion.identity );
-				}
-				
-				Destroy(hit.collider.gameObject);
-			}
-		}
-	}
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

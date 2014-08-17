@@ -28,12 +28,15 @@
 		var harvestEffect 					: Transform;
 		var lootEffect 						: Transform;
 		var guitextPoints					: Transform;
-private var layerBreakable;
+private var layerBreakable					: LayerMask;
 private var lastEffectTime 					: float = 0.0;
 private var begunHarvesting 				: float = 0.0;
+private var specificMaterial_multiplier 	: float	= 0.0;
 //////////////////////////////////////////////////////////
 // PlayerEffects /////////////////////////////////////////
 		var effectSleepy					: Transform;
+		var effectSound 					: AudioClip[] 		= new AudioClip[4];
+		var effect_dust 					: Transform;
 		
 //////////////////////////////////////////////////////////
 		var canSleep						: boolean			= true;
@@ -138,18 +141,6 @@ private var begunHarvesting 				: float = 0.0;
 		var aniSleep 						: AnimationClip;
 		var aniEnterSleep					: AnimationClip;
 		var aniWakeUpFromSleep				: AnimationClip;
-
-//////////////////////////////////////////////////////////////////
-// Multipliers for changing harvest speed according to material	//	
-private var logPiece_multiplier				: float				= 1.0;
-private var leaf_multiplier					: float				= 1.5;
-private var stone_multiplier				: float				= 0.7;
-private	var copper_multiplier				: float				= 0.5;
-private var silver_multiplier				: float				= 0.5;
-private var gold_multiplier					: float				= 0.3;
-private var legendary_multiplier			: float				= 0.0;
-		
-//////////////////////////////////////////////////////////////////
 
 		var DebugMode						: boolean			= true;						// sets mode to debug and prints messages to console
 
@@ -500,6 +491,9 @@ function Run 					() 													// runs player
 			animation[ aniRun.name ].wrapMode = WrapMode.Loop;
 		
 			animation.CrossFade ( aniRun.name, 0.3f );									// play animation
+			
+			animation[ aniRun.name ].speed = 1.3;	
+			
 			Message ( "Ani State: Run" );											// print current animation state
 		}
 	}
@@ -551,8 +545,9 @@ function Jump_1 				() 													// default jump (if no combo, then defaults 
 				isJumping_1 		= false;										// set jump 1 to false so it just does it once
 				curTime 			= Time.time;									// grab the current actual time to use for testing against next button press
 				animation.CrossFade ( aniJump_1.name );								// play jump 1 animation
+				animation[ aniJump_1.name ].speed = 1.2;
 				currentJumpHeight 	= jump_1;										// set jump 1 height to current jump height
-				inAirVelocity.y 	= currentJumpHeight;							// set current jump to in Air Y (don't have to by-pass twice, just doing it)
+				inAirVelocity.y 	= currentJumpHeight;							// set current jump to in Air Y (don't have to by-pass twice, just doing it)	
 				Message ( "Ani State: Jump 1" );									// print on debug that we jumped
 			}	
 			else if ( IsGrounded () && !isJumping_1 && !isJumping_2 && !isJumping_3 )	// if the player jumped and on the ground, then setup for combo
@@ -645,6 +640,7 @@ function JumpFromAir 			()
 					script_playerFaceEyes.isEyesSurprised 	= true;
 					script_playerFaceMouth.isMouthSurprised = true;
 					currentJumpHeight = jumpFromAir;
+					animation.CrossFade ( aniJump_2.name );
 					inAirVelocity.y = jumpFromAir;
 				} 
 			}
@@ -713,6 +709,7 @@ function JumpPad				()													// jump from crouch position
 			animation.CrossFade ( aniJump_3.name );
 			currentJumpHeight 	= jumpFromCrouch;
 			inAirVelocity.y 	= currentJumpHeight;
+			DoubleJumpSound ();
 			Message ( "Ani State: Jump from Pad" );
 		}
 	}
@@ -885,8 +882,7 @@ function Hurt					()													// player hurt by enemy objects
 //////////////////////////////////
 function Harvest				()
 {
-	// Harvesting layer = breakable 
-	layerBreakable = LayerMask.NameToLayer("breakable");
+	layerBreakable = 1 << 9;	// Layer nr. 9: "breakable"
 	
 	var t 							= 0.0;
 	var speed 						= 0.0003;
@@ -896,18 +892,18 @@ function Harvest				()
 
 	var playerBuilder : script_player_builder = this.gameObject.GetComponent (script_player_builder);
 
-	if ( Input.GetMouseButton ( 0 ) && playerBuilder.buildModeEnabled == false )
+	if ( Input.GetMouseButton ( 0 ) && playerBuilder.buildModeEnabled == false )	
 	{	
-		if (Physics.Raycast (ray, hit, Mathf.Infinity) )
+		if (Physics.Raycast (ray, hit, 100, layerBreakable ) )
 		{			
 			// Distance between player and RaycastHit
 			var playerDistanceToHit : Vector3 = hit.transform.position - this.transform.position;
- 				
+ 		
  				// Distance limited to x- and z-axis
 				var playerDistanceToHitInX = Mathf.Abs(playerDistanceToHit.x);
 				var playerDistanceToHitInZ = Mathf.Abs(playerDistanceToHit.z);
 			
-			if ( playerDistanceToHitInX && playerDistanceToHitInZ < 2.5 && hit.transform.gameObject.layer == layerBreakable ) 
+			if ( playerDistanceToHitInX && playerDistanceToHitInZ < 2.5 )
 			{	
 			// Animation	
 				animation[ aniAttack.name ].wrapMode = WrapMode.Loop;
@@ -915,11 +911,16 @@ function Harvest				()
 				animation.CrossFade ( aniAttack.name, 0.3f );
 				
 				animation[ aniAttack.name ].speed = speedAttack;	// Sets the speed of attackAnimation
+											
+			// EffectFrequency	
+				var effectFrequency = Mapping (2.0f, 0.0f, 0.0f, 3.0f, speedAttack);
 				
-			// Effect	// OMVENDT !!!! 
-				var effectFrequency : float = speedAttack;	// Effects occurs every x (effectFrequency) seconds 
+				Message ( "effectFrequency / attackSpeed: " + effectFrequency );	// speedAttack (recommended setting): min = 0.6, max = 2.7
+				
+				Message ( "specificMaterial_multiplier: " + specificMaterial_multiplier );
 			
-				if (Time.time > lastEffectTime + effectFrequency )
+			// Harvest points based on effectFrequency			
+				if ( Time.time > lastEffectTime + effectFrequency + specificMaterial_multiplier )
 				{
  				// Hit effect
  					var newEffect : Transform = Instantiate ( harvestEffect, hit.transform.position, Quaternion.identity );	
@@ -931,49 +932,57 @@ function Harvest				()
 
  					if ( 		hit.transform.tag == "treeLogPiece" )
  					{
- 						HarvestObject ( hit, "wood", hit.transform.position, brown, logPiece_multiplier, speed ); 
- 						sceneManager.fragment_wood += 1;
+ 						HarvestObject ( hit, "wood", hit.transform.position, brown, speed ); 
+ 						specificMaterial_multiplier = 0.1;
+ 						sceneManager.fragment_wood 	+= 1;
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "treeCrownPiece" )
  					{
- 						HarvestObject ( hit, "leaf", hit.transform.position, green, leaf_multiplier, speed ); 
+ 						HarvestObject ( hit, "leaf", hit.transform.position, green, speed ); 
  						sceneManager.fragment_leaf += 1;
+ 						specificMaterial_multiplier = 0.0;
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "rock" )
  					{
- 						HarvestObject ( hit, "stone", hit.transform.position, gray, stone_multiplier, speed ); 
+ 						HarvestObject ( hit, "stone", hit.transform.position, gray, speed ); 
  						sceneManager.fragment_stone += 1;
+ 						specificMaterial_multiplier = 0.2;
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "bush" )
  					{
- 						HarvestObject ( hit, "leaf", hit.transform.position, green, leaf_multiplier, speed ); 
+ 						HarvestObject ( hit, "leaf", hit.transform.position, green, speed ); 
  						sceneManager.fragment_leaf += 1;
+ 						specificMaterial_multiplier = 0.0;
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "rareObject_cobber" )
  					{
- 						HarvestObject ( hit, "Copper", hit.transform.position, cobber, copper_multiplier, speed ); 
+ 						HarvestObject ( hit, "Copper", hit.transform.position, cobber, speed ); 
  						sceneManager.fragment_copper += 1;
+ 						specificMaterial_multiplier = 0.4;
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "veryRareObject_silver" )
  					{
- 						HarvestObject ( hit, "Silver", hit.transform.position, silver, silver_multiplier, speed ); 
+ 						HarvestObject ( hit, "Silver", hit.transform.position, silver, speed ); 
  						sceneManager.fragment_silver += 1;
+ 						specificMaterial_multiplier = 0.4;
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "epicObject_gold" )
  					{
- 						HarvestObject ( hit, "Gold", hit.transform.position, gold, gold_multiplier, speed ); 
- 						sceneManager.fragment_gold += 1;		
+ 						HarvestObject ( hit, "Gold", hit.transform.position, gold, speed ); 
+ 						sceneManager.fragment_gold += 1;
+ 						specificMaterial_multiplier = 0.8;		
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "legendaryObject_" )
  					{
- 						HarvestObject ( hit, "legendary", hit.transform.position, purple, legendary_multiplier, speed );
+ 						HarvestObject ( hit, "legendary", hit.transform.position, purple, speed );
+ 						specificMaterial_multiplier = 2.0;
  						sceneManager.fragment_legendary += 1;
  						PlusScoreGUI ("+1");
  					}			
@@ -981,31 +990,24 @@ function Harvest				()
  										
     				lastEffectTime = Time.time;
 				} 
-	
-			// DownScaling						
-				//while ( t < 1.0 )
-				//{				
-					//t += Time.deltaTime * speed;
-
-					//hit.transform.localScale = Vector3.Lerp(hit.transform.localScale, endScale, t);
-			
 			// Disabling 		
-						var minSize = Vector3(0.5, 0.5, 0.5);
+				var minSize = Vector3(0.5, 0.5, 0.5);
 
-						if ( hit.transform.localScale.magnitude <= minSize.magnitude )
-						{
-							hit.collider.gameObject.active = false;
-						}
-					
-					//yield;
-				//}		
+				if ( hit.transform.localScale.magnitude <= minSize.magnitude )
+				{
+					hit.collider.gameObject.active = false;
+					//hit.collider.gameObject.GetComponent(Renderer).enabled = false;
+					//hit.collider.gameObject.GetComponent(Collider).enabled = false;
+				 	// Sound effect
+					HarvestGainSound ();	
+				}	
 			}				
 		}
 	}
 }
 
 /////////////////// fx :               Wood , hit (raycasthit).transform.location, brown   , logPiece_multiplier        , logPiece          
-function HarvestObject ( hit : RaycastHit, message : String, effectLocation : Vector3, effectColor : Color, animationMultiplier : float, speed : float ) 
+function HarvestObject ( hit : RaycastHit, message : String, effectLocation : Vector3, effectColor : Color, speed : float ) 
 {
 	// Calculating size of hit object:
 		var hitX 				= hit.transform.localScale.x;
@@ -1022,10 +1024,56 @@ function HarvestObject ( hit : RaycastHit, message : String, effectLocation : Ve
  		newTempEffect.transform.renderer.material.color = effectColor;
  
  		PlusScoreGUI ("+1");
- 						
- 		//speed = speed * ( speedAttack / animationMultiplier ); 
- 		speed = speed * speedAttack * animationMultiplier; 
- 		Message ( "HarvestSpeed [" + message + "]: " + speed );
+}
+
+/////////////////////////////////
+function Mapping ( from : float, to : float, from2 : float, to2 : float, value : float ) 
+{
+    if ( value <= from2 )
+    {
+    	return from;
+    }
+    else if ( value >= to2 )
+    {
+    	return to;
+    }
+    return ( to - from ) * ( ( value - from2 ) / ( to2 - from2 ) ) + from;
+}
+
+/////////////////////////////////
+function HarvestSound ()
+{
+	audio.PlayOneShot ( effectSound [ Random.Range ( 0, 3 ) ] );	
+	audio.volume = 0.4;	
+}
+
+/////////////////////////////////
+function HarvestGainSound ()
+{
+	audio.PlayOneShot ( effectSound [ 4 ] );
+	audio.volume = 0.8;	
+}
+
+/////////////////////////////////
+function MoveSoundPlusEffect ()
+{
+	var newDust : Transform = Instantiate (effect_dust, transform.position, Quaternion.identity );
+	audio.PlayOneShot ( effectSound [ Random.Range ( 7, 10 ) ] );
+	audio.volume = 0.1;	
+}
+
+/////////////////////////////////
+function NormalJumpSound ()
+{
+	audio.PlayOneShot ( effectSound [ 5 ] );
+	audio.volume = 0.4;	
+}
+
+/////////////////////////////////
+function DoubleJumpSound ()
+{
+	audio.PlayOneShot ( effectSound [ 6 ] );
+	audio.volume = 0.5;	
 }
 
 //////////////////////////////////

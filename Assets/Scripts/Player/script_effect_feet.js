@@ -11,3 +11,4 @@ function OnTriggerEnter (other : Collider)
 		var newDust : Transform = Instantiate (effect_dust, transform.position, Quaternion.identity );
 	}
 }
+

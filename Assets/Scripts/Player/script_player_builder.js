@@ -7,6 +7,7 @@
 		var toolTip						: Transform;
 static  var buildModeEnabled 			: boolean;
 
+		var blockContainer  			: Transform;
 		var mouseCursorObject 			: Transform;
 		var layerMask 					: LayerMask;
 private var mousePosX 					: int;
@@ -119,55 +120,97 @@ function BlockPicker ()
 	
 	if ( key_1_active == true && possibleToBuild_wood == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( woodBlock );	}
+		key_2_active = false;	
+		key_3_active = false;
+		key_4_active = false;
+		key_5_active = false;
+		key_6_active = false;
+		key_7_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( woodBlock, "treeLogPiece" );	}
 	}
 // Key 2: leafBlock		
 	if ( Input.GetKeyDown ( KeyCode.Alpha2 ) )	{	key_2_active = !key_2_active;	ToolTip( "Numeric key 2: 'Leaf' selected" );	}
 	
 	if ( key_2_active == true && possibleToBuild_leaf == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( leafBlock );	}
+		key_1_active = false;	
+		key_3_active = false;
+		key_4_active = false;
+		key_5_active = false;
+		key_6_active = false;
+		key_7_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( leafBlock, "bush" );	}
 	}
 // Key 3: stoneBlock		
 	if ( Input.GetKeyDown ( KeyCode.Alpha3 ) )	{	key_3_active = !key_3_active;	ToolTip( "Numeric key 3: 'Stone' selected" );	}
 	
 	if ( key_3_active == true && possibleToBuild_stone == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( stoneBlock );	}
+		key_1_active = false;	
+		key_2_active = false;
+		key_4_active = false;
+		key_5_active = false;
+		key_6_active = false;
+		key_7_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( stoneBlock, "rock" );	}
 	}	
 // Key 4: copperBlock		
 	if ( Input.GetKeyDown ( KeyCode.Alpha4 ) )	{	key_4_active = !key_4_active;	ToolTip( "Numeric key 4: 'Copper' selected" );	}
 	
 	if ( key_4_active == true && possibleToBuild_copper == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( copperBlock );	}
+		key_1_active = false;	
+		key_2_active = false;
+		key_3_active = false;
+		key_5_active = false;
+		key_6_active = false;
+		key_7_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( copperBlock, "rareObject_cobber" );	}
 	}	
 // Key 5: silverBlock		
 	if ( Input.GetKeyDown ( KeyCode.Alpha5 ) )	{	key_5_active = !key_5_active;	ToolTip( "Numeric key 5: 'Silver' selected" );	}
 	
 	if ( key_5_active == true && possibleToBuild_silver == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( silverBlock );	}
+		key_1_active = false;	
+		key_2_active = false;
+		key_3_active = false;
+		key_4_active = false;
+		key_6_active = false;
+		key_7_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( silverBlock, "veryRareObject_silver" );	}
 	}	
 // Key 6: goldBlock		
 	if ( Input.GetKeyDown ( KeyCode.Alpha6 ) )	{	key_6_active = !key_6_active;	ToolTip( "Numeric key 6: 'Gold' selected" );	}
 	
 	if ( key_6_active == true && possibleToBuild_gold == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( goldBlock );	}
+		key_1_active = false;	
+		key_2_active = false;
+		key_3_active = false;
+		key_4_active = false;
+		key_5_active = false;
+		key_7_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( goldBlock, "epicObject_gold" );	}
 	}
 // Key 7: legendaryBlock		
 	if ( Input.GetKeyDown ( KeyCode.Alpha6 ) )	{	key_7_active = !key_7_active;	ToolTip( "Numeric key 7: 'Legendary' selected" );	}
 	
 	if ( key_7_active == true && possibleToBuild_legendary == true )
 	{
-		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( legendaryBlock );	}
+		key_1_active = false;	
+		key_2_active = false;
+		key_3_active = false;
+		key_4_active = false;
+		key_5_active = false;
+		key_6_active = false;
+		if ( (Input.GetMouseButtonDown ( 0 ) || Input.GetKeyDown ( KeyCode.E ) ) ) {	BuildBlock ( legendaryBlock, "legendaryObject_" );	}
 	}	
 }
 
 
 //////////////////////
-function BuildBlock ( buildBlock : Transform )
+function BuildBlock ( buildBlock : Transform, specificTag : String )
 {	
 	var sceneManagerObject 						= GameObject.FindWithTag("scenemanager");
 	var sceneManager 	: script_sceneManager 	= sceneManagerObject.GetComponent(script_sceneManager);	
@@ -176,9 +219,13 @@ function BuildBlock ( buildBlock : Transform )
 	var blockEndScale 	= Vector3(1, 1, 1);
 	var t : float 		= 0.0;
 
-	var newBlock = Instantiate ( buildBlock, mouseCursorObject.transform.position, Quaternion.identity );
+	var newBlock 				= Instantiate ( buildBlock, mouseCursorObject.transform.position, Quaternion.identity );
 	
-	newBlock.localScale = blockStartScale;	
+	newBlock.gameObject.tag 	= specificTag;
+		
+	newBlock.localScale 		= blockStartScale;	
+
+	newBlock.transform.parent 	= blockContainer;
 
 		// Subtracting from resources based on type of block		
 		if ( buildBlock == woodBlock )
