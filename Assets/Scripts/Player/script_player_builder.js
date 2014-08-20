@@ -91,6 +91,7 @@ function MousePosition ()
 
    	 if ( Physics.Raycast ( Camera.main.ScreenPointToRay ( Input.mousePosition ), hit, Mathf.Infinity, layerMask ) )
      {
+     		Debug.Log ( hit.collider.name );
      		mousePosX = hit.point.x;
      		mousePosY = hit.point.y;
      		mousePosZ = hit.point.z;
@@ -101,7 +102,7 @@ function MousePosition ()
      		}
      		else 
      		{
-     			hitPosition = Vector3 ( mousePosX, mousePosY + 0.5, mousePosZ );
+     			hitPosition = Vector3 ( mousePosX, mousePosY + 1.0, mousePosZ );
      		}		
      }
      		

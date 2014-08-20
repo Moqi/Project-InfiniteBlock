@@ -99,7 +99,7 @@ function PlaceBlock ( position : Vector3 )
 {	
 	yield WaitForSeconds (Random.Range ( 1, 5) );
 
-	var randomStartPos 		: Vector3 = Vector3 ( Random.Range ( - 4.5, 4.5 ), 0, Random.Range ( - 4.5, 4.5 ) );
+	var randomStartPos 		: Vector3 = Vector3 ( Random.Range ( - 4.5, 4.5 ), -0.5, Random.Range ( - 4.5, 4.5 ) );
 	var objectType 	   		: Transform;
 	var randomObjectType	: int 	  = Random.Range ( 0, 9 );
 	
@@ -116,7 +116,7 @@ function PlaceBlock ( position : Vector3 )
 
 	newBlock.gameObject.transform.parent 			= objectHolder.transform;
 	
-	if ( newBlock.transform.position.y >= 2 )
+	if ( newBlock.transform.position.y >= 1 )
 	{
 		var newBlockPos : Vector3   = newBlock.transform.position;
 

@@ -237,7 +237,7 @@ function Start 					() 													// initialize variables
 	controllerCenterYDefault 	= characterController.center.y;						// set controllerCenterYDefault to controllers starting center Y
 	animation.Stop 		();															// set animation to stop
 	AnimationClipCheck 	();															// check animation clips loaded, print missing ones to console	
-	playerStartPosition 		= transform.position;								// store player initial position, move player back to this if he dies
+	playerStartPosition 		= transform.position + Vector3(0, 1, 0);								// store player initial position, move player back to this if he dies
 	playerStartRotation 		= Quaternion.LookRotation (transform.position);		// store player initial rotation 
 	resetHealth 				= health;											// store health value in resetHealth 
 	tempSpeed 					= currentSpeed;										// store tempSpeed of player (used when player pushes)

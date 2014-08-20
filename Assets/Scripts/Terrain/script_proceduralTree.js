@@ -74,8 +74,6 @@ private var rockArray 							= new Array();
 ////////////////////////////////////////////////////////////
 function Start () 
 {	
-	transform.position.y -= 1.0;
-
 	generatorStartPos 		= transform.position;
 
 	if (manualHeightActive == true)
@@ -108,6 +106,7 @@ if (randomPick == false) // if manual pick, then...
 		generateRock = false;
 /////////////////////////////////////////////////
 // TreeGeneration:		
+		transform.position.y -= 0.75;
 		
 			Message ( "manualPick - Generating a tree!" );
 	
@@ -120,6 +119,7 @@ if (randomPick == false) // if manual pick, then...
 			 generateRock = false;
 /////////////////////////////////////////////////	
 // BushGeneration: 
+		transform.position.y -= 0.65;
 		
 			Message ( "manualPick - Generating a bush!" );
 		
@@ -131,7 +131,8 @@ if (randomPick == false) // if manual pick, then...
 	{		 generateBush = false;
 			 generateTree = false;
 /////////////////////////////////////////////////			
-	
+		transform.position.y -= 0.65;
+		
 			Message ( "manualPick - Generating a rock!" );
 	
 		RockGenerator ();
@@ -145,24 +146,32 @@ if (randomPick == false) // if manual pick, then...
 	
 	if (randomNum < chanceOfObject_01)
 	{
+		transform.position.y -= 0.75;
+		
 			Message ( "RandomPick - Generating a tree!" );
-	
+		
 		return(TreeGenerator());
 	}
 	else if (randomNum < chanceOfObject_01 + chanceOfObject_02)
 	{
+		transform.position.y -= 0.65;
+		
 			Message ( "RandomPick - Generating a bush!" );
 		
 		return(BushGenerator ());
 	}
 	else if (randomNum < chanceOfObject_01 + chanceOfObject_02 + chanceOfObject_03) 
 	{
+		transform.position.y -= 0.65;
+		
 			Message ( "RandomPick - Generating a rock!" );
 		
 		return(RockGenerator ());
 	}
 	else 
 	{
+		transform.position.y -= 0.75;
+		
 			Message ( "RandomPick - Generating a tree!" );
 	
 		return(TreeGenerator());

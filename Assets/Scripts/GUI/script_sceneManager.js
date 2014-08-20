@@ -536,10 +536,9 @@ function MainMenuSkyLerp()
     	mainMenuSkyLerpTime += Time.deltaTime / mainMenuSkyLerpDuration;
   	}
 
-	mainMenuSky.renderer.material.color = Color.Lerp(startColor.white, endColor.clear, mainMenuSkyLerpTime);
+	mainMenuSky.GetComponent(GUITexture).color = Color.Lerp(startColor.white, endColor.clear, mainMenuSkyLerpTime);
 
-
-  	if (mainMenuSky.renderer.material.color == endColor.clear)
+	if (mainMenuSky.GetComponent(GUITexture).color == endColor.clear)
   	{
   		// Disabling the mainMenuSky texture
   			mainMenuSky.active = false;
