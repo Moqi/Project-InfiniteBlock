@@ -5,10 +5,10 @@
 
 		var DebugMode			: boolean 		= false;
 		
-		var generateTree 		: boolean		= true;
-		var generateBush		: boolean		= false;
-		var generateRock		: boolean 		= false;
-		var randomPick			: boolean 		= false;
+static 	var generateTree 		: boolean		= false;
+static	var generateBush		: boolean		= false;
+static	var generateRock		: boolean 		= false;
+static	var randomPick			: boolean 		= true;
 private var chanceOfObject_01 	: float 		= 33.33;		// if number is below x, then (= x-chance for this to happen) 
 private var chanceOfObject_02 	: float 		= 33.33;		// 33.33 % chance 
 private var chanceOfObject_03 	: float 		= 33.33;
@@ -30,6 +30,7 @@ private var veryRareObject 		: boolean		= false;
 private var epicObject 			: boolean		= false;
 private var legendaryObject 	: boolean		= false;
 		
+		var squareTexture		: Texture;
 		var effectLegendary 	: Transform;
 
 		/////////////////////////////////////////////
@@ -207,7 +208,9 @@ function TreeGenerator ()
 		
 		// Generate new piece
 		var newLogPiece : Transform = Instantiate(logPiece, transform.position, transform.rotation);
-	
+		
+			SetMaterialAndColor ( newLogPiece, lightBrown );
+			
 		// Change Size 
 				var endScale_01  	: Vector3;
 				var objectHeight 	: float = 0.5;
@@ -237,31 +240,38 @@ function TreeGenerator ()
 									
 			if ( 		transform.position.y 	>= generatorStartPos.y + 0.5 && transform.position.y <= generatorStartPos.y + 1 )
 			{	
-				LerpScale (endScale_01, log_level_1_min, log_level_1_max, objectHeight, newLogPiece, lightBrown, 		"logStart.level (1)" 	);		
+				SetMaterialAndColor ( newLogPiece, lightBrown );
+				LerpScale (endScale_01, log_level_1_min, log_level_1_max, objectHeight, newLogPiece, 		"logStart.level (1)" 	);		
 			}
 			else if ( 	transform.position.y 	>= generatorStartPos.y + 1 && transform.position.y <= generatorStartPos.y + 1.5 )
 			{
-				LerpScale (endScale_01, log_level_2_min, log_level_2_max, objectHeight, newLogPiece, mediumBrown, 	"logStart.level (2)" 	);	
+				SetMaterialAndColor ( newLogPiece, mediumBrown );
+				LerpScale (endScale_01, log_level_2_min, log_level_2_max, objectHeight, newLogPiece, 	"logStart.level (2)" 	);	
 			}
 			else if ( 	transform.position.y 	>= generatorStartPos.y + 1.5 && transform.position.y <= generatorStartPos.y + 2 )
 			{
-				LerpScale (endScale_01, log_level_3_min, log_level_3_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (3)" 	);	
+				SetMaterialAndColor ( newLogPiece, darkBrown );
+				LerpScale (endScale_01, log_level_3_min, log_level_3_max, objectHeight, newLogPiece, 		"logStart.level (3)" 	);	
 			}
 			else if ( 	transform.position.y 	>= generatorStartPos.y + 2 && transform.position.y <= generatorStartPos.y + 2.5 )
 			{
-				LerpScale (endScale_01, log_level_4_min, log_level_4_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (4)" 	);	
+				SetMaterialAndColor ( newLogPiece, darkBrown );
+				LerpScale (endScale_01, log_level_4_min, log_level_4_max, objectHeight, newLogPiece, 		"logStart.level (4)" 	);	
 			}
 			else if (	transform.position.y 	>= generatorStartPos.y + 2.5 && transform.position.y <= generatorStartPos.y + 3 )
 			{
-				LerpScale (endScale_01, log_level_5_min, log_level_5_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (5)" 	);	
+				SetMaterialAndColor ( newLogPiece, darkBrown );
+				LerpScale (endScale_01, log_level_5_min, log_level_5_max, objectHeight, newLogPiece, 		"logStart.level (5)" 	);	
 			}
 			else if (	transform.position.y 	>= generatorStartPos.y + 3 && transform.position.y <= generatorStartPos.y + 3.5 )
 			{
-				LerpScale (endScale_01, log_level_6_min, log_level_6_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (6)" 	);	
+				SetMaterialAndColor ( newLogPiece, darkBrown );
+				LerpScale (endScale_01, log_level_6_min, log_level_6_max, objectHeight, newLogPiece, 		"logStart.level (6)" 	);	
 			}
 			else if (	transform.position.y 	>= generatorStartPos.y + 3.5 && transform.position.y <= generatorStartPos.y + 4 )
 			{
-				LerpScale (endScale_01, log_level_7_min, log_level_7_max, objectHeight, newLogPiece, darkBrown, 		"logStart.level (7)" 	);	
+				SetMaterialAndColor ( newLogPiece, darkBrown );
+				LerpScale (endScale_01, log_level_7_min, log_level_7_max, objectHeight, newLogPiece, 		"logStart.level (7)" 	);	
 			}
 		
 			treeArray.Push(newLogPiece);	// Pushing instantiated object to treeArray		
@@ -295,6 +305,8 @@ function TreeGenerator ()
 	
 			// Generate new piece
 			var newCrownPiece : Transform = Instantiate(crownPiece, transform.position, transform.rotation);
+	
+				SetMaterialAndColor ( newCrownPiece, darkGreen );
 	
 			// Change Size
 				var endScale_02    : Vector3;
@@ -348,62 +360,76 @@ function TreeGenerator ()
 			{
 				if ( 		transform.position.y 	>= generatorStartPos.y + 2.5 && transform.position.y <= generatorStartPos.y + 3 )
 				{
-					LerpScale (endScale_02, crown_level_1_min, crown_level_1_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (1)" );	
+					SetMaterialAndColor ( newCrownPiece, darkGreen );
+					LerpScale (endScale_02, crown_level_1_min, crown_level_1_max, objectHeight, newCrownPiece, "crownStart.level (1)" );	
 				}
 				else if ( 	transform.position.y 	>= generatorStartPos.y + 3 && transform.position.y <= generatorStartPos.y + 3.5 )
 				{
-					LerpScale (endScale_02, crown_level_2_min, crown_level_2_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (2)" );
+					SetMaterialAndColor ( newCrownPiece, darkGreen );
+					LerpScale (endScale_02, crown_level_2_min, crown_level_2_max, objectHeight, newCrownPiece, "crownStart.level (2)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 3.5 && transform.position.y <= generatorStartPos.y + 4 )
 				{
-					LerpScale (endScale_02, crown_level_3_min, crown_level_3_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (3)" );
+					SetMaterialAndColor ( newCrownPiece, darkGreen );
+					LerpScale (endScale_02, crown_level_3_min, crown_level_3_max, objectHeight, newCrownPiece, "crownStart.level (3)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 4 && transform.position.y <= generatorStartPos.y + 4.5 )
 				{
-					LerpScale (endScale_02, crown_level_4_min, crown_level_4_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (4)" );
+					SetMaterialAndColor ( newCrownPiece, darkGreen );
+					LerpScale (endScale_02, crown_level_4_min, crown_level_4_max, objectHeight, newCrownPiece, "crownStart.level (4)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 4.5 && transform.position.y <= generatorStartPos.y + 5 )
 				{
-					LerpScale (endScale_02, crown_level_5_min, crown_level_5_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (5)" );
+					SetMaterialAndColor ( newCrownPiece, darkGreen );
+					LerpScale (endScale_02, crown_level_5_min, crown_level_5_max, objectHeight, newCrownPiece, "crownStart.level (5)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 5 && transform.position.y <= generatorStartPos.y + 5.5 )
 				{
-					LerpScale (endScale_02, crown_level_6_min, crown_level_6_max, objectHeight, newCrownPiece, darkGreen, "crownStart.level (6)" );
+					SetMaterialAndColor ( newCrownPiece, darkGreen );
+					LerpScale (endScale_02, crown_level_6_min, crown_level_6_max, objectHeight, newCrownPiece, "crownStart.level (6)" );
 				}
 			}
 			else 
 			{	
 				if ( 		transform.position.y 	>= generatorStartPos.y + 3.5 && transform.position.y <= generatorStartPos.y + 4 )
 				{	
-					LerpScale (endScale_02, crown_topLevel_1_min, crown_topLevel_1_max, objectHeight, newCrownPiece, mediumGreen, "crownMiddle.level (1)" );
+					SetMaterialAndColor ( newCrownPiece, mediumGreen );
+					LerpScale (endScale_02, crown_topLevel_1_min, crown_topLevel_1_max, objectHeight, newCrownPiece, "crownMiddle.level (1)" );
 				}
 				else if ( 	transform.position.y 	>= generatorStartPos.y + 4 && transform.position.y <= generatorStartPos.y + 4.5)
 				{
-					LerpScale (endScale_02, crown_topLevel_2_min, crown_topLevel_2_max, objectHeight, newCrownPiece, mediumGreen, "crownMiddle.level (2)" );
+					SetMaterialAndColor ( newCrownPiece, mediumGreen );
+					LerpScale (endScale_02, crown_topLevel_2_min, crown_topLevel_2_max, objectHeight, newCrownPiece, "crownMiddle.level (2)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 4.5 && transform.position.y <= generatorStartPos.y + 5 )
 				{	
-					LerpScale (endScale_02, crown_topLevel_3_min, crown_topLevel_3_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (3)" );
+					SetMaterialAndColor ( newCrownPiece, mediumGreen );
+					LerpScale (endScale_02, crown_topLevel_3_min, crown_topLevel_3_max, objectHeight, newCrownPiece, "crownMiddle.level (3)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 5 && transform.position.y <= generatorStartPos.y + 5.5 )
 				{
-					LerpScale (endScale_02, crown_topLevel_4_min, crown_topLevel_4_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (4)" );
+					SetMaterialAndColor ( newCrownPiece, lightGreen );
+					LerpScale (endScale_02, crown_topLevel_4_min, crown_topLevel_4_max, objectHeight, newCrownPiece, "crownMiddle.level (4)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 5.5 && transform.position.y <= generatorStartPos.y + 6 )
 				{	
-					LerpScale (endScale_02, crown_topLevel_5_min, crown_topLevel_5_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (5)" );
+					SetMaterialAndColor ( newCrownPiece, lightGreen );
+					LerpScale (endScale_02, crown_topLevel_5_min, crown_topLevel_5_max, objectHeight, newCrownPiece, "crownMiddle.level (5)" );
 				}
 				else if (	transform.position.y 	>= generatorStartPos.y + 6 && transform.position.y <= generatorStartPos.y + 6.5 )
 				{
-					LerpScale (endScale_02, crown_topLevel_6_min, crown_topLevel_6_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (6)" );
-				}
+					SetMaterialAndColor ( newCrownPiece, lightGreen );
+					LerpScale (endScale_02, crown_topLevel_6_min, crown_topLevel_6_max, objectHeight, newCrownPiece, "crownMiddle.level (6)" );
+				}	
 				else if (	transform.position.y 	>= generatorStartPos.y + 6.5 && transform.position.y <= generatorStartPos.y + 7 )
 				{
-					LerpScale (endScale_02, crown_topLevel_7_min, crown_topLevel_7_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (7)" );
+					SetMaterialAndColor ( newCrownPiece, lightGreen );
+					LerpScale (endScale_02, crown_topLevel_7_min, crown_topLevel_7_max, objectHeight, newCrownPiece, "crownMiddle.level (7)" );
 				}								 
 				else if (	transform.position.y 	>= generatorStartPos.y + 7 && transform.position.y <= generatorStartPos.y + 7.5 )
 				{
-					LerpScale (endScale_02, crown_topLevel_8_min, crown_topLevel_8_max, objectHeight, newCrownPiece, lightGreen, "crownMiddle.level (8)" );
+					SetMaterialAndColor ( newCrownPiece, lightGreen );
+					LerpScale (endScale_02, crown_topLevel_8_min, crown_topLevel_8_max, objectHeight, newCrownPiece, "crownMiddle.level (8)" );
 				}	
 			}
 	
@@ -453,6 +479,8 @@ function BushGenerator ()
 		// Generate new piece
 		var newBushPiece : Transform = Instantiate(bushPiece, transform.position, transform.rotation);
 	
+			SetMaterialAndColor ( newBushPiece, darkGreen );
+	
 		// Change Size 		
 				var endScale    	 : Vector3;
 				var objectHeight	 : float = 0.3;
@@ -482,31 +510,38 @@ function BushGenerator ()
 									
 			if ( 		transform.position.y 		>= generatorStartPos.y + 0.3 && transform.position.y <= generatorStartPos.y + 0.6 )
 			{
-				LerpScale (endScale, bush_level_1_min, bush_level_1_max, objectHeight, newBushPiece, darkGreen, "bushStart.level (1)" 	);
+				SetMaterialAndColor ( newBushPiece, darkGreen );
+				LerpScale (endScale, bush_level_1_min, bush_level_1_max, objectHeight, newBushPiece, "bushStart.level (1)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.6 && transform.position.y <= generatorStartPos.y + 0.9 )
 			{
-				LerpScale (endScale, bush_level_2_min, bush_level_2_max, objectHeight, newBushPiece, mediumGreen, "bushStart.level (2)" );
+				SetMaterialAndColor ( newBushPiece, mediumGreen );
+				LerpScale (endScale, bush_level_2_min, bush_level_2_max, objectHeight, newBushPiece, "bushStart.level (2)" );
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.9 && transform.position.y <= generatorStartPos.y + 1.2 )
 			{
-				LerpScale (endScale, bush_level_3_min, bush_level_3_max, objectHeight, newBushPiece, mediumGreen, "bushStart.level (3)" );
+				SetMaterialAndColor ( newBushPiece, mediumGreen );
+				LerpScale (endScale, bush_level_3_min, bush_level_3_max, objectHeight, newBushPiece, "bushStart.level (3)" );
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 1.2 && transform.position.y <= generatorStartPos.y + 1.5 )
 			{
-				LerpScale (endScale, bush_level_4_min, bush_level_4_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (4)" );
+				SetMaterialAndColor ( newBushPiece, lightGreen );
+				LerpScale (endScale, bush_level_4_min, bush_level_4_max, objectHeight, newBushPiece, "bushStart.level (4)" );
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.5 && transform.position.y <= generatorStartPos.y + 1.8 )
 			{
-				LerpScale (endScale, bush_level_5_min, bush_level_5_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (5)" );
+				SetMaterialAndColor ( newBushPiece, lightGreen );
+				LerpScale (endScale, bush_level_5_min, bush_level_5_max, objectHeight, newBushPiece, "bushStart.level (5)" );
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.8 && transform.position.y <= generatorStartPos.y + 2.1 )
 			{
-				LerpScale (endScale, bush_level_6_min, bush_level_6_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (6)" );
+				SetMaterialAndColor ( newBushPiece, lightGreen );
+				LerpScale (endScale, bush_level_6_min, bush_level_6_max, objectHeight, newBushPiece, "bushStart.level (6)" );
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 2.1 && transform.position.y <= generatorStartPos.y + 2.4 )
 			{
-				LerpScale (endScale, bush_level_7_min, bush_level_7_max, objectHeight, newBushPiece, lightGreen, "bushStart.level (7)" );
+				SetMaterialAndColor ( newBushPiece, lightGreen );
+				LerpScale (endScale, bush_level_7_min, bush_level_7_max, objectHeight, newBushPiece, "bushStart.level (7)" );
 			}
 		
 			bushArray.Push(newBushPiece);	// Pushing instantiated object to bushArray		
@@ -550,9 +585,11 @@ function RockGenerator ()
 		// Random placement
 			transform.position		= Vector3( transform.position.x + Random.Range(-0.05, 0.15), yPosLog, transform.position.z + Random.Range(-0.05, 0.15));
 		
-		// Generate new piece
-		var newRockPiece : Transform = Instantiate(rockPiece, transform.position, transform.rotation);
-	
+		// Generate new piece with custom material and color
+		var newRockPiece : Transform 				= Instantiate(rockPiece, transform.position, transform.rotation);
+		
+			SetMaterialAndColor ( newRockPiece, darkGray );
+			
 		// Change Size 
 			var endScale    	: Vector3;
 			var objectHeight	: float	 = 0.3;
@@ -582,31 +619,38 @@ function RockGenerator ()
 									
 			if ( 		transform.position.y 		>= generatorStartPos.y + 0.3 && transform.position.y <= generatorStartPos.y + 0.6 )
 			{
-				LerpScale (endScale, rock_level_1_min, rock_level_1_max, objectHeight, newRockPiece, darkGray, "rockStart.level (1)" 	);
+				SetMaterialAndColor ( newRockPiece, darkGray );
+				LerpScale (endScale, rock_level_1_min, rock_level_1_max, objectHeight, newRockPiece, "rockStart.level (1)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.6 && transform.position.y <= generatorStartPos.y + 0.9 )
 			{
-				LerpScale (endScale, rock_level_2_min, rock_level_2_max, objectHeight, newRockPiece, mediumGray, "rockStart.level (2)" 	);
+				SetMaterialAndColor ( newRockPiece, mediumGray );
+				LerpScale (endScale, rock_level_2_min, rock_level_2_max, objectHeight, newRockPiece, "rockStart.level (2)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 0.9 && transform.position.y <= generatorStartPos.y + 1.2 )
 			{
-				LerpScale (endScale, rock_level_3_min, rock_level_3_max, objectHeight, newRockPiece, mediumGray, "rockStart.level (3)" 	);
+				SetMaterialAndColor ( newRockPiece, mediumGray );
+				LerpScale (endScale, rock_level_3_min, rock_level_3_max, objectHeight, newRockPiece, "rockStart.level (3)" 	);
 			}
 			else if ( 	transform.position.y 		>= generatorStartPos.y + 1.2 && transform.position.y <= generatorStartPos.y + 1.5 )
 			{
-				LerpScale (endScale, rock_level_4_min, rock_level_4_max, objectHeight, newRockPiece, lightGray, "rockStart.level (4)" 	);
+				SetMaterialAndColor ( newRockPiece, lightGray );
+				LerpScale (endScale, rock_level_4_min, rock_level_4_max, objectHeight, newRockPiece, "rockStart.level (4)" 	);
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.5 && transform.position.y <= generatorStartPos.y + 1.8 )
 			{
-				LerpScale (endScale, rock_level_5_min, rock_level_5_max, objectHeight, newRockPiece, lightGray, "rockStart.level (5)" 	);
+				SetMaterialAndColor ( newRockPiece, lightGray );
+				LerpScale (endScale, rock_level_5_min, rock_level_5_max, objectHeight, newRockPiece, "rockStart.level (5)" 	);
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 1.8 && transform.position.y <= generatorStartPos.y + 2.1 )
 			{
-				LerpScale (endScale, rock_level_6_min, rock_level_6_max, objectHeight, newRockPiece, lightGray, "rockStart.level (6)" 	);
+				SetMaterialAndColor ( newRockPiece, lightGray );
+				LerpScale (endScale, rock_level_6_min, rock_level_6_max, objectHeight, newRockPiece, "rockStart.level (6)" 	);
 			}
 			else if (	transform.position.y 		>= generatorStartPos.y + 2.1 && transform.position.y <= generatorStartPos.y + 2.4 )
 			{
-				LerpScale (endScale, rock_level_7_min, rock_level_7_max, objectHeight, newRockPiece, lightGray, "rockStart.level (7)" 	);				
+				SetMaterialAndColor ( newRockPiece, lightGray );
+				LerpScale (endScale, rock_level_7_min, rock_level_7_max, objectHeight, newRockPiece, "rockStart.level (7)" 	);				
 			}
 			
 			rockArray.Push(newRockPiece);	// Pushing instantiated object to bushArray		
@@ -656,17 +700,21 @@ function Message ( text : int )    		// debug mode handling for development - ea
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+function SetMaterialAndColor ( object : Transform, color : Color )
+{
+	// Material & color		
+	object.renderer.material 				= new Material(Shader.Find("Transparent/Diffuse"));
+	
+	object.renderer.material.mainTexture 	= squareTexture;
+			
+	object.renderer.material.color 			= color;
+	
+	object.renderer.material.color.a 		= 1.0;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function LerpScale (endScale : Vector3, minRange : float, maxRange : float, objectHeight : float, scaleObject : Transform, color : Color, message : String )
+function LerpScale (endScale : Vector3, minRange : float, maxRange : float, objectHeight : float, scaleObject : Transform, message : String )
 {
-	//////////////////////////
-	// Material & color
-	scaleObject.renderer.material 			= new Material(Shader.Find("Transparent/Diffuse"));
-					
-	scaleObject.renderer.material.color 	= color;
-	
-	scaleObject.renderer.material.color.a 	= 1.0;
 	//////////////////////////
 	// Calculate scale 
 	var t 			: float		= 0.0;

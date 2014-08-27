@@ -74,7 +74,7 @@ function Update ()
      if ( moveToPlayer == true )
      {
      	//Debug.Log ( "Move to player!" );   	
-     	transform.position = Vector3.Lerp ( this.transform.position, playerPos.transform.position, Time.deltaTime * 5.0 );
+     	gameObject.transform.position = Vector3.Lerp ( this.transform.position, playerPos.transform.position, Time.deltaTime * 5.0 );
      }   
         
 }

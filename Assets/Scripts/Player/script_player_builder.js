@@ -102,7 +102,7 @@ function MousePosition ()
      		}
      		else 
      		{
-     			hitPosition = Vector3 ( mousePosX, mousePosY + 1.0, mousePosZ );
+     			hitPosition = Vector3 ( mousePosX - 0.5, mousePosY + 0.5, mousePosZ - 0.5 );
      		}		
      }
      		

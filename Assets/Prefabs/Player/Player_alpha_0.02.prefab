@@ -757,7 +757,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 5.75906181, z: 0}
   m_LocalScale: {x: .180000007, y: .180000007, z: .179530635}
   m_Children:
   - {fileID: 400026}
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 210de04f0130e4a73b75f62221101cdd, type: 3}
   - {fileID: 8300000, guid: b3b2ab22609e94859b6a00b6065b06bf, type: 3}
   effect_dust: {fileID: 400004, guid: 6efb1776b2857e1429d512fa703f511a, type: 2}
-  canSleep: 0
+  canSleep: 1
   canWalk: 1
   canJog: 1
   canRun: 1
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   jump_1: 8
   jump_2: 15
   jump_3: 30
-  jumpFromAir: 25
+  jumpFromAir: 18
   jumpFromCrouch: 14
   jumpFromObject: 8
   jumpFromObjectTag: wall
