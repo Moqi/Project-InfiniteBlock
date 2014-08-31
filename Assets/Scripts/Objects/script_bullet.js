@@ -80,7 +80,7 @@ function OnTriggerEnter (other : Collider) // other = astroid
 		var displayPoints_GroundObject  = Instantiate(scoreGroundObject, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
 		
 			// Adding points to overall score:				
-			sceneManagerScript.overAllPoints += groundObjectScore;	
+		//	sceneManagerScript.overAllPoints += groundObjectScore;	
 		
 		var explosionGround = Instantiate(explosion, transform.position, Quaternion.identity); 
 		//audio.PlayClipAtPoint(fxSound, transform.position);
@@ -94,7 +94,7 @@ function OnTriggerEnter (other : Collider) // other = astroid
 		var displayPoints_Enemy  = Instantiate(scoreEnemy, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
 		
 			// Adding points to overall score:				
-			sceneManagerScript.overAllPoints += enemyScore;			
+		//	sceneManagerScript.overAllPoints += enemyScore;			
 						
 		// BOOOM - Explosion!						
 		var explosionEnemy = Instantiate(explosion, transform.position, Quaternion.identity); 
@@ -108,7 +108,7 @@ function OnTriggerEnter (other : Collider) // other = astroid
 		var displayPoints_Switch  = Instantiate(scoreSwitch, Camera.main.WorldToViewportPoint (other.transform.position), Quaternion.identity);
 		
 			// Adding points to overall score:				
-			sceneManagerScript.overAllPoints += switchScore;	
+			//sceneManagerScript.overAllPoints += switchScore;	
 	
 		// Spawn platformCreator
 		var newPlatform = Instantiate(platformChunk, transform.position, Quaternion.identity);

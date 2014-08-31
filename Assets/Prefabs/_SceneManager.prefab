@@ -202,6 +202,108 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100024
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400024}
+  - 33: {fileID: 3300000}
+  - 23: {fileID: 2300000}
+  - 114: {fileID: 11400002}
+  m_Layer: 15
+  m_Name: Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100026
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400026}
+  - 108: {fileID: 10800000}
+  m_Layer: 15
+  m_Name: Sun light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100028
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400028}
+  - 108: {fileID: 10800002}
+  m_Layer: 15
+  m_Name: Moon light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100030
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400030}
+  - 33: {fileID: 3300002}
+  - 23: {fileID: 2300002}
+  - 114: {fileID: 11400004}
+  m_Layer: 15
+  m_Name: SunriseGlow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100032
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400032}
+  - 33: {fileID: 3300004}
+  - 23: {fileID: 2300004}
+  - 114: {fileID: 11400006}
+  m_Layer: 15
+  m_Name: Moon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400034}
+  - 114: {fileID: 11400008}
+  m_Layer: 0
+  m_Name: Day&NightCycle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -213,6 +315,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400016}
+  - {fileID: 400034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400002
@@ -357,6 +460,164 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 1
+--- !u!4 &400024
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_LocalRotation: {x: 2.92861387e-07, y: -2.4697961e-08, z: 7.64623209e-09, w: 1}
+  m_LocalPosition: {x: 1.37632223e-05, y: -900.000183, z: -.000275926752}
+  m_LocalScale: {x: 50, y: 1, z: 50.0000114}
+  m_Children:
+  - {fileID: 400026}
+  m_Father: {fileID: 400034}
+  m_RootOrder: 2
+--- !u!4 &400026
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100026}
+  m_LocalRotation: {x: -.707106829, y: 3.70351505e-09, z: -3.70351505e-09, w: .707106829}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .0199999996, y: .0199999996, z: .0200000014}
+  m_Children: []
+  m_Father: {fileID: 400024}
+  m_RootOrder: 0
+--- !u!4 &400028
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_LocalRotation: {x: -.707106829, y: 5.81183777e-08, z: 3.69886632e-09, w: .707106829}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: .099999994, y: .100000009, z: .099999994}
+  m_Children: []
+  m_Father: {fileID: 400032}
+  m_RootOrder: 0
+--- !u!4 &400030
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100030}
+  m_LocalRotation: {x: 2.92861387e-07, y: -2.4697961e-08, z: 7.64623209e-09, w: 1}
+  m_LocalPosition: {x: 0, y: -300.000061, z: -9.19755839e-05}
+  m_LocalScale: {x: 500, y: 1, z: 50.0000114}
+  m_Children: []
+  m_Father: {fileID: 400034}
+  m_RootOrder: 1
+--- !u!4 &400032
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_LocalRotation: {x: -2.4697961e-08, y: -2.92861387e-07, z: 1, w: -7.64623209e-09}
+  m_LocalPosition: {x: -1.37632223e-05, y: 900.000183, z: .000275926752}
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_Children:
+  - {fileID: 400028}
+  m_Father: {fileID: 400034}
+  m_RootOrder: 0
+--- !u!4 &400034
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100034}
+  m_LocalRotation: {x: .884597003, y: 1.82818809e-08, z: 1.82818809e-08, w: .466356337}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400032}
+  - {fileID: 400030}
+  - {fileID: 400024}
+  m_Father: {fileID: 400000}
+  m_RootOrder: 1
+--- !u!23 &2300000
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: caf06bbaf61cf72459197dc50c27a4b8, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2300002
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100030}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: fa97fd1c1d55f3c44a46d256590eccfa, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &2300004
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 819c83e0b462e624884da096808f3c84, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3300000
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &3300002
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100030}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &3300004
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -473,6 +734,76 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!108 &10800000
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100026}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_Strength: .699999988
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!108 &10800002
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: .262745082, g: .439357758, b: 1, a: 1}
+  m_Intensity: .0500000007
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,18 +815,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cb1d86e7050394f87affe697ee0a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   showProgressGUI: 1
   mainMenuLootstats: {fileID: 400016}
   progressGUI: {fileID: 11400000, guid: 13f889ec0774e9c409ff82fe5005d940, type: 2}
-  duration: 17
-  GUItexture: {fileID: 2800000, guid: 40a1465791a912947ae1f4747ca54fe5, type: 3}
   progressForground: {fileID: 2800000, guid: 8d16b00d200a348f792d46d7395b3105, type: 3}
   progressBackground: {fileID: 2800000, guid: d761a6f487f4d914590b294ccbb5d250, type: 3}
   showMainMenu: 0
-  mainMenuSky: {fileID: 0}
   mainMenuSkyLerp: 0
-  mainMenuSkyLerpDuration: 8
-  guiTime: 0
+  mainMenuSky: {fileID: 0}
   playButtonGUI: {fileID: 11400000, guid: 5946891596e0b46c895027de86478c1b, type: 2}
   ExitGUI: {fileID: 11400000, guid: d73ab6b73f1914dfaadcdaf7a5001e65, type: 2}
   textGUI: {fileID: 11400000, guid: c947fffc3980744b39038caea84bcced, type: 2}
@@ -503,21 +831,128 @@ MonoBehaviour:
   gameTitleGUI: {fileID: 11400000, guid: 3e83dfc917ac44d3facb942355deb484, type: 2}
   detailTextGUI: {fileID: 11400000, guid: 4d86be0b167574343912845a7b2f1abe, type: 2}
   creditsGUI: {fileID: 11400000, guid: 70450a2e3e56afc48a1effe0f979e6d9, type: 2}
-  showCredits: 0
-  showOptions: 0
-  fogAmountSlider: 1
-  lookSensitivity: 15
-  night: 0
-  dusk: 1
-  playerMaySpawn: 0
-  player: {fileID: 0}
-  enemies: {fileID: 100032, guid: b573c414be39b9c4cbdc94fea085feff, type: 2}
-  areYouReadyPrompt: 1
-  playerDead: 0
-  sceneCam: {fileID: 0}
-  sceneCamOriginalPos: {x: 0, y: 0, z: 0}
-  respawnButtonActive: 0
-  max_BlockSpawnChildCount: 50
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c904fb0e397adba408c5338aaac24d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8756767f141b1d34bb5181410521f90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c904fb0e397adba408c5338aaac24d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb9feda730f8f34484837a0d5f57ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  attachedTo: {fileID: 0}
+  sun: {fileID: 400024}
+  moon: {fileID: 400032}
+  backgroundSky: {fileID: 0}
+  foregroundSky: {fileID: 0}
+  timeOfDayTransitions:
+  - name: Night
+    enabled: 1
+    startHour: 22
+    durationInHours: 9
+    ambientLight: {r: .241619796, g: .283515334, b: .301470578, a: 0}
+    skyboxBlendValue: .100000001
+    skyboxTintColor: {r: .43921569, g: .572549045, b: .572549045, a: .0509803928}
+    fogColor: {r: .278438568, g: .318428546, b: .367647052, a: .101960786}
+    fogDensity: .5
+    sunColor: {r: 0, g: 0, b: 0, a: .360784322}
+    sunIntensity: 0
+    sunTintColor: {r: 0, g: 0, b: 0, a: 1}
+    moonTintColor: {r: .603921592, g: .631372571, b: .721568644, a: .286274523}
+    auxColor1: {r: .20784314, g: .20784314, b: .20784314, a: 1}
+    auxColor2: {r: 0, g: 0, b: 0, a: 0}
+    backgroundSkyColor: {r: .243137255, g: .258823544, b: .301960796, a: .137254909}
+    foregroundSkyColor: {r: .309418261, g: .433823526, b: .433823526, a: .392156869}
+  - name: Sunrise
+    enabled: 1
+    startHour: 5
+    durationInHours: 3
+    ambientLight: {r: .215722337, g: .260304958, b: .279411793, a: .168627456}
+    skyboxBlendValue: .699999988
+    skyboxTintColor: {r: .60310334, g: .713235259, b: .69500649, a: .301960796}
+    fogColor: {r: .849913538, g: .902377248, b: .963235319, a: .0274509806}
+    fogDensity: .899999976
+    sunColor: {r: .941176474, g: .622085154, b: .505190313, a: .0941176489}
+    sunIntensity: .300000012
+    sunTintColor: {r: .91911763, g: .520599067, b: .371702015, a: .419607848}
+    moonTintColor: {r: .732158303, g: .751762569, b: .816176474, a: .435294122}
+    auxColor1: {r: .874509811, g: .874509811, b: .874509811, a: .486274511}
+    auxColor2: {r: 0, g: 0, b: 0, a: 0}
+    backgroundSkyColor: {r: .243137255, g: .258823544, b: .301960796, a: .0745098069}
+    foregroundSkyColor: {r: .309803933, g: .435294122, b: .435294122, a: .176470593}
+  - name: Day
+    enabled: 1
+    startHour: 9
+    durationInHours: 9
+    ambientLight: {r: .4627451, g: .545098066, b: .580392182, a: 0}
+    skyboxBlendValue: .899999976
+    skyboxTintColor: {r: .536278129, g: .735629678, b: .801470578, a: .627451003}
+    fogColor: {r: .613429964, g: .744335711, b: .897058845, a: 0}
+    fogDensity: .200000003
+    sunColor: {r: .992156863, g: .972549021, b: .835294127, a: .211764708}
+    sunIntensity: .400000006
+    sunTintColor: {r: .819607854, g: .4627451, b: .325490206, a: .90196079}
+    moonTintColor: {r: .388235301, g: .388235301, b: .388235301, a: 0}
+    auxColor1: {r: .87843138, g: .87843138, b: .87843138, a: 0}
+    auxColor2: {r: 0, g: 0, b: 0, a: 0}
+    backgroundSkyColor: {r: .546064019, g: .633401036, b: .735294104, a: .419607848}
+    foregroundSkyColor: {r: .683499157, g: .948529422, b: .948529422, a: .576470613}
+  - name: Sunset
+    enabled: 1
+    startHour: 18
+    durationInHours: 3
+    ambientLight: {r: .458823532, g: .541176498, b: .576470613, a: .258823544}
+    skyboxBlendValue: .699999988
+    skyboxTintColor: {r: .682634056, g: .867647052, b: .8201437, a: .360784322}
+    fogColor: {r: .695393622, g: .775621235, b: .867647052, a: .392156869}
+    fogDensity: .5
+    sunColor: {r: .937254906, g: .619607866, b: .501960814, a: .125490203}
+    sunIntensity: .300000012
+    sunTintColor: {r: .913725495, g: .517647088, b: .372549027, a: .384313732}
+    moonTintColor: {r: .345098048, g: .360784322, b: .411764711, a: .270588249}
+    auxColor1: {r: .874509811, g: .874509811, b: .874509811, a: 1}
+    auxColor2: {r: 0, g: 0, b: 0, a: 0}
+    backgroundSkyColor: {r: .550172985, g: .623261094, b: .705882311, a: .403921574}
+    foregroundSkyColor: {r: .708801866, g: .845588207, b: .845588207, a: .525490224}
+  InitialStateIndex: 2
+  dayCycleInMinutes: 3
+  timeInHours: 10
 --- !u!131 &13100000
 GUITexture:
   m_ObjectHideFlags: 1

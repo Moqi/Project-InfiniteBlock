@@ -34,6 +34,8 @@ private var picked_platform_03			 : boolean		= false;
 ///////////////////////////////////////
 function Start ()
 {	
+	this.transform.parent = GameObject.FindWithTag ( "platformContainer" ).transform;
+	
 	PickRandomPlatform ();
 }
 
@@ -59,6 +61,8 @@ function PickRandomPlatform ()
 	var newPlatform : Transform = Instantiate ( pickedPlatform, this.transform.position, Quaternion.identity );	
 	
 		newPlatform.transform.position += Vector3 ( Random.Range( 0.005, 0.01 ), Random.Range( 0.005, 0.01 ), Random.Range( 0.005, 0.01 ) ); // adjusting position a tiny bit to avoid z-fighting
+	
+		newPlatform.transform.parent = this.transform;
 	
 	LerpSize 			( newPlatform.transform, Vector3 ( 10, 10, 10 ), 1.0, 2.5 );			// Scale function
 

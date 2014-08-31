@@ -36,7 +36,7 @@ function Start ()
 			var sceneManagerScript : script_sceneManager 		= GetComponent (script_sceneManager);
 		
 			var sceneManagerObject 								= GameObject.FindWithTag("scenemanager");			
-			
+		/*	
 			var sceneManagerScript_newBlockSpawnerChildCanSpawn : boolean  = sceneManagerObject.GetComponent(script_sceneManager).newBlockSpawnerChildCanSpawn;	
 					
 		if (sceneManagerScript_newBlockSpawnerChildCanSpawn == true)
@@ -48,7 +48,7 @@ function Start ()
 		
 				//newBlockSpawnerChild.transform.parent = this.transform;
 		}
-	
+		*/
 	// Getting global distance to player from sceneManager:
 		var sceneManagerScript_maxDistancePlayerObject : float  = sceneManagerObject.GetComponent(script_sceneManager).maxDistancePlayerObject;	
 

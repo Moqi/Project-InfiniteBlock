@@ -11,8 +11,8 @@ GameObject:
   - 33: {fileID: 3300000}
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 9
   m_Name: crownPiece
   m_TagString: treeCrownPiece
@@ -77,9 +77,9 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e1f00512df64d7a8e70ca536694412, type: 3}
+  m_Script: {fileID: 11500000, guid: e0af379c8d5e8e44f8c009861b3d8bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400002
