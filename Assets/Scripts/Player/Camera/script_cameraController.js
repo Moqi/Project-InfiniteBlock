@@ -85,7 +85,7 @@ function LateUpdate ()
 	if(Physics.Linecast (trueTargetPosition, position, collisionHit, collisionLayers.value))
 	//if(Physics.SphereCast (trueTargetPosition, 4.0, trueTargetPosition.back, collisionHit, Mathf.Infinity, collisionLayers.value))
 	{
-		Debug.DrawLine (Camera.mainCamera.transform.position, collisionHit.point);
+		Debug.DrawLine (Camera.main.transform.position, collisionHit.point);
 		
 		otherGameObject = collisionHit.transform.gameObject;
 		correctedDistance = Vector3.Distance (trueTargetPosition, collisionHit.point) - offsetFromWall;

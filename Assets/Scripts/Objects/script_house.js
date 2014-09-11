@@ -37,9 +37,9 @@ function OnTriggerEnter (other : Collider)
 			//Debug.Log("Enter True");
 			//yield WaitForSeconds(smokeSpawnDelay);
 			
-			smoke.active = true;
+			smoke.gameObject.SetActive(true);
 			
-			return null;
+			//return null;
 			//psColor = Color.Lerp(Color(0, 0, 0, 0), Color(1, 1, 1, 1), Time.time / 5);
     
     		//ps.startColor = psColor;
@@ -67,13 +67,13 @@ function OnTriggerExit (other : Collider)
 	{
 		if (mySwitch == true)
 		{
-			return null;
+			//return null;
 		}
 		else 
 		{
 			Debug.Log("Enter False");
 			
-			smoke.active = false;
+			smoke.gameObject.SetActive(false);
 		}
 	}
 }

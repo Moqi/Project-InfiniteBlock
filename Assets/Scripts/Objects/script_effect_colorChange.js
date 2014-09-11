@@ -7,7 +7,7 @@ function Update ()
 
 	//ColorByObjectType ();
 
-	GetMousePosColorTwo ();
+	GetMousePosColorTwo ();	
 
     //LerpParticleColor ();
     
@@ -54,7 +54,7 @@ function GetMousePosColorTwo ()
    {
       if ( hit.collider.gameObject.renderer && hit.transform.gameObject.layer == layerBreakable )
       {     	
-      		this.gameObject.GetComponent(ParticleSystem).startColor = hit.collider.gameObject.renderer.material.color;
+      		this.gameObject.GetComponent(ParticleSystem).startColor = hit.collider.gameObject.GetComponent(Object_ItemType).item.itemColor; //renderer.material.color;
       }
    }
 }

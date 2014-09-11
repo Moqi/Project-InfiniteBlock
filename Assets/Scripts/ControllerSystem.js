@@ -1,4 +1,7 @@
 ﻿#pragma strict
+#pragma downcast
+
+import System.Collections.Generic;
 /*
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// ControllerSystem for the mainCharacter ////////////////////////////////////
@@ -25,6 +28,11 @@
 		var colliderHurt					: GameObject;									// collider for player to get hurt
 //////////////////////////////////////////////////////////
 // Harvest Effect ////////////////////////////////////////
+private var inventory 						: Inventory;								// to access inventoryScript
+private var guiArray 						: List.<GameObject> = new List.<GameObject>();
+private var item 							: Item;
+private var showInventory 					: boolean			= false;
+		var lootableObject					: GameObject;
 		var harvestEffect 					: Transform;
 		var lootEffect 						: Transform;
 		var guitextPoints					: Transform;
@@ -210,6 +218,7 @@ private var silver 					= new Color(166/255.0F, 158/255.0F, 157/255.0F, 0/255.0F
 private var gold 					= new Color(220/255.0F, 148/255.0F, 27/255.0F, 0/255.0F);	// gold
 private var purple 					= new Color(102/255.0F, 0/255.0F, 153/255.0F, 50/255.0F);	// purple
 
+
 @script RequireComponent ( CharacterController )									// if no characterController assigned, apply one -later
 
 
@@ -230,7 +239,9 @@ function Awake 					() 													// before starting, get moveDirection forwar
 
 //////////////////////////////////
 function Start 					() 													// initialize variables
-{												
+{		
+	GUIElementsCheck ();
+	inventory					= GameObject.FindGameObjectWithTag ("Inventory").GetComponent (Inventory);							
 	characterController 		= GetComponent ( CharacterController );				// initialize characterController
 	characterController.tag 	= "Player";											// set tag name to 'Player'
 	controllerHeightDefault 	= characterController.height;						// set controllerHeightDefault to controllers starting height
@@ -286,7 +297,9 @@ function UpdateMoveDirection 	() 													// motor, ani, and direction of pl
 		IdleRotate		();															// check for player idle turning
 		JumpPad			();															// check for player moving onto jump pad
 		Hurt			();															// check for player getting hit by enemy
-		
+	
+		InventoryGUI 	();		
+		PickUpItem 		();
 		Harvest			();															// check for player being able to harvest 
 		EnterSleep 		();
 		Sleep 			();
@@ -344,6 +357,58 @@ function Update 				() 													// loop for controller
 	ExampleShowHidePlayer ();														// example usage of show/hide functions	
 }
 
+///////////////////////////////////
+function GUIElementsCheck ()
+{
+	var hideableGUI = GameObject.FindGameObjectsWithTag("hideableGUI");
+		
+	for ( var guiElements : GameObject in hideableGUI )
+	{	
+		guiArray.Add(guiElements);
+		//Debug.Log(guiArray.Count);
+	}
+	
+	for ( var i : int = 0; i < guiArray.Count; i++ )	// Disabling certain guiElements at start
+	{
+		guiArray[i].gameObject.SetActive(showInventory);
+	}
+}
+
+///////////////////////////////////
+function InventoryGUI ()
+{
+	if ( Input.GetKeyDown ( KeyCode.I ) )
+	{
+		showInventory = !showInventory;
+		
+		for ( var i : int = 0; i < guiArray.Count; i++ )
+		{
+			guiArray[i].gameObject.SetActive(showInventory);
+		}
+	}
+}
+
+///////////////////////////////////
+function PickUpItem ()
+{
+	if ( Input.GetMouseButtonDown ( 0 ) )
+	{
+		var hit : RaycastHit;
+		var ray : Ray = Camera.main.ScreenPointToRay ( Input.mousePosition );
+		
+		if ( Physics.Raycast ( ray, hit, Mathf.Infinity ) )
+		{
+			var pickUpWithInDistanceOf 	: float = 3.0; // meters 
+			var distance 				: float = Vector3.Distance ( hit.transform.position, this.transform.position );
+			
+			if ( hit.transform.tag == "Item" && distance <= pickUpWithInDistanceOf )
+			{
+				inventory.AddExistingItem (hit.transform.GetComponent(lootableItem).item );
+				Destroy(hit.transform.gameObject);
+			}					
+		}
+	}
+}
 
 ///////////////////////////////////
 function EnterSleep 			 ()
@@ -390,13 +455,13 @@ function Sleep 					 ()
 			Message ( "Ani State: Sleeping" );
 			script_playerFaceEyes.isEyesSleeping 	= true;
 			script_playerFaceMouth.isMouthSleeping 	= true;
-			effectSleepy.active 					= true;
+			effectSleepy.gameObject.SetActive(true);
 		}
 		else 
 		{
 			script_playerFaceEyes.isEyesSleeping 	= false;
 			script_playerFaceMouth.isMouthSleeping 	= false;
-			effectSleepy.active = false;
+			effectSleepy.gameObject.SetActive(false);
 		}		
 	}
 }
@@ -879,7 +944,7 @@ function Hurt					()													// player hurt by enemy objects
 	}
 }
 
-//////////////////////////////////
+////////////////////////////////// 
 function Harvest				()
 {
 	layerBreakable = 1 << 9;	// Layer nr. 9: "breakable"
@@ -887,7 +952,7 @@ function Harvest				()
 	var t 							= 0.0;
 	var speed 						= 0.0003;
 	var endScale 					= Vector3.zero;
-	var ray 		: Ray 			= Camera.main.ScreenPointToRay (Input.mousePosition);	
+	var ray 		: Ray 			= Camera.main.ScreenPointToRay (Input.mousePosition);
 	var hit 		: RaycastHit;
 
 	var playerBuilder : script_player_builder = this.gameObject.GetComponent (script_player_builder);
@@ -932,98 +997,99 @@ function Harvest				()
 
  					if ( 		hit.transform.tag == "treeLogPiece" )
  					{
- 						HarvestObject ( hit, "wood", hit.transform.position, brown, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						specificMaterial_multiplier = 0.1;
  						sceneManager.fragment_wood 	+= 1;
- 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "treeCrownPiece" )
  					{
- 						HarvestObject ( hit, "leaf", hit.transform.position, green, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						sceneManager.fragment_leaf += 1;
  						specificMaterial_multiplier = 0.0;
- 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "rock" )
  					{
- 						HarvestObject ( hit, "stone", hit.transform.position, gray, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						sceneManager.fragment_stone += 1;
  						specificMaterial_multiplier = 0.2;
- 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "bush" )
  					{
- 						HarvestObject ( hit, "leaf", hit.transform.position, green, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						sceneManager.fragment_leaf += 1;
  						specificMaterial_multiplier = 0.0;
- 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "rareObject_cobber" )
  					{
- 						HarvestObject ( hit, "Copper", hit.transform.position, cobber, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						sceneManager.fragment_copper += 1;
  						specificMaterial_multiplier = 0.4;
- 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "veryRareObject_silver" )
  					{
- 						HarvestObject ( hit, "Silver", hit.transform.position, silver, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						sceneManager.fragment_silver += 1;
  						specificMaterial_multiplier = 0.4;
- 						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "epicObject_gold" )
  					{
- 						HarvestObject ( hit, "Gold", hit.transform.position, gold, speed ); 
+ 						HarvestObject ( hit, hit.transform.position, speed ); 
  						sceneManager.fragment_gold += 1;
  						specificMaterial_multiplier = 0.8;		
  						PlusScoreGUI ("+1");
  					}
  					else if ( 	hit.transform.tag == "legendaryObject_" )
  					{
- 						HarvestObject ( hit, "legendary", hit.transform.position, purple, speed );
+ 						HarvestObject ( hit, hit.transform.position, speed );
  						specificMaterial_multiplier = 2.0;
  						sceneManager.fragment_legendary += 1;
- 						PlusScoreGUI ("+1");
  					}			
  		/////////////////////////////////					
  										
     				lastEffectTime = Time.time;
 				} 
-			// Disabling 		
+			// Disabling 	
 				var minSize = Vector3(0.5, 0.5, 0.5);
-
+		
 				if ( hit.transform.localScale.magnitude <= minSize.magnitude )
 				{
-					hit.collider.gameObject.active = false;
-					//hit.collider.gameObject.GetComponent(Renderer).enabled = false;
-					//hit.collider.gameObject.GetComponent(Collider).enabled = false;
-				 	// Sound effect
-					HarvestGainSound ();	
+					ItemHit ( hit );
+			
+					var objectHit : GameObject = hit.collider.gameObject;
+					
+					Destroy ( objectHit );	//
+					//hit.collider.gameObject.SetActive(false);
+
+					HarvestGainSound ();	// Sound effect	
 				}	
 			}				
 		}
 	}
 }
 
+function ItemHit ( hit : RaycastHit )
+{
+	hit.collider.gameObject.GetComponent(Object_ItemType).spawnPosition		= hit.collider.gameObject.transform.position;	
+	hit.collider.gameObject.GetComponent(Object_ItemType).spawnLootableItem = true;
+		
+	PlusScoreGUI ( "+1 " + hit.collider.gameObject.GetComponent(Object_ItemType).item.itemName );
+}
+
 /////////////////// fx :               Wood , hit (raycasthit).transform.location, brown   , logPiece_multiplier        , logPiece          
-function HarvestObject ( hit : RaycastHit, message : String, effectLocation : Vector3, effectColor : Color, speed : float ) 
+function HarvestObject ( hit : RaycastHit, effectLocation : Vector3, speed : float ) 
 {
 	// Calculating size of hit object:
-		var hitX 				= hit.transform.localScale.x;
-		var hitY 				= hit.transform.localScale.y;
-		var hitZ 				= hit.transform.localScale.z;
-		var hitAmount : Vector3 = Vector3 ( hitX * 0.33, hitY * 0.33, hitZ * 0.33 );	// every object should approximately gain 3 hits before destroyed
+		var hitX 		: float		= hit.transform.localScale.x;
+		var hitY 		: float		= hit.transform.localScale.y;
+		var hitZ 		: float		= hit.transform.localScale.z;
+		var hitAmount 	: Vector3 	= Vector3 ( hitX * 0.33, hitY * 0.33, hitZ * 0.33 );	// every object should approximately gain 3 hits before destroyed
 	
 	// Destroy effect	
 		hit.transform.localScale -= hitAmount;
 	
-	Message ( message + " + 1" );
  	var newTempEffect 	: Transform = Instantiate ( lootEffect, effectLocation, Quaternion.identity );	
  		
- 		newTempEffect.transform.renderer.material.color = effectColor;
- 
- 		PlusScoreGUI ("+1");
+ 		newTempEffect.transform.renderer.material.color = hit.collider.gameObject.GetComponent(Object_ItemType).item.itemColor;	
 }
 
 /////////////////////////////////
@@ -1404,17 +1470,6 @@ function OnControllerColliderHit ( hit : ControllerColliderHit ) 					// check f
 	
 	body.velocity = pushDir * pushPower; 											// push object based on direction and strength						
 }
-
-/*
-//////////////////////////////////
-function OnGUI 					() 													// quick gui for coins and key display
-{
-	GUI.Box   ( Rect ( 0,0, 100, 60  ), "" );										// gui box for background	
-	GUI.Label ( Rect ( 10,5,100,100  ), "Health: " + health );						// gui label to show coin and current value
-	GUI.Label ( Rect ( 10,20,100,100 ), "Coins: "  + coin   );						// gui label to show coin and current value
-	GUI.Label ( Rect ( 10,35,100,100 ), "Keys: "   + key    );						// gui label to show key and current value
-}
-*/
 
 
 function PlusScoreGUI ( scoreText : String )

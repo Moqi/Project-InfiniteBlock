@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 74d3a7f80cfc25d4e8232385a7bc8920
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprite_face_mouth
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

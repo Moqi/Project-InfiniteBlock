@@ -6,7 +6,7 @@ private var bounceEffect 	: boolean		= true;
 private var mask 			: LayerMask 	= -1;
 private var velocity 		: Vector3;
 private var angularVelocity : Vector3;
-private var moveToPlayer 	: boolean 		= false;
+//private var moveToPlayer 	: boolean 		= false;
 private var playerPos 		: GameObject;
 
 function Start () 
@@ -24,7 +24,8 @@ function Start ()
     
     yield WaitForSeconds (2);
     
-    moveToPlayer = true;
+    Destroy(gameObject);
+    //moveToPlayer = true;
 }
 
 function Update () 
@@ -70,16 +71,17 @@ function Update ()
  	 // Move object to player
        
      playerPos = GameObject.FindWithTag ( "playerLootCollector" );   
-          
+     
+     /*     
      if ( moveToPlayer == true )
      {
      	//Debug.Log ( "Move to player!" );   	
      	gameObject.transform.position = Vector3.Lerp ( this.transform.position, playerPos.transform.position, Time.deltaTime * 5.0 );
      }   
-        
+     */
 }
 
-
+/*
 function OnTriggerEnter ( other : Collider )
 {
 	if ( other.collider.tag == "playerLootCollector" )
@@ -89,7 +91,7 @@ function OnTriggerEnter ( other : Collider )
 		Destroy(gameObject);
 	}
 }
-
+*/
 
 
 

@@ -123,7 +123,7 @@ function createBlock()
 		// adds 1 to the total blockcount		
 		blockCount = blockCount + 1; 
 			
-		break;	// break = ending the statement (instead of return which ends the function)
+		//break;	// break = ending the statement (instead of return which ends the function)
 	}	
 	
 	// what happens once every block is placed: 

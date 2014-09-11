@@ -76,7 +76,7 @@ function OnTriggerEnter (other : Collider) // other = astroid
 			
 		yield WaitForSeconds(2);
 		
-			player.active 			= false;
+			player.gameObject.SetActive(false);
 		
 			playerDead 				= true;
 	}

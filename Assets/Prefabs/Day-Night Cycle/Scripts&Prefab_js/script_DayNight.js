@@ -135,7 +135,7 @@ public class script_DayNight extends MonoBehaviour
 		_currentEnvironmentState 	= env;
 	}
 
-	private function Update ()
+	function Update ()
 	{
 		// Update time
 		var _realSecondToIngameSecond 	 = 24 * 60 / dayCycleInMinutes;

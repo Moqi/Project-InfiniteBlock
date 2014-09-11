@@ -1,4 +1,5 @@
-﻿#pragma strict
+﻿#pragma strict 
+#pragma downcast
 ////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// mainPlatform Script ////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +122,7 @@ function SpawnDetails ( pickedPlatform : Transform )
 {
 	yield WaitForSeconds (1.0);	
 	
-	var allChildren = ShuffleThis ( pickedPlatform.GetComponentsInChildren ( Transform ) );	// Get all children of picked platform (SHUFFLED - see function below)
+	var allChildren  = ShuffleThis ( pickedPlatform.GetComponentsInChildren ( Transform ) );	// Get all children of picked platform (SHUFFLED - see function below)
 
  	for ( var i : int = 0; i < spawnAmount; i++ )
  	{

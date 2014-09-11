@@ -1,4 +1,5 @@
 ﻿#pragma strict
+#pragma downcast
 
 		var destroyWorld 	: boolean 	= false;
 private var destroySpeed 	: float		= 0.1;

@@ -1,5 +1,5 @@
 ﻿#pragma strict
-
+#pragma downcast
 
 private var spawnAmount 				 : int 			= 10;
 		var objectHolder				 : Transform;

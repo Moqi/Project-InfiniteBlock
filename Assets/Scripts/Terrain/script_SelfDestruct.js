@@ -22,7 +22,7 @@ function Update()
 {
 	if (!GameObject.FindWithTag("Player"))
 	{
-		return null;
+		//return null;
 	}
 	else 
 	{

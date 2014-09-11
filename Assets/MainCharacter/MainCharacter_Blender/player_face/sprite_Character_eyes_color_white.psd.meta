@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 1f1bd14db499add429fe8cd2ba78277d
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprite_Character_eyes_color_white
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

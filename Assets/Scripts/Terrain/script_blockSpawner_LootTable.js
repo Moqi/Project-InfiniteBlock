@@ -1,4 +1,5 @@
 ﻿#pragma strict
+#pragma downcast
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// BlockSpawner LootTable ////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,7 +75,7 @@ function Update ()
 {
 	if (transform.childCount <= 0)
 	{
-		return null;
+		//return null;
 	}
 	else
 	{
@@ -139,7 +140,7 @@ function FindLootSpawnPos ()
 		{	
 			if (spawnNow == true)
 			{
-				spawnObject = GetRandomCategory ();
+				//spawnObject = GetRandomCategory ();
 				
 					//Debug.Log("blockSpawner_LootTable.spawnObject = " + GetRandomCategory ());
 				
@@ -157,9 +158,9 @@ function FindLootSpawnPos ()
 	} 				
 }	
 
-	
+/*	
 /////////////////////////
-function GetRandomCategory ()
+function GetRandomCategory () : Transform
 {
 	var randomNum : float = Random.Range(0.0, 100.0);
 	
@@ -167,7 +168,7 @@ function GetRandomCategory ()
 	
 	if (randomNum < chanceOfObjectTypeA)
     {
-       return GetRandomObject();
+        return GetRandomObject();
        //return(category_Objects[0]);
     }
     else if  (randomNum < chanceOfObjectTypeA + chanceOfObjectTypeB)
@@ -178,7 +179,7 @@ function GetRandomCategory ()
 }
 
 /////////////////////////
-function GetRandomObject()
+function GetRandomObject() 
 {
     var randomNum : float = Random.Range(0.0, 100.0); 
  
@@ -234,7 +235,7 @@ function GetRandomCollectable()
        return(category_Collectables[0]);
     }
 }
-
+*/
 
 
 

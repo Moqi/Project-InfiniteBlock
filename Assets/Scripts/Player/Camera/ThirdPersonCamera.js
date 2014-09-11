@@ -1,4 +1,5 @@
 #pragma strict
+#pragma downcast
 
 var cameraTransform : Transform;
 private var _target : Transform;

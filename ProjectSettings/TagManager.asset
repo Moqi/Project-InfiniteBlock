@@ -51,6 +51,13 @@ TagManager:
   - blockContainer
   - objectHolder
   - platformContainer
+  - ItemDatabase
+  - Inventory
+  - Canvas
+  - Item
+  - Dropbox
+  - PlayerGUI
+  - hideableGUI
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -68,7 +75,7 @@ TagManager:
   User Layer 13: static
   User Layer 14: Fog
   User Layer 15: Sky
-  User Layer 16: 
+  User Layer 16: Player
   User Layer 17: 
   User Layer 18: 
   User Layer 19: 

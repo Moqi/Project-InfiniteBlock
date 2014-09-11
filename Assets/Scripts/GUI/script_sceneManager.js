@@ -1,4 +1,5 @@
 ﻿#pragma strict
+#pragma downcast
 //////////////////////////////////////////////////////////////////////////
 //////////////////////// SceneManager script /////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -61,10 +62,10 @@ private var dusk 				     			: boolean 			= true;
 /////////////////
 function Start () 
 {								
-	if (showMainMenu == false)
+	if (showMainMenu == false && mainMenuSky != null )
 	{
 		 // Disabling the mainMenuSky texture
-  			mainMenuSky.active = false;
+  			mainMenuSky.gameObject.SetActive(false);
   		
   		// Making sure mainMenu is totally gone
   			showMainMenu = false;
@@ -97,7 +98,7 @@ function OnGUI()
 	
 		if ( showProgressGUI == true )
 		{
-			mainMenuLootstats.active = true;										
+			mainMenuLootstats.gameObject.SetActive(true);										
 	
 			//		Type of point to add, at what object				  , set active to true
 			PlusScoreGUI ( fragment_wood, "guiTexture_lootTable_icon_wood", true );						
@@ -116,7 +117,7 @@ function OnGUI()
 		}
 		else 
 		{
-			mainMenuLootstats.active = false;
+			mainMenuLootstats.gameObject.SetActive(false);
 		}
 
 	////////////////////////////////////////////
@@ -271,25 +272,28 @@ function DrawProgress(location : Vector2, size : Vector2, progress : float)
 // MainMenuSky color lerp:
 function MainMenuSkyLerp()
 {
-	var startColor 	: Color;
-	var endColor 	: Color;
+	if ( mainMenuSky != null )
+	{
+		var startColor 	: Color;
+		var endColor 	: Color;
 
-	if (mainMenuSkyLerpTime < 1)
-  	{ 	// while t below the end limit...
-    	// increment it at the desired rate every update:
-    	mainMenuSkyLerpTime += Time.deltaTime / mainMenuSkyLerpDuration;
-  	}
+		if (mainMenuSkyLerpTime < 1)
+	  	{ 	// while t below the end limit...
+	    	// increment it at the desired rate every update:
+	    	mainMenuSkyLerpTime += Time.deltaTime / mainMenuSkyLerpDuration;
+	  	}
 
-	mainMenuSky.GetComponent(GUITexture).color = Color.Lerp(startColor.white, endColor.clear, mainMenuSkyLerpTime);
+		mainMenuSky.GetComponent(GUITexture).color = Color.Lerp(startColor.white, endColor.clear, mainMenuSkyLerpTime);
 
-	if (mainMenuSky.GetComponent(GUITexture).color == endColor.clear)
-  	{
-  		// Disabling the mainMenuSky texture
-  			mainMenuSky.active = false;
-  		
-  		// Making sure mainMenu is totally gone
-  			showMainMenu = false;
-  	}
+		if (mainMenuSky.GetComponent(GUITexture).color == endColor.clear)
+	  	{
+	  		// Disabling the mainMenuSky texture
+	  			mainMenuSky.gameObject.SetActive(false);
+	  		
+	  		// Making sure mainMenu is totally gone
+	  			showMainMenu = false;
+	  	}
+	} 	
 }
 
 

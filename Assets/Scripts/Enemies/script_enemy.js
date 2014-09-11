@@ -35,10 +35,11 @@ function Start ()
 // Update
 function Update () 
 {
-
-	if(GameObject.FindWithTag("Player"))
+	var player : GameObject = GameObject.FindWithTag("Player");
+	
+	if( player )
 	{
-		playerPos = GameObject.FindWithTag("Player").transform.position;
+		playerPos = player.transform.position;
 	}
 	else
 	{
@@ -48,7 +49,7 @@ function Update ()
 	
 		animation.Play("laugh");
 	
-		return null;
+		//return null;
 	}
 	
 	moveBlock();

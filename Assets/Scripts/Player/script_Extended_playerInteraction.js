@@ -67,7 +67,7 @@ function Harvest()
 				{			
 					if ( hit.transform.localScale == Vector3 ( 0.5, 0.5, 0.5 ) )
 					{
-						hit.collider.gameObject.active = false;
+						hit.collider.gameObject.SetActive(false);
 					}
 				
 					begunHarvesting = Time.time;
