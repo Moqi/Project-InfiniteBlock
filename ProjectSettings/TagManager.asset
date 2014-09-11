@@ -58,6 +58,8 @@ TagManager:
   - Dropbox
   - PlayerGUI
   - hideableGUI
+  - CraftingSystem
+  - BlueprintDatabase
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

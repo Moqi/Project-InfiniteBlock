@@ -88,38 +88,49 @@ public class ItemDatabase extends MonoBehaviour
   ///////////////////////////
     function ItemDataBase ()
     {
-    //  Item 	  			 (    name,        id, desc,                    power, speed, Value, type )
+    //  Item 	  			 (    name,        id, desc,                    power, speed, Amount, type )
 		items.Add ( new Item ("A_Potion_01", 	0, "Description: Nice potion 01", 15, 10, 1, Item.ItemType.Chest, 	standardColor, standardMaterial, standardTexture	) );
 		items.Add ( new Item ("A_Potion_02", 	1, "Description: Nice potion 02", 30, 10, 1, Item.ItemType.Chest, 	standardColor, standardMaterial, standardTexture	) );
 		items.Add ( new Item ("A_Potion_03", 	2, "Description: Nice potion 03", 5, 10, 1,  Item.ItemType.Head, 	standardColor, standardMaterial, standardTexture	) );
 		items.Add ( new Item ("A_Potion_04", 	3, "Description: Nice potion 04", 10, 10, 1, Item.ItemType.Legs, 	standardColor, standardMaterial, standardTexture	) );
 		
 	// Materials
-		
+	
+	/////#!		
+		// test materials 
+		items.Add ( new Item  ("iron ore", 		5, "Iron meh",					  10, 10, 3, Item.ItemType.Consumable, standardColor, standardMaterial, standardTexture ));
+		items.Add ( new Item  ("woodplank", 	6, "woodplank meh",				  10, 10, 3, Item.ItemType.Consumable, standardColor, standardMaterial, standardTexture ));
+		items.Add ( new Item  ("woodstick", 	7, "woodstick meh",				  10, 10, 3, Item.ItemType.Consumable, standardColor, standardMaterial, standardTexture ));
+		items.Add ( new Item  ("stone", 		8, "stone meh",				 	  10, 10, 3, Item.ItemType.Consumable, standardColor, standardMaterial, standardTexture ));
+		// test item
+		items.Add ( new Item  ("Axe_01", 		14, "Axe with stone",			  10, 10, 1, Item.ItemType.Weapon, 	   standardColor, standardMaterial, standardTexture ));
+		items.Add ( new Item  ("Axe_02", 		15, "Axe with iron",			  10, 10, 1, Item.ItemType.Weapon, 	   standardColor, standardMaterial, standardTexture ));
+	/////#!
+			
 		// Trees
 		// Tree Log
-		items.Add ( new Item ("Brown woodlog",  		10, "", 3, 5, 1, Item.ItemType.Material_tree_brownlog, color_brown_variant_01, diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Brown woodlog",  		10, "", 3, 5, 1, Item.ItemType.Consumable, color_brown_variant_01, diffuseMaterial, standardTexture ) );
 	
 		// Tree Crown
-		items.Add ( new Item ("Beech leaves", 			20, "", 0, 1, 1, Item.ItemType.Material_tree_greenCrown, color_green_variant_01, diffuseMaterial, standardTexture	) );
-		items.Add ( new Item ("Maple leaves", 			21, "", 0, 1, 1, Item.ItemType.Material_tree_greenCrown, color_green_variant_02, diffuseMaterial, standardTexture	) );
-		items.Add ( new Item ("Elm leaves", 			22, "", 0, 1, 1, Item.ItemType.Material_tree_greenCrown, color_green_variant_03, diffuseMaterial, standardTexture	) );
-		items.Add ( new Item ("Dogwood leaves", 		23, "", 0, 1, 1, Item.ItemType.Material_tree_greenCrown, color_green_variant_04, diffuseMaterial, standardTexture	) );
-		items.Add ( new Item ("Cherry leaves", 			24, "", 0, 1, 1, Item.ItemType.Material_tree_greenCrown, color_green_variant_05, diffuseMaterial, standardTexture	) );
+		items.Add ( new Item ("Beech leaves", 			20, "", 0, 1, 1, Item.ItemType.Consumable, color_green_variant_01, diffuseMaterial, standardTexture	) );
+		items.Add ( new Item ("Maple leaves", 			21, "", 0, 1, 1, Item.ItemType.Consumable, color_green_variant_02, diffuseMaterial, standardTexture	) );
+		items.Add ( new Item ("Elm leaves", 			22, "", 0, 1, 1, Item.ItemType.Consumable, color_green_variant_03, diffuseMaterial, standardTexture	) );
+		items.Add ( new Item ("Dogwood leaves", 		23, "", 0, 1, 1, Item.ItemType.Consumable, color_green_variant_04, diffuseMaterial, standardTexture	) );
+		items.Add ( new Item ("Cherry leaves", 			24, "", 0, 1, 1, Item.ItemType.Consumable, color_green_variant_05, diffuseMaterial, standardTexture	) );
 		
 		// Bushes
-		items.Add ( new Item ("Small Beech leaves", 	40, "", 0, 0, 1, Item.ItemType.Material_bush_green, color_green_variant_01, diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Small Maple leaves", 	41, "", 0, 0, 1, Item.ItemType.Material_bush_green, color_green_variant_02, diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Small Elm leaves", 		42, "", 0, 0, 1, Item.ItemType.Material_bush_green, color_green_variant_03, diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Small Dogwood leaves", 	43, "", 0, 0, 1, Item.ItemType.Material_bush_green, color_green_variant_04, diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Small Cherry leaves", 	44, "", 0, 0, 1, Item.ItemType.Material_bush_green, color_green_variant_05, diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Small Beech leaves", 	40, "", 0, 0, 1, Item.ItemType.Consumable, color_green_variant_01, diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Small Maple leaves", 	41, "", 0, 0, 1, Item.ItemType.Consumable, color_green_variant_02, diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Small Elm leaves", 		42, "", 0, 0, 1, Item.ItemType.Consumable, color_green_variant_03, diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Small Dogwood leaves", 	43, "", 0, 0, 1, Item.ItemType.Consumable, color_green_variant_04, diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Small Cherry leaves", 	44, "", 0, 0, 1, Item.ItemType.Consumable, color_green_variant_05, diffuseMaterial, standardTexture ) );
 		
 		// Rocks
-		items.Add ( new Item ("Gray rock", 				60, "", 0, 0, 1, Item.ItemType.Material_rock_gray, 	color_gray_variant_01, 	diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Cobber ore", 			61, "", 0, 0, 1, Item.ItemType.Material_cobber, 	color_cobber, 			diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Silver ore", 			62, "", 0, 0, 1, Item.ItemType.Material_silver, 	color_silver, 			diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Gold ore", 				63, "", 0, 0, 1, Item.ItemType.Material_gold, 		color_gold, 			diffuseMaterial, standardTexture ) );
-		items.Add ( new Item ("Mystic ore", 			64, "", 0, 0, 1, Item.ItemType.Material_mystic, 	color_legendary, 		diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Gray rock", 				60, "", 0, 0, 1, Item.ItemType.Consumable, 	color_gray_variant_01, 	diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Cobber ore", 			61, "", 0, 0, 1, Item.ItemType.Consumable, 	color_cobber, 			diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Silver ore", 			62, "", 0, 0, 1, Item.ItemType.Consumable, 	color_silver, 			diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Gold ore", 				63, "", 0, 0, 1, Item.ItemType.Consumable, 		color_gold, 			diffuseMaterial, standardTexture ) );
+		items.Add ( new Item ("Mystic ore", 			64, "", 0, 0, 1, Item.ItemType.Consumable, 	color_legendary, 		diffuseMaterial, standardTexture ) );
     }
   ///////////////////////////		
   

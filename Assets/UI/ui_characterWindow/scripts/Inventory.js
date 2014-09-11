@@ -95,13 +95,13 @@ public class Inventory extends MonoBehaviour
 				slotAmount++;
 			}
 		}
-	/*	
-		AddItem(0);
-		AddItem(1);
-		AddItem(2);
-		AddItem(3);
-		AddItem(3);
-	*/	
+		
+		AddItem(5);
+		AddItem(6);
+		AddItem(7);
+		AddItem(8);
+		//AddItem(3);
+	
 		//Debug.Log(array_Items[0].itemName);
 		//Debug.Log(array_Items[1].itemID);
 	

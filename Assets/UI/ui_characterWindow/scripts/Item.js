@@ -30,14 +30,14 @@ public class Item
 		Hands,
 		Legs, 
 		Feet,
-		Material_rock_gray,
+		/*Material_rock_gray,
 		Material_tree_brownlog,
 		Material_tree_greenCrown,
 		Material_bush_green,
 		Material_cobber,
 		Material_silver,
 		Material_gold,
-		Material_mystic
+		Material_mystic*/
 	}
 	
 	public function Item ( name : String, id : int, desc : String, power : int, speed : int, Value : int, type : ItemType, color : Color, material : Material, texture : Texture )
