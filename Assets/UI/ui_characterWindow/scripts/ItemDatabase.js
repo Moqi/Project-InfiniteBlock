@@ -89,10 +89,10 @@ public class ItemDatabase extends MonoBehaviour
     function ItemDataBase ()
     {
     //  Item 	  			 (    name,        id, desc,                    power, speed, Amount, type )
-		items.Add ( new Item ("A_Potion_01", 	0, "Description: Nice potion 01", 15, 10, 1, Item.ItemType.Chest, 	standardColor, standardMaterial, standardTexture	) );
-		items.Add ( new Item ("A_Potion_02", 	1, "Description: Nice potion 02", 30, 10, 1, Item.ItemType.Chest, 	standardColor, standardMaterial, standardTexture	) );
-		items.Add ( new Item ("A_Potion_03", 	2, "Description: Nice potion 03", 5, 10, 1,  Item.ItemType.Head, 	standardColor, standardMaterial, standardTexture	) );
-		items.Add ( new Item ("A_Potion_04", 	3, "Description: Nice potion 04", 10, 10, 1, Item.ItemType.Legs, 	standardColor, standardMaterial, standardTexture	) );
+		items.Add ( new Item ("A_Potion_01", 	0, "Description: Nice potion 01", 15, 10, 1, Item.ItemType.Consumable, 	standardColor, standardMaterial, standardTexture	) );
+		items.Add ( new Item ("A_Potion_02", 	1, "Description: Nice potion 02", 30, 10, 3, Item.ItemType.Consumable, 	standardColor, standardMaterial, standardTexture	) );
+		items.Add ( new Item ("A_Potion_03", 	2, "Description: Nice potion 03", 5, 10, 1,  Item.ItemType.Consumable, 	standardColor, standardMaterial, standardTexture	) );
+		items.Add ( new Item ("A_Potion_04", 	3, "Description: Nice potion 04", 10, 10, 1, Item.ItemType.Consumable, 	standardColor, standardMaterial, standardTexture	) );
 		
 	// Materials
 	

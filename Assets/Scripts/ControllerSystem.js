@@ -2,6 +2,7 @@
 #pragma downcast
 
 import System.Collections.Generic;
+
 /*
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// ControllerSystem for the mainCharacter ////////////////////////////////////
@@ -32,6 +33,7 @@ private var inventory 						: Inventory;								// to access inventoryScript
 private var guiArray 						: List.<GameObject> = new List.<GameObject>();
 private var item 							: Item;
 private var showInventory 					: boolean			= false;
+private var toggleMenu						: ToggleMenu;
 		var lootableObject					: GameObject;
 		var harvestEffect 					: Transform;
 		var lootEffect 						: Transform;
@@ -241,7 +243,8 @@ function Awake 					() 													// before starting, get moveDirection forwar
 function Start 					() 													// initialize variables
 {		
 	GUIElementsCheck ();
-	inventory					= GameObject.FindGameObjectWithTag ("Inventory").GetComponent (Inventory);							
+	inventory					= GameObject.FindGameObjectWithTag ("Inventory").GetComponent (Inventory);		
+	toggleMenu 					= GameObject.FindGameObjectWithTag ("toggleMenu").GetComponent (ToggleMenu);					
 	characterController 		= GetComponent ( CharacterController );				// initialize characterController
 	characterController.tag 	= "Player";											// set tag name to 'Player'
 	controllerHeightDefault 	= characterController.height;						// set controllerHeightDefault to controllers starting height
@@ -381,10 +384,77 @@ function InventoryGUI ()
 	{
 		showInventory = !showInventory;
 		
-		for ( var i : int = 0; i < guiArray.Count; i++ )
+		toggleMenu.GUIshow_Buttons ();
+			
+		for ( var i : int = 0; i < guiArray.Count; i++ )			// Set GUI on/off
 		{
 			guiArray[i].gameObject.SetActive(showInventory);
 		}
+	}
+	
+	if ( showInventory )
+	{
+		animation.Stop();
+		yield WaitForSeconds(0.1);
+		animation.enabled 			= false;
+		AccessPlayerEyes ( false, true );
+		gameObject.transform.GetChild(9).gameObject.camera.enabled = true;
+	}
+	else 
+	{	
+		AccessPlayerEyes ( true, false );
+		gameObject.transform.GetChild(9).gameObject.camera.enabled = false;
+		animation.enabled 			= true;	
+	}
+}
+
+///////////////////////////////////
+function AccessPlayerEyes ( playEyeAnimation : boolean, mouseControlsEyes : boolean )
+{
+	var allPlayerChildren = gameObject.GetComponentsInChildren(Transform);
+	var rightEye 		: GameObject;
+	var leftEye  		: GameObject;
+	var rightEye_white 	: GameObject;
+	var leftEye_white  	: GameObject;	
+	
+	for ( var k : int = 0; k < allPlayerChildren.length; k++ )	// Accessing player eyes
+	{
+		var index 			= allPlayerChildren[k];
+		
+		if ( index.gameObject.tag == "playerEyes" )
+		{
+			rightEye = index.transform.GetChild(0).gameObject;
+			leftEye  = index.transform.GetChild(1).gameObject;
+			
+			rightEye_white = rightEye.transform.GetChild(0).gameObject;
+			leftEye_white  = leftEye.transform.GetChild(0).gameObject;
+		}
+	}
+	
+	rightEye.animation.enabled 	= playEyeAnimation;
+	leftEye.animation.enabled 	= playEyeAnimation;
+	
+	var rightEyeOriginalPos    = Vector3( -1.36, 0, 0 );
+	var leftEyeOriginalPos 	   = Vector3( 1.36, 0, 0 );
+	
+	var eyes_white_OriginalPos = Vector3( -0.15, 0.15, -0.05 );
+	
+	if ( mouseControlsEyes )
+	{
+		var cameraPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		
+		rightEye.transform.localPosition 		= Vector3( rightEyeOriginalPos.x + Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.05, 0.05 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.05, 0.05 ), 0 );
+		leftEye.transform.localPosition  		= Vector3( leftEyeOriginalPos.x  + Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.05, 0.05 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.05, 0.05 ), 0 );
+
+		rightEye_white.transform.localPosition 	= Vector3( Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.20, 0.20 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.20, 0.20 ), -0.5 );
+		leftEye_white.transform.localPosition  	= Vector3( Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.20, 0.20 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.20, 0.20 ), -0.5 );
+	}
+	else
+	{
+		rightEye.transform.localPosition 	   	= rightEyeOriginalPos;
+		leftEye.transform.localPosition		   	= leftEyeOriginalPos;
+		rightEye_white.transform.localPosition 	= eyes_white_OriginalPos;
+		leftEye_white.transform.localPosition  	= eyes_white_OriginalPos;
 	}
 }
 

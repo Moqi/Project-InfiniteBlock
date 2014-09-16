@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 22414d037db54284d82642da20aa634c
+guid: 897cc4b0e574de44eb1610243897252f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sprite_background_GUI_01
+    21300000: sprite_background_GUI_03
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,7 +23,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 32
+  maxTextureSize: 64
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -37,7 +37,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 220, y: 220, z: 220, w: 220}
+  spriteBorder: {x: 30, y: 0, z: 30, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8

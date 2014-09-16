@@ -100,6 +100,8 @@ public class Inventory extends MonoBehaviour
 		AddItem(6);
 		AddItem(7);
 		AddItem(8);
+		AddItem(1);
+		AddItem(1);
 		//AddItem(3);
 	
 		//Debug.Log(array_Items[0].itemName);
