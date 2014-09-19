@@ -19,12 +19,12 @@ public class CharacterSlot extends MonoBehaviour
 	{
 		if ( item.itemType != Item.ItemType.None )
 		{
-			transform.GetChild( 0 ).GetComponent( Image ).enabled = true;
-			transform.GetChild( 0 ).GetComponent( Image ).sprite  = item.itemIcon;
+			transform.GetChild( 1 ).GetComponent( Image ).enabled = true;
+			transform.GetChild( 1 ).GetComponent( Image ).sprite  = item.itemIcon;
 		}
 		else
 		{
-			transform.GetChild( 0 ).GetComponent( Image ).enabled = false;
+			transform.GetChild( 1 ).GetComponent( Image ).enabled = false;
 		}
 	}
 	

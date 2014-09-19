@@ -527,6 +527,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400064}
   - 114: {fileID: 11400020}
+  - 111: {fileID: 11100010}
   m_Layer: 16
   m_Name: eyeSocket
   m_TagString: playerEyes
@@ -1322,6 +1323,7 @@ Animation:
   - {fileID: 7400000, guid: 43a26372ff3300049ab8e95d54be6b87, type: 2}
   - {fileID: 7400000, guid: 04870ecf097457e4db80f7615e1f8ce0, type: 2}
   - {fileID: 7400000, guid: faf14749c07cc344eb1f0c46e6acde32, type: 2}
+  - {fileID: 7400000, guid: 96a57530f1904924daaa7261538dda39, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1358,8 +1360,25 @@ Animation:
   - {fileID: 7400000, guid: 43a26372ff3300049ab8e95d54be6b87, type: 2}
   - {fileID: 7400000, guid: 04870ecf097457e4db80f7615e1f8ce0, type: 2}
   - {fileID: 7400000, guid: faf14749c07cc344eb1f0c46e6acde32, type: 2}
+  - {fileID: 7400000, guid: 96a57530f1904924daaa7261538dda39, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &11100010
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100064}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a3a70fa2fa7c72d4fa97d10d68d1d3f7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a3a70fa2fa7c72d4fa97d10d68d1d3f7, type: 2}
+  - {fileID: 7400000, guid: 07f72404575dead4ab6c90082b4461c3, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &11400000
@@ -1635,6 +1654,9 @@ MonoBehaviour:
   aniEyeSleep: {fileID: 7400000, guid: 43a26372ff3300049ab8e95d54be6b87, type: 2}
   aniEyeSurprised: {fileID: 7400000, guid: 04870ecf097457e4db80f7615e1f8ce0, type: 2}
   aniEyeSuspicious: {fileID: 7400000, guid: faf14749c07cc344eb1f0c46e6acde32, type: 2}
+  aniEyeBlink: {fileID: 7400000, guid: 96a57530f1904924daaa7261538dda39, type: 2}
+  aniEyeSemiClosed: {fileID: 7400000, guid: a3a70fa2fa7c72d4fa97d10d68d1d3f7, type: 2}
+  aniEyeCloseToOpen: {fileID: 7400000, guid: 07f72404575dead4ab6c90082b4461c3, type: 2}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -209,7 +209,7 @@ private var hitDirection 					: Vector3 			= Vector3(0,10,-2.5);		// hit directi
 private var pushObject						: Transform 		= null;						// store push game object																
 private var grabObject						: Transform 		= null;						// store grab / pickup / putdown game object																
 private var tempSpeed 						: float 			= 0.0;						// hold current speed
-
+/*
 // Base Colors
 private var green					= new Color(151/255.0F, 232/255.0F, 67/255.0F, 0/255.0F);	// light  green
 private var gray					= new Color(107/255.0F, 101/255.0F, 92/255.0F, 0/255.0F);	
@@ -219,7 +219,7 @@ private var cobber 					= new Color(166/255.0F, 77/255.0F, 45/255.0F, 0/255.0F);
 private var silver 					= new Color(166/255.0F, 158/255.0F, 157/255.0F, 0/255.0F);	// silver
 private var gold 					= new Color(220/255.0F, 148/255.0F, 27/255.0F, 0/255.0F);	// gold
 private var purple 					= new Color(102/255.0F, 0/255.0F, 153/255.0F, 50/255.0F);	// purple
-
+*/
 
 @script RequireComponent ( CharacterController )									// if no characterController assigned, apply one -later
 
@@ -300,8 +300,7 @@ function UpdateMoveDirection 	() 													// motor, ani, and direction of pl
 		IdleRotate		();															// check for player idle turning
 		JumpPad			();															// check for player moving onto jump pad
 		Hurt			();															// check for player getting hit by enemy
-	
-		InventoryGUI 	();		
+		
 		PickUpItem 		();
 		Harvest			();															// check for player being able to harvest 
 		EnterSleep 		();
@@ -356,8 +355,9 @@ function Update 				() 													// loop for controller
 			transform.rotation = Quaternion.LookRotation ( moveDirection );			// quick adjustment for jumping off wall, turn player around in air
 		}
 	}
-
-	ExampleShowHidePlayer ();														// example usage of show/hide functions	
+	
+	InventoryGUI 			();	
+	ExampleShowHidePlayer 	();														// example usage of show/hide functions	
 }
 
 ///////////////////////////////////
@@ -394,17 +394,19 @@ function InventoryGUI ()
 	
 	if ( showInventory )
 	{
+		isControllable 		= false;
 		animation.Stop();
 		yield WaitForSeconds(0.1);
-		animation.enabled 			= false;
+		animation.enabled 	= false;
 		AccessPlayerEyes ( false, true );
 		gameObject.transform.GetChild(9).gameObject.camera.enabled = true;
 	}
 	else 
 	{	
+		isControllable		= true;
 		AccessPlayerEyes ( true, false );
 		gameObject.transform.GetChild(9).gameObject.camera.enabled = false;
-		animation.enabled 			= true;	
+		animation.enabled 	= true;	
 	}
 }
 
@@ -412,6 +414,8 @@ function InventoryGUI ()
 function AccessPlayerEyes ( playEyeAnimation : boolean, mouseControlsEyes : boolean )
 {
 	var allPlayerChildren = gameObject.GetComponentsInChildren(Transform);
+	var eyeHolder 		: GameObject;
+	var eyeHolderScript : script_playerFaceEyes;
 	var rightEye 		: GameObject;
 	var leftEye  		: GameObject;
 	var rightEye_white 	: GameObject;
@@ -423,6 +427,8 @@ function AccessPlayerEyes ( playEyeAnimation : boolean, mouseControlsEyes : bool
 		
 		if ( index.gameObject.tag == "playerEyes" )
 		{
+			eyeHolder = index.gameObject; 
+			
 			rightEye = index.transform.GetChild(0).gameObject;
 			leftEye  = index.transform.GetChild(1).gameObject;
 			
@@ -431,8 +437,7 @@ function AccessPlayerEyes ( playEyeAnimation : boolean, mouseControlsEyes : bool
 		}
 	}
 	
-	rightEye.animation.enabled 	= playEyeAnimation;
-	leftEye.animation.enabled 	= playEyeAnimation;
+	eyeHolderScript = eyeHolder.GetComponent(script_playerFaceEyes);
 	
 	var rightEyeOriginalPos    = Vector3( -1.36, 0, 0 );
 	var leftEyeOriginalPos 	   = Vector3( 1.36, 0, 0 );
@@ -442,15 +447,32 @@ function AccessPlayerEyes ( playEyeAnimation : boolean, mouseControlsEyes : bool
 	if ( mouseControlsEyes )
 	{
 		var cameraPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		
+			
 		rightEye.transform.localPosition 		= Vector3( rightEyeOriginalPos.x + Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.05, 0.05 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.05, 0.05 ), 0 );
 		leftEye.transform.localPosition  		= Vector3( leftEyeOriginalPos.x  + Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.05, 0.05 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.05, 0.05 ), 0 );
 
 		rightEye_white.transform.localPosition 	= Vector3( Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.20, 0.20 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.20, 0.20 ), -0.5 );
 		leftEye_white.transform.localPosition  	= Vector3( Mathf.Clamp( cameraPos.x * Time.deltaTime, -0.20, 0.20 ), Mathf.Clamp( cameraPos.y * Time.deltaTime, -0.20, 0.20 ), -0.5 );
+	
+		eyeHolderScript.manualAnimationPick 	= true;
+	
+		if ( Input.GetMouseButton(0) ) // left mousebutton held down
+		{	
+			eyeHolderScript.Eyes_semiClosed ();
+		}
+		else
+		{
+			eyeHolderScript.Eyes_fromCloseToOpen ();
+		}
+		if ( Input.GetMouseButtonDown(0) ) // left mousebutton pressed 
+		{
+			eyeHolderScript.Eyes_blinking ();
+		}
 	}
-	else
+	else		
 	{
+		eyeHolderScript.manualAnimationPick 	= false;
+		
 		rightEye.transform.localPosition 	   	= rightEyeOriginalPos;
 		leftEye.transform.localPosition		   	= leftEyeOriginalPos;
 		rightEye_white.transform.localPosition 	= eyes_white_OriginalPos;

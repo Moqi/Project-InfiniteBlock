@@ -17,12 +17,18 @@ var DebugMode						: boolean		= true;
 		var aniEyeSleep 			: AnimationClip;
 		var aniEyeSurprised 		: AnimationClip;
 		var aniEyeSuspicious 		: AnimationClip;
+		var aniEyeBlink 			: AnimationClip;
+		var aniEyeSemiClosed		: AnimationClip;
+		var aniEyeCloseToOpen		: AnimationClip;
+
+static var manualAnimationPick 		: boolean 		= false;
 
 // Checks
 static 	var isEyesIdle 				: boolean		= false;
 static 	var isEyesSleeping			: boolean		= false;
 static 	var isEyesSurprised 		: boolean		= false;
 static 	var isEyesSuspicious 		: boolean		= false;		
+
 
 //////////////////
 function Update () 
@@ -36,33 +42,33 @@ function Update ()
 /////////////////////
 function Eyes_idle ()
 {
-	if ( isEyesIdle && !isEyesSleeping && !isEyesSurprised && !isEyesSuspicious ) 
+	if ( isEyesIdle && !isEyesSleeping && !isEyesSurprised && !isEyesSuspicious && !manualAnimationPick ) 
 	{
 		isEyesSleeping		= false;
 		isEyesSurprised 	= false;
 		isEyesSuspicious 	= false;
 	
-		PlayAnimation ( aniEyeIdle );
+		PlayAnimation ( aniEyeIdle, WrapMode.Loop );
 		Message ( "Ani State: Eyes are idle" );
 	}
 }
 /////////////////////////
 function Eyes_sleeping ()
 {
-	if ( isEyesSleeping && !isEyesSurprised && !isEyesSuspicious )
+	if ( isEyesSleeping && !isEyesSurprised && !isEyesSuspicious && !manualAnimationPick )
 	{
 		isEyesIdle			= false;
 		isEyesSurprised 	= false;
 		isEyesSuspicious 	= false;
 		
-		PlayAnimation ( aniEyeSleep );
+		PlayAnimation ( aniEyeSleep, WrapMode.Loop );
 		Message ( "Ani State: Eyes are sleeping" );
 	}
 }
 /////////////////////////
 function Eyes_surprised ()
 {
-	if ( isEyesSurprised && !isEyesSleeping && !isEyesSuspicious )
+	if ( isEyesSurprised && !isEyesSleeping && !isEyesSuspicious && !manualAnimationPick )
 	{
 		isEyesSurprised 	= false;	// To avoid animation looping
 
@@ -70,14 +76,14 @@ function Eyes_surprised ()
 		isEyesSleeping 		= false;
 		isEyesSuspicious 	= false;
 		
-		PlayAnimation ( aniEyeSurprised );
+		PlayAnimation ( aniEyeSurprised, WrapMode.Loop );
 		Message ( "Ani State: Eyes are surprised" );
 	}
 }
 /////////////////////////
 function Eyes_suspicious ()
 {
-	if ( isEyesSuspicious && !isEyesSleeping && !isEyesSurprised )
+	if ( isEyesSuspicious && !isEyesSleeping && !isEyesSurprised && !manualAnimationPick )
 	{
 		isEyesSuspicious 	= false;	// To avoid animation looping
 
@@ -85,9 +91,28 @@ function Eyes_suspicious ()
 		isEyesSleeping 		= false;
 		isEyesSurprised 	= false;
 
-		PlayAnimation ( aniEyeSuspicious );
+		PlayAnimation ( aniEyeSuspicious, WrapMode.Loop );
 		Message ( "Ani State: Eyes are suspicious" );
 	}
+}
+
+/////////////////////////
+function Eyes_blinking ()
+{
+	PlayAnimation ( aniEyeBlink, WrapMode.Once );
+	Message ( "Ani State: Eyes are blinking" );
+}
+
+/////////////////////////
+function Eyes_semiClosed ()
+{
+	PlayEyeHolderAnimation ( aniEyeSemiClosed, WrapMode.ClampForever );
+}
+
+/////////////////////////
+function Eyes_fromCloseToOpen ()
+{	
+	PlayEyeHolderAnimation ( aniEyeCloseToOpen, WrapMode.ClampForever );
 }
 
 //////////////////////////////////
@@ -99,17 +124,22 @@ function Message ( text : String ) 													// debug mode handling for devel
 
 
 //////////////////////////////////
-function PlayAnimation ( animation : AnimationClip )
+function PlayAnimation ( animation : AnimationClip, wrapMode : WrapMode )
 {
 	// Left eye
-	leftEye.animation[ animation.name ].wrapMode = WrapMode.Loop;
+	leftEye.animation[ animation.name ].wrapMode = wrapMode;
 	leftEye.animation.CrossFade ( animation.name );
 	// Right eye
-	rightEye.animation[ animation.name ].wrapMode = WrapMode.Loop;
+	rightEye.animation[ animation.name ].wrapMode = wrapMode;
 	rightEye.animation.CrossFade ( animation.name );
 }
 
-
+//////////////////////////////////
+function PlayEyeHolderAnimation ( animation : AnimationClip, wrapMode : WrapMode )
+{
+	gameObject.animation[ animation.name ].wrapMode = wrapMode;
+	gameObject.animation.CrossFade ( animation.name );
+}
 
 
 

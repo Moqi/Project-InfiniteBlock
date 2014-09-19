@@ -22,9 +22,9 @@ function Start ()
 {
 	GUIStartUpCheck ();
 	
-	toggleInventory = gameObject.transform.GetChild(0).GetComponent(Toggle);
-	toggleCrafting  = gameObject.transform.GetChild(1).GetComponent(Toggle);
-	toggleCharacter = gameObject.transform.GetChild(2).GetComponent(Toggle);
+	toggleInventory = gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).GetComponent(Toggle);
+	toggleCrafting  = gameObject.transform.GetChild(1).gameObject.transform.GetChild(3).GetComponent(Toggle);
+	toggleCharacter = gameObject.transform.GetChild(2).gameObject.transform.GetChild(3).GetComponent(Toggle);
 }
 
 function Update () 
