@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Mat: {fileID: 0}
-  m_Color: {r: .405601233, g: .749482453, b: .889705896, a: .552941203}
-  m_Sprite: {fileID: 21300000, guid: 7ebdb6cc7dd208442817325d7b8159c3, type: 3}
+  m_Color: {r: .737254918, g: .760784328, b: .776470602, a: .627451003}
+  m_Sprite: {fileID: 21300004, guid: daca41b7af27a8c469fc1be4635e7d23, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

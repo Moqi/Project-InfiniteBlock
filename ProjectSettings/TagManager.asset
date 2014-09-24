@@ -65,6 +65,8 @@ TagManager:
   - guiCharacter
   - toggleMenu
   - playerEyes
+  - guiStats
+  - guiObjective
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

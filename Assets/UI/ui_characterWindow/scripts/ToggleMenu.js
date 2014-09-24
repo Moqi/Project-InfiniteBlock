@@ -8,15 +8,21 @@ private var guiButtons			: List.<GameObject> = new List.<GameObject>();
 private var guiInventory 		: List.<GameObject> = new List.<GameObject>();
 private var guiCrafting		 	: List.<GameObject> = new List.<GameObject>();
 private var guiCharacterWindow 	: List.<GameObject> = new List.<GameObject>();
+private var guiObjective 		: List.<GameObject> = new List.<GameObject>();
+private var guiStats			: List.<GameObject> = new List.<GameObject>();
 
 private var showButtons 		: boolean = false;
 private var showInventory		: boolean = false;
 private var showCrafting		: boolean = false;
 private var showCharacter		: boolean = false;
+private var showObjective		: boolean = false;
+private var showStats 			: boolean = false;
 
 private var toggleInventory		: Toggle;
 private var toggleCrafting 		: Toggle;
 private var toggleCharacter		: Toggle;
+private var toggleObjective 	: Toggle;
+private var toggleStats 		: Toggle;
 
 function Start () 
 {
@@ -25,11 +31,62 @@ function Start ()
 	toggleInventory = gameObject.transform.GetChild(0).gameObject.transform.GetChild(3).GetComponent(Toggle);
 	toggleCrafting  = gameObject.transform.GetChild(1).gameObject.transform.GetChild(3).GetComponent(Toggle);
 	toggleCharacter = gameObject.transform.GetChild(2).gameObject.transform.GetChild(3).GetComponent(Toggle);
+	toggleObjective	= gameObject.transform.GetChild(3).gameObject.transform.GetChild(3).GetComponent(Toggle);
+	toggleStats 	= gameObject.transform.GetChild(4).gameObject.transform.GetChild(3).GetComponent(Toggle);
 }
 
 function Update () 
 {
+	CheckButtonOnOROff ();
+}
 
+/////////////////////////////
+function CheckButtonOnOROff ()
+{
+	if ( toggleInventory.isOn )
+	{
+		gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+	}	
+	else 
+	{
+		gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.SetActive(true);
+	}
+	
+	if ( toggleCrafting.isOn )
+	{
+		gameObject.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+	}	
+	else 
+	{
+		gameObject.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject.SetActive(true);
+	}
+	
+	if ( toggleCharacter.isOn )
+	{
+		gameObject.transform.GetChild(2).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+	}	
+	else 
+	{
+		gameObject.transform.GetChild(2).gameObject.transform.GetChild(1).gameObject.SetActive(true);
+	}
+	
+	if ( toggleObjective.isOn )
+	{
+		gameObject.transform.GetChild(3).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+	}	
+	else 
+	{
+		gameObject.transform.GetChild(3).gameObject.transform.GetChild(1).gameObject.SetActive(true);
+	}
+	
+	if ( toggleStats.isOn )
+	{
+		gameObject.transform.GetChild(4).gameObject.transform.GetChild(1).gameObject.SetActive(false);
+	}	
+	else 
+	{
+		gameObject.transform.GetChild(4).gameObject.transform.GetChild(1).gameObject.SetActive(true);
+	}
 }
 
 /////////////////////////////
@@ -41,6 +98,8 @@ function GUIshow_Buttons ()
 	GUIshow_inventory ();
 	GUIshow_Crafting  ();
 	GUIshow_Character ();
+	GUIshow_Objective ();
+	GUIshow_Stats 	  ();
 
 	for ( var i : int = 0; i < guiButtons.Count; i++ )			// Disabling certain guiElements at start
 	{	
@@ -55,10 +114,14 @@ function GUIStartUpCheck ()
 	var toggleInventory_obj = gameObject.transform.GetChild(0).gameObject;
 	var toggleCrafting_obj  = gameObject.transform.GetChild(1).gameObject;
 	var toggleCharacter_obj = gameObject.transform.GetChild(2).gameObject;
+	var toggleObjecttive_obj= gameObject.transform.GetChild(3).gameObject;
+	var toggleStats_obj		= gameObject.transform.GetChild(4).gameObject;
 	
 	guiButtons.Add(toggleInventory_obj );
 	guiButtons.Add(toggleCrafting_obj  );
 	guiButtons.Add(toggleCharacter_obj );
+	guiButtons.Add(toggleObjecttive_obj);
+	guiButtons.Add(toggleStats_obj);
 	
 	for ( var a : int = 0; a < guiButtons.Count; a++ )			// Disabling certain guiElements at start
 	{	guiButtons[a].gameObject.SetActive(showGUIatStart);	}
@@ -66,6 +129,8 @@ function GUIStartUpCheck ()
 	var guiInventoryObjects = GameObject.FindGameObjectsWithTag("guiInventory");
 	var guiCraftingObjects  = GameObject.FindGameObjectsWithTag("guiCrafting");
 	var guiCharacterObjects = GameObject.FindGameObjectsWithTag("guiCharacter");
+	var guiObjectiveObjects = GameObject.FindGameObjectsWithTag("guiObjective");
+	var guiStatsObjects 	= GameObject.FindGameObjectsWithTag("guiStats");
 	
 	// Inventory				
 	for ( var guiElements : GameObject in guiInventoryObjects )
@@ -86,7 +151,21 @@ function GUIStartUpCheck ()
 	{	guiCharacterWindow.Add(guiElements);	}
 	
 	for ( var k : int = 0; k < guiCharacterWindow.Count; k++ )					// Disabling certain guiElements at start
-	{	guiCharacterWindow[k].gameObject.SetActive(showGUIatStart);	}
+	{	guiCharacterWindow[k].gameObject.SetActive(showGUIatStart);	}	
+	
+	// Objective
+	for ( var guiElements : GameObject in guiObjectiveObjects )
+	{	guiObjective.Add(guiElements);	}
+	
+	for ( var l : int = 0; l < guiObjective.Count; l++ )					// Disabling certain guiElements at start
+	{	guiObjective[l].gameObject.SetActive(showGUIatStart);	}
+	
+	// Stats
+	for ( var guiElements : GameObject in guiStatsObjects )
+	{	guiStats.Add(guiElements);	}
+	
+	for ( var o : int = 0; o < guiStats.Count; o++ )					// Disabling certain guiElements at start
+	{	guiStats[o].gameObject.SetActive(showGUIatStart);	}
 }
 
 /////////////////////////////
@@ -149,9 +228,45 @@ function GUIshow_Character ()
 	}
 }
 
+/////////////////////////////
+// Objective
+function GUIshow_Objective ()
+{
+	if ( toggleObjective.isOn && showButtons )
+	{
+		showObjective 			= true;
+	}
+	else 
+	{
+		toggleObjective.isOn 	= false;
+		showObjective 			= false;
+	}		
+				
+	for ( var i : int = 0; i < guiObjective.Count; i++ )
+	{
+		guiObjective[i].gameObject.SetActive(showObjective);
+	}
+}
 
-
-
+/////////////////////////////
+// Stats
+function GUIshow_Stats ()
+{
+	if ( toggleStats.isOn && showButtons )
+	{
+		showStats				= true;
+	}
+	else 
+	{
+		toggleStats.isOn 		= false;
+		showStats				= false;
+	}		
+				
+	for ( var i : int = 0; i < guiStats.Count; i++ )
+	{
+		guiStats[i].gameObject.SetActive(showStats);
+	}
+}
 
 
 
