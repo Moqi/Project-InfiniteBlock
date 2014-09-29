@@ -24,18 +24,26 @@ import System.Collections.Generic;
 	private var world 				: script_World;
 	public  var chunkSize 			: int 				=	16;
 
+	public  var update				: boolean; 
+
 function Start () 
 {
 	mesh 	= GetComponent(MeshFilter).mesh;
 	col  	= GetComponent(MeshCollider);
 	world	= worldGO.GetComponent(script_World);
 	
+	//chunkSize = Random.Range(12, 16);
+	
 	GenerateMesh ();
 }
 
-function Update () 
+function LateUpdate () 
 {
-
+	if ( update )
+	{
+		GenerateMesh ();
+		update = false;
+	}
 }
 
 
@@ -54,7 +62,17 @@ public function GenerateMesh ()
 			{
 				//This code will run for every block in the chunk
 				if ( Block( x, y, z) != 0 )
-				{
+				{	
+				/*
+					if ( Block( x + 1, y , z + 1 ) == 0  )
+					{Debug.Log("Ello");
+						//Block above is air
+						CubeEast( x, y, z, Block( x, y, z ) );
+						CubeWest( x, y, z, Block( x, y, z ) );
+						CubeNorth( x, y, z, Block( x, y, z ) );
+						CubeSouth( x, y, z, Block( x, y, z ) );
+					}
+				*/
 					//If the block is solid
 					if ( Block( x, y + 1, z ) == 0 )
 					{

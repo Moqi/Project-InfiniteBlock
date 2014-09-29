@@ -243,8 +243,15 @@ function Awake 					() 													// before starting, get moveDirection forwar
 function Start 					() 													// initialize variables
 {		
 	GUIElementsCheck ();
-	inventory					= GameObject.FindGameObjectWithTag ("Inventory").GetComponent (Inventory);		
-	toggleMenu 					= GameObject.FindGameObjectWithTag ("toggleMenu").GetComponent (ToggleMenu);					
+	
+	if ( GameObject.FindGameObjectWithTag ("Inventory") != null )
+	{	inventory				= GameObject.FindGameObjectWithTag ("Inventory").GetComponent (Inventory);		}
+	else { Debug.Log("No inventoryObject currently in the scene, please add one");	}
+	
+	if ( GameObject.FindGameObjectWithTag ("toggleMenu") != null )
+	{	toggleMenu 				= GameObject.FindGameObjectWithTag ("toggleMenu").GetComponent (ToggleMenu);	}
+	else { Debug.Log("No ToggleMenu currently in the scene, please add one"); 		}			
+						
 	characterController 		= GetComponent ( CharacterController );				// initialize characterController
 	characterController.tag 	= "Player";											// set tag name to 'Player'
 	controllerHeightDefault 	= characterController.height;						// set controllerHeightDefault to controllers starting height
