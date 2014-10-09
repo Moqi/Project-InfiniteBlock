@@ -74,15 +74,15 @@ public function GenColumn( x : int, z : int )
 	
 		chunks[ x, y, z]  = newChunk.GetComponent("script_Chunk");
 		
-		var newChunkSize = chunks[ x, y, z].chunkSize;
+		//var newChunkSize = chunks[ x, y, z].chunkSize;
 		
-		newChunkSize = Random.Range(8, 16);				
+		//newChunkSize = Random.Range(8, 16);				
 			
 		chunks[ x, y, z].worldGO 	= gameObject;
-		chunks[ x, y, z].chunkSize 	= newChunkSize;//chunkSize;
-		chunks[ x, y, z].chunkX		= x * newChunkSize;//chunkSize;
+		chunks[ x, y, z].chunkSize 	= chunkSize;
+		chunks[ x, y, z].chunkX		= x * chunkSize;
 		chunks[ x, y, z].chunkY		= y * chunkSize;
-		chunks[ x, y, z].chunkZ		= z * newChunkSize;//chunkSize;
+		chunks[ x, y, z].chunkZ		= z * chunkSize;
 	}
 }	
 
